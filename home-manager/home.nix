@@ -1,0 +1,119 @@
+# This is your home-manager configuration file
+# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
+
+{ inputs, outputs, lib, config, pkgs, ... }: {
+  # You can import other home-manager modules here
+  imports = [
+    # If you want to use modules your own flake exports (from modules/home-manager):
+    # outputs.homeManagerModules.example
+
+    # Or modules exported from other flakes (such as nix-colors):
+    # inputs.nix-colors.homeManagerModules.default
+
+    # You can also split up your configuration and import pieces of it here:
+    # ./nvim.nix
+  ];
+
+  nixpkgs = {
+    # You can add overlays here
+    overlays = [
+      # Add overlays your own flake exports (from overlays and pkgs dir):
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+
+      inputs.neovim-nightly-overlay.overlay
+    ];
+    # Configure your nixpkgs instance
+    config = {
+      # Disable if you don't want unfree packages
+      allowUnfree = true;
+      # Workaround for https://github.com/nix-community/home-manager/issues/2942
+      allowUnfreePredicate = (_: true);
+    };
+  };
+
+  home = {
+    username = "poorpy";
+    homeDirectory = "/home/poorpy";
+  };
+
+  # Add stuff for your user as you see fit:
+  # programs.neovim.enable = true;
+  home.packages = with pkgs; [ ];
+
+  # Enable home-manager and git
+  programs.home-manager.enable = true;
+  programs.git = {
+    enable = true;
+    userName = "Bartosz Marczyński";
+    userEmail = "marczynski.bartosz@gmail.com";
+    extraConfig = {
+      pull.rebase = true;
+      push.autoSetupRemote = true;
+      init.defaultBranch = "master";
+    };
+
+    aliases = {
+      branch-prune =
+        "! git fetch --prune && git branch -vv | rg gone | awk '{print $1}' | xargs git branch -D";
+    };
+  };
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    withNodeJs = true;
+    defaultEditor = true;
+  };
+  programs.zsh = {
+    enable = true;
+    plugins = [
+      {
+        # will source zsh-autosuggestions.plugin.zsh
+        name = "zsh-syntax-highlighting";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-syntax-highlighting";
+          rev = "0.7.1";
+          sha256 = "03r6hpb5fy4yaakqm3lbf4xcvd408r44jgpv4lnzl9asp4sb9qc0";
+        };
+      }
+    ];
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "systemd"
+        "rust"
+        "ripgrep"
+        "pip"
+        "poetry"
+        "fzf"
+        "golang"
+      ];
+      theme = "minimal";
+    };
+    shellAliases = {
+      grep = "grep --color=auto";
+      ls = "ls --color=auto";
+      ll = "ls -l";
+      ":q" = "exit";
+      vimrc = "cd \${HOME}/.config/nvim/; nvim init.lua; cd -; ";
+
+      clipboard = "xclip -selection clipboard";
+      primary = "xclip -selection primary";
+
+      ssh = "noglob ssh";
+      gdb = "gdb -quiet";
+    };
+    initExtra = (builtins.readFile ./initExtra.sh);
+  };
+
+
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
+
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  home.stateVersion = "22.11";
+}

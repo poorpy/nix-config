@@ -14,10 +14,3 @@ export PATH=$PATH:${HOME}/.luarocks/bin
 export PATH=$PATH:$GOPATH/bin:$GOBIN
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-
- if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-     ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
- fi
- if [[ ! "$SSH_AUTH_SOCK" || "$SSH_AUTH_SOCK" = "$XDG_RUNTIME_DIR/ssh-agent.socket" ]]; then
-     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
- fi

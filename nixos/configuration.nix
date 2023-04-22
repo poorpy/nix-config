@@ -189,6 +189,7 @@
       viAlias = true;
       vimAlias = true;
     };
+    ssh.startAgent = true;
   };
 
   environment = {

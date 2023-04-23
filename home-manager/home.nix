@@ -40,7 +40,14 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ ];
+  home.packages = with pkgs; [
+    nodePackages.typescript-language-server
+    efm-langserver
+    inputs.fenix.packages.x86_64-linux.latest.rust-analyzer
+    gopls
+    golangci-lint-langserver
+    golangci-lint
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -59,6 +66,7 @@
         "! git fetch --prune && git branch -vv | rg gone | awk '{print $1}' | xargs git branch -D";
     };
   };
+  programs.go.enable = true;
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -109,7 +117,6 @@
     };
     initExtra = (builtins.readFile ./initExtra.sh);
   };
-
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

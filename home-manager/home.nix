@@ -47,6 +47,7 @@
     gopls
     golangci-lint-langserver
     golangci-lint
+    zathura
   ];
 
   # Enable home-manager and git

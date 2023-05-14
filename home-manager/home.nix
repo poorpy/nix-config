@@ -47,6 +47,7 @@
     gopls
     golangci-lint-langserver
     golangci-lint
+    sumneko-lua-language-server
     zathura
   ];
 

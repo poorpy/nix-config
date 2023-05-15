@@ -174,7 +174,7 @@
   };
 
   fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
+    unstable.nerdfonts
   ];
 
   documentation.dev.enable = true;

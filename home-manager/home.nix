@@ -51,6 +51,7 @@
     nodePackages.vscode-html-languageserver-bin
     zathura
 
+    docker-compose
     minikube
     skaffold
     kubernetes-helm

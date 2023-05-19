@@ -42,13 +42,21 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
     nodePackages.typescript-language-server
-    efm-langserver
     inputs.fenix.packages.x86_64-linux.latest.rust-analyzer
     gopls
     golangci-lint-langserver
     golangci-lint
     sumneko-lua-language-server
+    nodePackages.vscode-json-languageserver-bin
+    nodePackages.vscode-html-languageserver-bin
     zathura
+
+    minikube
+    skaffold
+    kubernetes-helm
+    kustomize
+    kubectl
+    kubectx
   ];
 
   # Enable home-manager and git

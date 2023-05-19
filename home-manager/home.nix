@@ -77,7 +77,10 @@
         "! git fetch --prune && git branch -vv | rg gone | awk '{print $1}' | xargs git branch -D";
     };
   };
-  programs.go.enable = true;
+  programs.go = {
+    enable = true;
+    package = pkgs.unstable.go;
+  };
   programs.neovim = {
     enable = true;
     viAlias = true;

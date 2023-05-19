@@ -119,6 +119,7 @@
       ll = "ls -l";
       ":q" = "exit";
       vimrc = "cd \${HOME}/.config/nvim/; nvim init.lua; cd -; ";
+      nixrc = "cd \${HOME}/.config/nix-config/; vim flake.nix; cd -; ";
 
       clipboard = "xclip -selection clipboard";
       primary = "xclip -selection primary";

@@ -58,6 +58,11 @@
     kustomize
     kubectl
     kubectx
+
+    polybar
+    feh
+    rofi
+    dunst
   ];
 
   # Enable home-manager and git

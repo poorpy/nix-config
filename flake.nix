@@ -19,9 +19,28 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    yofi = {
+      url = "github:l4l/yofi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    fufexan-dotfiles = {
+      url = "github:fufexan/dotfiles";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, fenix, neovim-nightly-overlay, ... }@inputs:
+  outputs =
+    { self
+    , nixpkgs
+    , nixpkgs-unstable
+    , home-manager
+    , yofi
+    , fenix
+    , neovim-nightly-overlay
+    , ...
+    }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [

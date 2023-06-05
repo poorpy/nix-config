@@ -79,6 +79,13 @@
     networkmanager.enable = true;
   };
 
+  security.polkit.enable = true;
+  security.pam.services.swaylock = {
+    text = ''
+      auth include login
+    '';
+  };
+
   time.timeZone = "Europe/Warsaw";
 
   console.keyMap = "pl2";
@@ -104,7 +111,7 @@
     poorpy = {
       initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
-      extraGroups = [ "wheel" "docker" "video" "audio" "networkmanager" ];
+      extraGroups = [ "wheel" "docker" "video" "audio" "networkmanager" "input" ];
       description = "poorpy";
       shell = pkgs.zsh;
       packages = with pkgs; [
@@ -118,39 +125,36 @@
     };
   };
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+    ];
+  };
+
   services = {
+    dbus.enable = true;
     printing.enable = true;
     avahi = {
       enable = true;
       nssmdns = true;
     };
+
     xserver = {
       enable = true;
 
       layout = "pl";
       xkbVariant = "";
 
-      desktopManager = {
-        xterm.enable = true;
-      };
-
       displayManager = {
-        defaultSession = "none+i3";
-      };
+        gdm = {
+          enable = true;
+          wayland = true;
+        };
 
-      windowManager.i3 = {
-        enable = true;
-        package = pkgs.i3-gaps;
-        extraPackages = with pkgs; [
-          dmenu
-          i3lock
-          i3blocks
-          i3status
-          betterlockscreen
-        ];
       };
-
-      windowManager.leftwm.enable = true;
 
       libinput = {
         enable = true;
@@ -176,6 +180,7 @@
   };
 
   fonts.fonts = with pkgs; [
+    material-symbols
     unstable.nerdfonts
   ];
 
@@ -183,6 +188,12 @@
   virtualisation.docker.enable = true;
 
   programs = {
+    hyprland = {
+      enable = true;
+      xwayland = {
+        enable = true;
+      };
+    };
     steam.enable = true;
     zsh.enable = true;
     light.enable = true;
@@ -198,6 +209,7 @@
     systemPackages = with pkgs; [
       man-pages
       man-pages-posix
+
       dash
       git
       curl
@@ -209,13 +221,36 @@
       fzf
       ranger
       gnumake
-      brightnessctl
       xclip
+
       alsa-utils
       wireplumber
       pulsemixer
+
+      polkit_gnome
+      wlr-randr
+      brightnessctl
     ];
     pathsToLink = [ "/libexec" ];
+  };
+
+  systemd = {
+    sleep.extraConfig = '' 
+    HibernateDelaySec=1h
+    '';
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

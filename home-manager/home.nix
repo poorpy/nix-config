@@ -49,6 +49,7 @@
     sumneko-lua-language-server
     nodePackages.vscode-json-languageserver-bin
     nodePackages.vscode-html-languageserver-bin
+    nodePackages.pyright
     zathura
 
     docker-compose
@@ -59,14 +60,29 @@
     kubectl
     kubectx
 
-    polybar
-    feh
-    rofi
-    dunst
+    inputs.yofi.packages.x86_64-linux.default
+    wl-clipboard
+    hyprpaper
+    mako
+    swaylock-effects
+    swayidle
   ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
+  programs.waybar = {
+    enable = true;
+    package = pkgs.waybar.overrideAttrs (oa: {
+      mesonFlags = (oa.mesonFlags or  [ ]) ++ [ "-Dexperimental=true" ];
+      patches = (oa.patches or [ ]) ++ [
+        (pkgs.fetchpatch {
+          name = "fix waybar hyprctl";
+          url = "https://aur.archlinux.org/cgit/aur.git/plain/hyprctl.patch?h=waybar-hyprland-git";
+          sha256 = "sha256-pY3+9Dhi61Jo2cPnBdmn3NUTSA8bAbtgsk2ooj4y7aQ=";
+        })
+      ];
+    });
+  };
   programs.git = {
     enable = true;
     userName = "Bartosz Marczyński";

@@ -60,12 +60,15 @@
     kubectl
     kubectx
 
-    inputs.yofi.packages.x86_64-linux.default
     wl-clipboard
     hyprpaper
     mako
     swaylock-effects
     swayidle
+    rofi-wayland
+    xfce.thunar
+    xfce.xfconf
+    xfce.exo
   ];
 
   # Enable home-manager and git

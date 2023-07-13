@@ -69,6 +69,8 @@
     keyFile = "/crypto_keyfile.bin";
   };
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   nix.gc = {
     automatic = true;
     options = "--delete-older-than 8d";
@@ -193,6 +195,7 @@
       xwayland = {
         enable = true;
       };
+      package = pkgs.unstable.hyprland;
     };
     steam.enable = true;
     zsh.enable = true;

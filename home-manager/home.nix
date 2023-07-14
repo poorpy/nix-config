@@ -60,6 +60,8 @@
     kubectl
     kubectx
 
+    unstable.zellij
+
     wl-clipboard
     hyprpaper
     mako

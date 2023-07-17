@@ -108,6 +108,11 @@
   };
 
   hardware.bluetooth.enable = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 
   users.users = {
     poorpy = {
@@ -129,9 +134,9 @@
 
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
     ];
   };
 
@@ -196,7 +201,9 @@
       };
       package = pkgs.unstable.hyprland;
     };
-    steam.enable = true;
+    steam = {
+      enable = true;
+    };
     zsh.enable = true;
     light.enable = true;
     neovim = {

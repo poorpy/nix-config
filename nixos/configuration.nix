@@ -136,7 +136,6 @@
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
     ];
   };
 
@@ -194,13 +193,6 @@
   virtualisation.docker.enable = true;
 
   programs = {
-    hyprland = {
-      enable = true;
-      xwayland = {
-        enable = true;
-      };
-      package = pkgs.unstable.hyprland;
-    };
     steam = {
       enable = true;
     };

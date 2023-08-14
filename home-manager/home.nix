@@ -71,6 +71,8 @@
     xfce.thunar
     xfce.xfconf
     xfce.exo
+
+    chromium
   ];
 
   # Enable home-manager and git

@@ -19,6 +19,11 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs"; # MESA/OpenGL HW workaround
+    };
   };
 
   outputs =
@@ -27,6 +32,7 @@
     , nixpkgs-unstable
     , home-manager
     , fenix
+    , hyprland
     , neovim-nightly-overlay
     , ...
     }@inputs:
@@ -69,8 +75,18 @@
         nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            # > Our main nixos configuration file <
             ./nixos/configuration.nix
+
+            hyprland.nixosModules.default
+            {
+              programs.hyprland = {
+                enable = true;
+                xwayland = {
+                  enable = true;
+                  hidpi = false;
+                };
+              };
+            }
           ];
         };
       };

@@ -14,3 +14,7 @@ export PATH=$PATH:${HOME}/.luarocks/bin
 export PATH=$PATH:$GOPATH/bin:$GOBIN
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+
+if [[ -f ~/.gitlab/token ]]; then
+    export SVEXA_GITLAB_NPM_TOKEN=$(cat ~/.gitlab/token)
+fi

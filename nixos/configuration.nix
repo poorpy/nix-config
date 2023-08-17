@@ -79,6 +79,14 @@
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;
+
+    firewall = {
+      allowedUDPPorts = [ 51820 ];
+    };
+    extraHosts = ''
+      172.16.201.10 registry.gitlab.svexa.com
+      172.16.201.10 gitlab.svexa.com
+    '';
   };
 
   security.polkit.enable = true;
@@ -191,6 +199,9 @@
 
   documentation.dev.enable = true;
   virtualisation.docker.enable = true;
+  virtualisation.docker.daemon.settings = {
+    dns = [ "172.16.201.1" ];
+  };
 
   programs = {
     steam = {
@@ -222,7 +233,6 @@
       fzf
       ranger
       gnumake
-      xclip
 
       alsa-utils
       wireplumber
@@ -231,6 +241,8 @@
       polkit_gnome
       wlr-randr
       brightnessctl
+
+      wireguard-tools
     ];
     pathsToLink = [ "/libexec" ];
   };

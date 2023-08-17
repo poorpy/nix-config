@@ -73,6 +73,9 @@
     xfce.exo
 
     chromium
+    slack
+    nodejs_18
+    unstable.husky
   ];
 
   # Enable home-manager and git
@@ -97,8 +100,13 @@
     extraConfig = {
       pull.rebase = true;
       push.autoSetupRemote = true;
+      fetch.recurseSubmodules = true;
       init.defaultBranch = "master";
     };
+
+    includes = [
+      { path = "~/svexa/.include"; condition = "gitdir:~/svexa/"; }
+    ];
 
     aliases = {
       branch-prune =
@@ -152,13 +160,23 @@
       vimrc = "cd \${HOME}/.config/nvim/; nvim init.lua; cd -; ";
       nixrc = "cd \${HOME}/.config/nix-config/; vim flake.nix; cd -; ";
 
-      clipboard = "xclip -selection clipboard";
-      primary = "xclip -selection primary";
+      clipboard = "wl-copy";
+      primary = "wl-copy -p";
 
       ssh = "noglob ssh";
       gdb = "gdb -quiet";
     };
     initExtra = (builtins.readFile ./initExtra.sh);
+  };
+
+  xdg.mime.enable = true;
+  xdg.mimeApps.enable = true;
+  xdg.mimeApps.defaultApplications = {
+    "text/html" = "firefox.desktop";
+    "x-scheme-handler/http" = "firefox.desktop";
+    "x-scheme-handler/https" = "firefox.desktop";
+    "x-scheme-handler/about" = "firefox.desktop";
+    "x-scheme-handler/unknown" = "firefox.desktop";
   };
 
   # Nicely reload system units when changing configs

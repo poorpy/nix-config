@@ -21,8 +21,9 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland?rev=f2999e84b90a3b1aafee870d291f07147e495b6d";
       inputs.nixpkgs.follows = "nixpkgs"; # MESA/OpenGL HW workaround
+
     };
   };
 
@@ -83,7 +84,6 @@
                 enable = true;
                 xwayland = {
                   enable = true;
-                  hidpi = false;
                 };
               };
             }

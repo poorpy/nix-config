@@ -13,7 +13,10 @@
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.neovim-flake.url = "github:neovim/neovim?dir=contrib&rev=5d8ab32f3871b0232972cac1116ac7cba98389e5";
+    };
 
     fenix = {
       url = "github:nix-community/fenix";

@@ -71,6 +71,9 @@
     xfce.thunar
     xfce.xfconf
     xfce.exo
+    imv
+    slurp
+    grim
 
     chromium
     slack

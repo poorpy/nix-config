@@ -176,10 +176,18 @@
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
     "text/html" = "firefox.desktop";
+    "application/pdf" = "firefox.desktop";
+
     "x-scheme-handler/http" = "firefox.desktop";
     "x-scheme-handler/https" = "firefox.desktop";
     "x-scheme-handler/about" = "firefox.desktop";
     "x-scheme-handler/unknown" = "firefox.desktop";
+
+    "image/gif" = "imv";
+    "image/png" = "imv";
+    "image/jpeg" = "imv";
+    "image/webp" = "imv";
+    "image/apng" = "imv";
   };
 
   # Nicely reload system units when changing configs

@@ -14,6 +14,7 @@
     # ./nvim.nix
   ];
 
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -40,46 +41,52 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [
-    nodePackages.typescript-language-server
-    inputs.fenix.packages.x86_64-linux.latest.rust-analyzer
-    gopls
-    golangci-lint-langserver
-    golangci-lint
-    sumneko-lua-language-server
-    nodePackages.vscode-json-languageserver-bin
-    nodePackages.vscode-html-languageserver-bin
-    nodePackages.pyright
-    zathura
+  home.packages =
+    let
+      lint-langserver-override = pkgs.unstable.golangci-lint-langserver.override { buildGoModule = pkgs.master.buildGo121Module; };
+      lint-override = pkgs.unstable.golangci-lint.override { buildGoModule = pkgs.master.buildGo121Module; };
+      gopls-override = pkgs.unstable.gopls.override { buildGoModule = pkgs.master.buildGo121Module; };
+    in
+    with pkgs; [
+      nodePackages.typescript-language-server
+      inputs.fenix.packages.x86_64-linux.latest.rust-analyzer
+      gopls-override
+      lint-override
+      lint-langserver-override
+      sumneko-lua-language-server
+      nodePackages.vscode-json-languageserver-bin
+      nodePackages.vscode-html-languageserver-bin
+      nodePackages.pyright
+      zathura
 
-    docker-compose
-    minikube
-    skaffold
-    kubernetes-helm
-    kustomize
-    kubectl
-    kubectx
+      docker-compose
+      minikube
+      skaffold
+      kubernetes-helm
+      kustomize
+      kubectl
+      kubectx
 
-    unstable.zellij
+      unstable.zellij
 
-    wl-clipboard
-    hyprpaper
-    mako
-    swaylock-effects
-    swayidle
-    rofi-wayland
-    xfce.thunar
-    xfce.xfconf
-    xfce.exo
-    imv
-    slurp
-    grim
+      wl-clipboard
+      hyprpaper
+      mako
+      swaylock-effects
+      swayidle
+      rofi-wayland
+      xfce.thunar
+      xfce.xfconf
+      xfce.exo
+      imv
+      slurp
+      grim
 
-    chromium
-    slack
-    nodejs_18
-    unstable.husky
-  ];
+      chromium
+      slack
+      nodejs_18
+      unstable.husky
+    ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -118,7 +125,7 @@
   };
   programs.go = {
     enable = true;
-    package = pkgs.unstable.go;
+    package = pkgs.master.go_1_21;
   };
   programs.neovim = {
     enable = true;

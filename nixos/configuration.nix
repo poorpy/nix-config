@@ -147,8 +147,12 @@
     ];
   };
 
+  services.dbus = {
+    packages = [ pkgs.gcr ];
+    enable = true;
+  };
+
   services = {
-    dbus.enable = true;
     printing.enable = true;
     avahi = {
       enable = true;
@@ -189,6 +193,7 @@
       pulse.enable = true;
     };
 
+    pcscd.enable = true;
     tlp.enable = true;
   };
 
@@ -215,6 +220,10 @@
       vimAlias = true;
     };
     ssh.startAgent = true;
+    gnupg.agent = {
+      enable = true;
+      pinentryFlavor = "curses";
+    };
   };
 
   environment = {

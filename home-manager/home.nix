@@ -49,6 +49,7 @@
     in
     with pkgs; [
       nodePackages.typescript-language-server
+      nodePackages.vscode-json-languageserver
       inputs.fenix.packages.x86_64-linux.latest.rust-analyzer
       gopls-override
       lint-override
@@ -57,7 +58,8 @@
       nodePackages.vscode-json-languageserver-bin
       nodePackages.vscode-html-languageserver-bin
       nodePackages.pyright
-      zathura
+      unstable.zig
+      unstable.zls
 
       docker-compose
       minikube
@@ -66,6 +68,7 @@
       kustomize
       kubectl
       kubectx
+      cockroachdb
 
       unstable.zellij
 
@@ -81,11 +84,13 @@
       imv
       slurp
       grim
+      zathura
 
       chromium
       slack
       nodejs_18
       unstable.husky
+      plantuml
     ];
 
   # Enable home-manager and git
@@ -177,6 +182,16 @@
       gdb = "gdb -quiet";
     };
     initExtra = (builtins.readFile ./initExtra.sh);
+    initExtraBeforeCompInit = (builtins.readFile ./initExtraBeforeCompInit.sh);
+  };
+
+  xdg.desktopEntries.neovim = {
+    name = "Neovim";
+    genericName = "Text Editor";
+    exec = "alacritty -e nvim %F";
+    terminal = false;
+    type = "Application";
+    icon = "nvim";
   };
 
   xdg.mime.enable = true;
@@ -184,6 +199,7 @@
   xdg.mimeApps.defaultApplications = {
     "text/html" = "firefox.desktop";
     "application/pdf" = "firefox.desktop";
+    "application/json" = "alacritty -e nvim";
 
     "x-scheme-handler/http" = "firefox.desktop";
     "x-scheme-handler/https" = "firefox.desktop";
@@ -195,6 +211,23 @@
     "image/jpeg" = "imv";
     "image/webp" = "imv";
     "image/apng" = "imv";
+
+    "text/english" = "neovim.desktop";
+    "text/plain" = "neovim.desktop";
+    "text/x-makefile" = "neovim.desktop";
+    "text/x-c++hdr" = "neovim.desktop";
+    "text/x-c++src" = "neovim.desktop";
+    "text/x-chdr" = "neovim.desktop";
+    "text/x-csrc" = "neovim.desktop";
+    "text/x-java" = "neovim.desktop";
+    "text/x-moc" = "neovim.desktop";
+    "text/x-pascal" = "neovim.desktop";
+    "text/x-tcl" = "neovim.desktop";
+    "text/x-tex" = "neovim.desktop";
+    "application/x-shellscript" = "neovim.desktop";
+    "text/x-c" = "neovim.desktop";
+    "text/x-c++" = "neovim.desktop";
+
   };
 
   # Nicely reload system units when changing configs

@@ -74,18 +74,6 @@
 
       unstable.zellij
 
-      wl-clipboard
-      hyprpaper
-      mako
-      swaylock-effects
-      swayidle
-      rofi-wayland
-      xfce.thunar
-      xfce.xfconf
-      xfce.exo
-      imv
-      slurp
-      grim
       zathura
 
       chromium

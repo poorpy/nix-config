@@ -13,6 +13,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
+    inputs.home-manager.nixosModules.home-manager
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -35,6 +36,14 @@
     };
 
     hostPlatform = lib.mkDefault "x86_64-linux";
+  };
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      poorpy = import ../home-manager/home.nix;
+    };
   };
 
   nix = {
@@ -170,7 +179,6 @@
           enable = true;
           wayland = true;
         };
-
       };
 
       libinput = {
@@ -197,7 +205,7 @@
     tlp.enable = true;
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     material-symbols
     unstable.nerdfonts
   ];
@@ -209,6 +217,7 @@
   };
 
   programs = {
+    hyprland.enable = true;
     steam = {
       enable = true;
     };

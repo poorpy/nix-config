@@ -23,12 +23,6 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland = {
-      url = "github:hyprwm/Hyprland?rev=f2999e84b90a3b1aafee870d291f07147e495b6d";
-      inputs.nixpkgs.follows = "nixpkgs"; # MESA/OpenGL HW workaround
-
-    };
   };
 
   outputs =
@@ -84,18 +78,5 @@
           ];
         };
       };
-
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
-      # homeConfigurations = {
-      #   "poorpy@nixos" = home-manager.lib.homeManagerConfiguration {
-      #     pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-      #     extraSpecialArgs = { inherit inputs outputs; };
-      #     modules = [
-      #       # > Our main home-manager configuration file <
-      #       ./home-manager/home.nix
-      #     ];
-      #   };
-      # };
     };
 }

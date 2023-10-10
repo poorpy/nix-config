@@ -65,13 +65,6 @@
       unstable.zls
 
       docker-compose
-      minikube
-      skaffold
-      kubernetes-helm
-      kustomize
-      kubectl
-      kubectx
-      cockroachdb
 
       unstable.zellij
 

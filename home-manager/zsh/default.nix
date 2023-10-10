@@ -1,5 +1,24 @@
 { inputs, pkgs, lib, config, ... }: {
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    initExtra = (builtins.readFile ./initExtra.zsh);
+    initExtraBeforeCompInit = (builtins.readFile ./initExtraBeforeCompInit.zsh);
+    shellAliases = {
+      grep = "grep --color=auto";
+      ls = "ls --color=auto";
+      ll = "ls -l";
+      ":q" = "exit";
+      vimrc = "cd \${HOME}/.config/nvim/; nvim init.lua; cd -; ";
+      nixrc = "cd \${HOME}/.config/nix-config/; vim flake.nix; cd -; ";
+
+      clipboard = "wl-copy";
+      primary = "wl-copy -p";
+
+      ssh = "noglob ssh";
+      gdb = "gdb -quiet";
+    };
+  };
+
   programs.zsh.plugins = [
     {
       # will source zsh-autosuggestions.plugin.zsh
@@ -26,21 +45,5 @@
       "fzf"
       "golang"
     ];
-    shellAliases = {
-      grep = "grep --color=auto";
-      ls = "ls --color=auto";
-      ll = "ls -l";
-      ":q" = "exit";
-      vimrc = "cd \${HOME}/.config/nvim/; nvim init.lua; cd -; ";
-      nixrc = "cd \${HOME}/.config/nix-config/; vim flake.nix; cd -; ";
-
-      clipboard = "wl-copy";
-      primary = "wl-copy -p";
-
-      ssh = "noglob ssh";
-      gdb = "gdb -quiet";
-    };
-    initExtra = (builtins.readFile ./initExtra.sh);
-    initExtraBeforeCompInit = (builtins.readFile ./initExtraBeforeCompInit.sh);
   };
 }

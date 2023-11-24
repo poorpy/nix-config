@@ -130,6 +130,7 @@
     driSupport = true;
     driSupport32Bit = true;
   };
+  hardware.pulseaudio.enable = false;
 
   users.users = {
     poorpy = {
@@ -149,12 +150,7 @@
     };
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
-  };
+  xdg.portal.enable = true;
 
   services.dbus = {
     packages = [ pkgs.gcr ];
@@ -168,12 +164,15 @@
       nssmdns = true;
     };
 
+    power-profiles-daemon.enable = false;
+    gnome.core-utilities.enable = false;
     xserver = {
       enable = true;
 
       layout = "pl";
       xkbVariant = "";
 
+      desktopManager.gnome.enable = true;
       displayManager = {
         gdm = {
           enable = true;

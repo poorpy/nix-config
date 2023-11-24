@@ -50,6 +50,8 @@
 
       docker-compose
 
+      csvkit-pg
+
       unstable.zellij
 
       zathura

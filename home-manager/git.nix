@@ -7,6 +7,7 @@
       pull.rebase = true;
       push.autosetupremote = true;
       fetch.recursesubmodules = true;
+      submodule.recurse = true;
       init.defaultbranch = "master";
     };
 

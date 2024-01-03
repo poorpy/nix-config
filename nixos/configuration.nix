@@ -33,6 +33,9 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      packageOverrides = pkgs: {
+        vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+      };
     };
 
     hostPlatform = lib.mkDefault "x86_64-linux";
@@ -129,6 +132,10 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+    ];
   };
   hardware.pulseaudio.enable = false;
 
@@ -161,7 +168,7 @@
     printing.enable = true;
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
     };
 
     power-profiles-daemon.enable = false;
@@ -244,7 +251,6 @@
       curl
       fzf
       ripgrep
-      rustup
       gcc
       fd
       fzf

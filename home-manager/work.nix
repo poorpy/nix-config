@@ -1,4 +1,5 @@
 { inputs, pkgs, lib, config, ... }: {
+  
   home.packages = with pkgs; [
     slack
     zoom-us
@@ -7,5 +8,6 @@
     nodejs_18
     unstable.husky
     nodePackages.typescript-language-server
+    vscode
   ];
 }

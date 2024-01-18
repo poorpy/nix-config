@@ -40,9 +40,6 @@
 
   home.packages =
     with pkgs; [
-      # inputs.fenix.packages.x86_64-linux.complete.toolchain
-      # inputs.fenix.packages.x86_64-linux.latest.rust-analyzer
-      # inputs.fenix.packages.x86_64-linux.latest.rustc
       sumneko-lua-language-server
       nodePackages.vscode-json-languageserver-bin
       nodePackages.vscode-html-languageserver-bin
@@ -61,21 +58,11 @@
       zathura
       lutris
       unrar
+      google-cloud-sdk
     ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  # programs.direnv = {
-  #   enable = true;
-  #   enableBashIntegration = true;
-  #   enableZshIntegration = true;
-  #   nix-direnv.enable = true;
-  # };
-  # programs.starship = {
-  #   enable = true;
-  #   enableBashIntegration = true;
-  #   enableZshIntegration = true;
-  # };
   programs.neovim = {
     enable = true;
     viAlias = true;

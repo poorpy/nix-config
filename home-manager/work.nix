@@ -5,7 +5,7 @@
     zoom-us
     plantuml
     chromium
-    nodejs_18
+    nodejs_20
     unstable.husky
     nodePackages.typescript-language-server
     vscode

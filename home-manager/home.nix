@@ -52,6 +52,7 @@
       docker-compose
 
       csvkit-pg
+      postman-fork
 
       unstable.zellij
 

@@ -4,7 +4,7 @@ home:
 	home-manager switch --flake .#poorpy@nixos
 
 system:
-	sudo nixos-rebuild switch --flake .#nixos
+	sudo nixos-rebuild switch --flake .#laptop
 
 update:
 	nix flake update

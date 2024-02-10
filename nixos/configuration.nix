@@ -179,8 +179,8 @@
     xserver = {
       enable = true;
 
-      layout = "pl";
-      xkbVariant = "";
+      xkb.layout = "pl";
+      xkb.variant = "";
 
       desktopManager.gnome.enable = true;
       displayManager = {

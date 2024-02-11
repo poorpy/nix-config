@@ -60,10 +60,15 @@
       lutris
       unrar
       google-cloud-sdk
+      pavucontrol
+      prismlauncher
+      texlive.combined.scheme-full
     ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
+  programs.alacritty.enable = true;
+  programs.firefox.enable = true;
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -71,6 +76,7 @@
     withNodeJs = true;
     defaultEditor = true;
   };
+
 
   xdg.desktopEntries.neovim = {
     name = "Neovim";

@@ -174,6 +174,7 @@
       polkit_gnome
       wlr-randr
       brightnessctl
+      wireguard-tools
     ];
     pathsToLink = [ "/libexec" ];
   };

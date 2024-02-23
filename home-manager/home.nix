@@ -98,11 +98,11 @@
     "x-scheme-handler/about" = "firefox.desktop";
     "x-scheme-handler/unknown" = "firefox.desktop";
 
-    "image/gif" = "imv";
-    "image/png" = "imv";
-    "image/jpeg" = "imv";
-    "image/webp" = "imv";
-    "image/apng" = "imv";
+    "image/gif" = "swayimg";
+    "image/png" = "swayimg";
+    "image/jpeg" = "swayimg";
+    "image/webp" = "swayimg";
+    "image/apng" = "swayimg";
 
     "text/english" = "neovim.desktop";
     "text/plain" = "neovim.desktop";

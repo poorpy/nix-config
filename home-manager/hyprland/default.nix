@@ -9,9 +9,9 @@
     xfce.thunar
     xfce.xfconf
     xfce.exo
-    imv
     slurp
     grim
+    swayimg
   ];
 
   wayland.windowManager.hyprland = {

@@ -3,5 +3,4 @@
 
 { pkgs ? (import ../nixpkgs.nix) { } }: {
   csvkit-pg = pkgs.callPackage ./csvkit-pg {};
-  postman-fork = pkgs.callPackage ./postman-fork {};
 }

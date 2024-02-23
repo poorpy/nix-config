@@ -110,6 +110,10 @@
       enable = true;
       nssmdns4 = true;
     };
+    nscd = {
+      enable = true;
+      enableNsncd = true;
+    };
   };
 
   services.xserver = {

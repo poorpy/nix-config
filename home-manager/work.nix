@@ -8,6 +8,7 @@
     nodejs_20
     unstable.husky
     nodePackages.typescript-language-server
+    nodePackages.eslint
     vscode
   ];
 }

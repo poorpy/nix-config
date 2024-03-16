@@ -51,9 +51,9 @@
 
       docker-compose
 
-      csvkit-pg
-
       unstable.zellij
+      wezterm
+      asciidoc-full-with-plugins
 
       zathura
       lutris

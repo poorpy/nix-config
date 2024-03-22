@@ -5,7 +5,6 @@
   imports = [
     ./go.nix
     ./git.nix
-    ./work.nix
 
     ./hyprland/default.nix
     ./waybar/default.nix

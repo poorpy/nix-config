@@ -25,10 +25,6 @@
     firewall = {
       allowedUDPPorts = [ 51820 ];
     };
-    extraHosts = ''
-      172.16.201.10 registry.gitlab.svexa.com
-      172.16.201.10 gitlab.svexa.com
-    '';
   };
 
   home-manager = {

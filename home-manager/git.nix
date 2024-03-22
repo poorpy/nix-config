@@ -11,9 +11,7 @@
       init.defaultbranch = "master";
     };
 
-    includes = [
-      { path = "~/svexa/.include"; condition = "gitdir:~/svexa/"; }
-    ];
+    includes = [];
 
     aliases = {
       branch-prune =

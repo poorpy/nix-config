@@ -9,6 +9,7 @@
     ./hyprland/default.nix
     ./waybar/default.nix
     ./zsh/default.nix
+    ./wezterm/default.nix
   ];
 
 
@@ -51,7 +52,6 @@
       docker-compose
 
       unstable.zellij
-      wezterm
       asciidoc-full-with-plugins
 
       zathura
@@ -65,7 +65,6 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.alacritty.enable = true;
   programs.firefox.enable = true;
   programs.neovim = {
     enable = true;
@@ -79,7 +78,7 @@
   xdg.desktopEntries.neovim = {
     name = "Neovim";
     genericName = "Text Editor";
-    exec = "alacritty -e nvim %F";
+    exec = "wezterm -e nvim %F";
     terminal = false;
     type = "Application";
     icon = "nvim";

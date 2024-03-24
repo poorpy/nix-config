@@ -149,10 +149,6 @@
       vimAlias = true;
     };
     ssh.startAgent = true;
-    gnupg.agent = {
-      enable = true;
-      pinentryFlavor = "curses";
-    };
   };
 
   environment = {

@@ -66,6 +66,7 @@
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.firefox.enable = true;
+  programs.yazi.enable = true;
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -89,7 +90,7 @@
   xdg.mimeApps.defaultApplications = {
     "text/html" = "firefox.desktop";
     "application/pdf" = "firefox.desktop";
-    "application/json" = "alacritty -e nvim";
+    "application/json" = "wezterm -e nvim";
 
     "x-scheme-handler/http" = "firefox.desktop";
     "x-scheme-handler/https" = "firefox.desktop";

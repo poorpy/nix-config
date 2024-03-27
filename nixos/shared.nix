@@ -164,7 +164,6 @@
       gcc
       fd
       fzf
-      ranger
       gnumake
 
       alsa-utils

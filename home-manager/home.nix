@@ -80,7 +80,7 @@
   xdg.desktopEntries.neovim = {
     name = "Neovim";
     genericName = "Text Editor";
-    exec = "wezterm -e nvim %F";
+    exec = "wezterm start nvim %F";
     terminal = false;
     type = "Application";
     icon = "nvim";

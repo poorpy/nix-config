@@ -16,7 +16,7 @@
 
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
-      inputs.neovim-flake.url = "github:neovim/neovim?dir=contrib&rev=d70667a1c1f887529d1b4952325aff368c200ef1";
+      inputs.neovim-flake.url = "github:neovim/neovim?dir=contrib";
     };
 
     fenix = {

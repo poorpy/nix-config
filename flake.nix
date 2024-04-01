@@ -6,6 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
+    nixpkgs-stable.url = "github:nixos/nixpkgs/release-23.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
@@ -16,7 +17,7 @@
 
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
-      inputs.neovim-flake.url = "github:neovim/neovim?dir=contrib";
+      inputs.neovim-flake.url = "github:neovim/neovim?dir=contrib&tag=v0.9.5";
     };
 
     fenix = {
@@ -29,6 +30,7 @@
     { self
     , nixpkgs
     , nixpkgs-unstable
+    , nixpkgs-stable
     , home-manager
     , fenix
     , hyprland

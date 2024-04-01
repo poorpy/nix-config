@@ -12,6 +12,7 @@ local config = {
 	},
 	leader = { key = "a", mods = "CTRL" },
 	disable_default_key_bindings = true,
+	enable_wayland = false,
 	color_scheme = "nordfox",
 	keys = {
 		-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A

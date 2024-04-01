@@ -15,3 +15,7 @@ export PATH=$PATH:$GOPATH/bin:$GOBIN
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
 export TERM=wezterm
+
+if [[ -x "$(command -v opam)"  ]]; then
+    eval $(opam env)
+fi

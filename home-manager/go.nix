@@ -7,15 +7,15 @@
   home.packages =
     let
       lint-langserver-override =
-        pkgs.unstable.golangci-lint-langserver.override {
+        pkgs.golangci-lint-langserver.override {
           buildGoModule = pkgs.master.buildGo122Module;
         };
       lint-override =
-        pkgs.unstable.golangci-lint.override {
+        pkgs.golangci-lint.override {
           buildGoModule = pkgs.master.buildGo122Module;
         };
       gopls-override =
-        pkgs.unstable.gopls.override {
+        pkgs.gopls.override {
           buildGoModule = pkgs.master.buildGo122Module;
         };
     in

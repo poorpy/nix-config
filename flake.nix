@@ -79,5 +79,12 @@
           ./hosts/laptop/default.nix
         ];
       };
+      nixosConfigurations.macbook = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        system = "aarch64-darwin";
+        modules = [
+          ./hosts/macbook/default.nix
+        ];
+      };
     };
 }

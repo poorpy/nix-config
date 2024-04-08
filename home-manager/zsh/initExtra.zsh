@@ -16,6 +16,10 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
 export TERM=wezterm
 
-if [[ -x "$(command -v opam)"  ]]; then
+if [[ -x "$(command -v opam)" ]]; then
     eval $(opam env)
+fi
+
+if [[ -x "$(command -v brew)" ]]; then 
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi

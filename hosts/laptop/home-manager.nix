@@ -1,38 +1,30 @@
-# This is your home-manager configuration file
-# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
-    ./go.nix
-    ./git.nix
-    ./ocaml.nix
-
-    ./hyprland/default.nix
-    ./waybar/default.nix
-    ./zsh/default.nix
-    ./wezterm/default.nix
+    ./home/git.nix
+    ./../../modules/home-manager/zsh
+    ./../../modules/home-manager/waybar
+    ./../../modules/home-manager/wezterm
+    ./../../modules/home-manager/base.nix
+    ./../../modules/home-manager/languages/go.nix
+    ./../../modules/home-manager/languages/zig.nix
+    ./../../modules/home-manager/languages/rust.nix
+    ./../../modules/home-manager/languages/python.nix
   ];
 
-
   nixpkgs = {
-    # You can add overlays here
     overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
 
       inputs.neovim-nightly-overlay.overlay
     ];
-    # Configure your nixpkgs instance
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = (_: true);
     };
   };
-
 
   home = {
     username = "poorpy";
@@ -41,20 +33,8 @@
 
   home.packages =
     with pkgs; [
-      sumneko-lua-language-server
-      nodePackages.vscode-json-languageserver-bin
-      nodePackages.vscode-html-languageserver-bin
-      nodePackages.pyright
-      unstable.zig
-      unstable.zls
-
-      rustup
-
       docker-compose
-
-      unstable.zellij
       asciidoc-full-with-plugins
-
       zathura
       lutris
       unrar
@@ -64,7 +44,6 @@
       texlive.combined.scheme-full
     ];
 
-  # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.firefox.enable = true;
   programs.yazi.enable = true;
@@ -75,7 +54,6 @@
     withNodeJs = true;
     defaultEditor = true;
   };
-
 
   xdg.desktopEntries.neovim = {
     name = "Neovim";

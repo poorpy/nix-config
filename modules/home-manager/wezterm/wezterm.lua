@@ -1,7 +1,19 @@
 local wezterm = require("wezterm")
 
+local function is_darwin()
+	local handle = io.popen("uname")
+	if handle == nil then
+		return false
+	end
+	local result = handle:read("*a")
+	handle:close()
+	return result == "Darwin"
+end
+
+local font_size = is_darwin and 16 or 11
+
 local config = {
-	font_size = 11,
+	font_size = font_size,
 	use_fancy_tab_bar = false,
 	enable_scroll_bar = false,
 	window_padding = {

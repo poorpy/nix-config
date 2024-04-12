@@ -35,6 +35,7 @@
     p4
     docker
     docker-compose
+    pgcli
   ];
 
   programs.home-manager.enable = true;

@@ -10,7 +10,7 @@ local function is_darwin()
 	return result == "Darwin"
 end
 
-local font_size = is_darwin and 16 or 11
+local font_size = is_darwin() and 14 or 11
 
 local config = {
 	font_size = font_size,

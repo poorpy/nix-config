@@ -30,7 +30,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
-      poorpy = import ../../home-manager/home.nix;
+      poorpy = import ./home-manager.nix;
     };
   };
 

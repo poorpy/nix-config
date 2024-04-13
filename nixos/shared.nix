@@ -97,7 +97,7 @@
 
   fonts.packages = with pkgs; [
     material-symbols
-    unstable.nerdfonts
+    nerdfonts
   ];
 
   documentation.dev.enable = true;

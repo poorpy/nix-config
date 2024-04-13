@@ -39,7 +39,7 @@ if [[ -x "$(command -v brew)" ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-if [[ "$(uname)" -eq "Darwin" ]]; then 
+if [[ "$(uname)" == "Darwin" ]]; then 
     if ! pgrep -u "$USER" ssh-agent > /dev/null; then
         ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
     fi

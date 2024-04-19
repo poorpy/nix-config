@@ -5,6 +5,7 @@
     ./../../modules/home-manager/waybar
     ./../../modules/home-manager/wezterm
     ./../../modules/home-manager/base.nix
+    ./../../modules/home-manager/hyprland
     ./../../modules/home-manager/languages/go.nix
     ./../../modules/home-manager/languages/zig.nix
     ./../../modules/home-manager/languages/rust.nix

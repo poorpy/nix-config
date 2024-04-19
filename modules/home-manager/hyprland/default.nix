@@ -16,7 +16,6 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.unstable.hyprland;
     extraConfig = builtins.readFile ./hyprland.conf;
   };
 

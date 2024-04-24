@@ -15,7 +15,7 @@ export PATH=$PATH:${HOME}/.luarocks/bin
 export PATH=$PATH:$GOPATH/bin:$GOBIN
 export PATH=$PATH:${HOME}/.nodenv/bin
 
-export P4CONFIG=".perforce"
+export P4CONFIG="${HOME}/.perforce"
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 

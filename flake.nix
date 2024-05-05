@@ -45,9 +45,6 @@
     { self
     , nixpkgs
     , home-manager
-    , fenix
-    , hyprland
-    , neovim-nightly-overlay
     , darwin
     , nix-homebrew
     , homebrew-bundle
@@ -68,7 +65,7 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems);
     in
-    rec {
+    {
       # Your custom packages
       # Acessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system:
@@ -117,6 +114,14 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/laptop/default.nix
+        ];
+      };
+
+      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/desktop/default.nix
         ];
       };
     };

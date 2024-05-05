@@ -156,7 +156,6 @@
       man-pages
       man-pages-posix
 
-      dash
       git
       curl
       fzf

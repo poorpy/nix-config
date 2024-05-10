@@ -1,8 +1,10 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, ... }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
-    ../../nixos/shared.nix
+    ../../nixos/base.nix
+    ../../nixos/wayland.nix
+    ../../nixos/pipewire.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -34,7 +36,7 @@
     };
   };
 
-  programs = { 
+  programs = {
     steam.enable = true;
     light.enable = true;
   };
@@ -42,4 +44,5 @@
   hardware.bluetooth.enable = true;
   services.tlp.enable = true;
   services.pcscd.enable = true;
+  services.printing.enable = true;
 }

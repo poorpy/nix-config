@@ -1,8 +1,10 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, pkgs, ... }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
-    ../../nixos/shared.nix
+    ../../nixos/base.nix
+    ../../nixos/wayland.nix
+    ../../nixos/pipewire.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -29,7 +31,8 @@
     };
   };
 
-  programs = { };
+  programs.steam.enable = true;
+  services.printing.enable = true;
   environment.systemPackages = with pkgs; [
     gnome.adwaita-icon-theme
   ];

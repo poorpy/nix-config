@@ -7,7 +7,7 @@ local function is_darwin()
 	end
 	local result = handle:read("*a")
 	handle:close()
-	return result == "Darwin"
+	return result == "Darwin\n"
 end
 
 local font_size = is_darwin() and 14 or 11

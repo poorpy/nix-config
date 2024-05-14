@@ -14,6 +14,7 @@ export PATH=$PATH:${HOME}/.local/bin
 export PATH=$PATH:${HOME}/.luarocks/bin
 export PATH=$PATH:$GOPATH/bin:$GOBIN
 export PATH=$PATH:${HOME}/.nodenv/bin
+export PATH=$PATH:/usr/local/bin
 
 export P4CONFIG="${HOME}/.perforce"
 

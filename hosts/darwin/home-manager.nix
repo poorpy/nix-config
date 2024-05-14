@@ -36,6 +36,9 @@
     docker
     docker-compose
     pgcli
+    devenv
+    ruff
+    jq
   ];
 
   programs.home-manager.enable = true;

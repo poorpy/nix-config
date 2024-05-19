@@ -1,15 +1,15 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+args@{ outputs, pkgs, ... }: {
   imports = [
     ./home/git.nix
     ./../../modules/home-manager/zsh
+    ./../../modules/home-manager/sway
+    ./../../modules/home-manager/swaylock
     ./../../modules/home-manager/waybar
     ./../../modules/home-manager/wezterm
     ./../../modules/home-manager/base.nix
-    ./../../modules/home-manager/hyprland
     ./../../modules/home-manager/languages/go.nix
     ./../../modules/home-manager/languages/zig.nix
     ./../../modules/home-manager/languages/rust.nix
-    ./../../modules/home-manager/languages/python.nix
   ];
 
   nixpkgs = {
@@ -17,8 +17,6 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
-      inputs.neovim-nightly-overlay.overlay
     ];
     config = {
       allowUnfree = true;
@@ -34,8 +32,11 @@
 
   dconf = {
     enable = true;
-    settings."org/gnome/desktop/interface".gtk-theme = "Adwaita";
+    # settings."org/gnome/desktop/interface".gtk-theme = "Adwaita";
   };
+
+  gtk.theme.name = "Adwaita";
+  # gtk.cursorTheme.name = "Adwaita";
 
   home.packages =
     with pkgs; [
@@ -51,7 +52,6 @@
     ];
 
   programs.home-manager.enable = true;
-  programs.firefox.enable = true;
   programs.brave.enable = true;
   programs.yazi.enable = true;
   programs.neovim = {

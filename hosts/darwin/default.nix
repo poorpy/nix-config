@@ -4,8 +4,6 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
-      inputs.neovim-nightly-overlay.overlay
     ];
 
     config = {
@@ -40,7 +38,7 @@
       bmarczyn = import ./home-manager.nix;
     };
   };
-  
+
   system.stateVersion = 4;
   system.checks.verifyNixPath = false;
   services.nix-daemon.enable = true;

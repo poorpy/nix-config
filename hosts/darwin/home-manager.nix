@@ -15,8 +15,6 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
-      inputs.neovim-nightly-overlay.overlay
     ];
     config = {
       allowUnfree = true;

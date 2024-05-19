@@ -1,0 +1,97 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 26,
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+        "sway/window"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "idle_inhibitor",
+        "network",
+        "backlight",
+        "pulseaudio",
+        "battery",
+        "clock",
+        "tray"
+    ],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "disable-markup": true,
+        "format": "{index}"
+    },
+    "sway/window": {
+        "format": "{}",
+        "max-length": 150
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 15
+    },
+    "clock": {
+        "format": "{:%Y-%m-%d %X}",
+        "interval": 30
+    },
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            "full": 99,
+            "good": 98,
+            "normal": 98,
+            "warning": 20,
+            "critical": 20
+        },
+        "format": "{icon}   {capacity}%",
+        "format-good": "{icon}   {capacity}%",
+        "format-full": "\uf240   {capacity}%",
+        "format-icons": [
+            "\uf244",
+            "\uf243",
+            "\uf242",
+            "\uf241",
+            "\uf240"
+        ],
+        "interval": 30
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰈀",
+        "tooltip-format": "{ifname} via {gwaddr} 󰛳",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}  {percent}%  ",
+        "format-icons": [
+            "\uf5dd",
+            "\uf5dc",
+            "\uf5de",
+            "\uf5df"
+        ],
+        "interval": 60
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%  ",
+        "format-bluetooth": "\uf294  {volume}%  ",
+        "format-muted": "\ufa80  Mute  ",
+        "interval": 60,
+        "format-icons": {
+            "default": [
+                "\uf028"
+            ]
+        },
+        "on-click": "pavucontrol"
+    }
+}

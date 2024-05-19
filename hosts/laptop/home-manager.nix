@@ -9,7 +9,6 @@
     ./../../modules/home-manager/languages/go.nix
     ./../../modules/home-manager/languages/zig.nix
     ./../../modules/home-manager/languages/rust.nix
-    ./../../modules/home-manager/languages/python.nix
   ];
 
   nixpkgs = {
@@ -17,8 +16,6 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
-      inputs.neovim-nightly-overlay.overlay
     ];
     config = {
       allowUnfree = true;

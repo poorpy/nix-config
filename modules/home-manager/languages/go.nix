@@ -19,8 +19,8 @@
           buildGoModule = pkgs.master.buildGo122Module;
         };
     in
-    with pkgs; [
-      air
+    [
+      pkgs.air
       gopls-override
       lint-override
       lint-langserver-override

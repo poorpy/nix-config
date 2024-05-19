@@ -2,9 +2,9 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
-    ../../nixos/base.nix
-    ../../nixos/wayland.nix
-    ../../nixos/pipewire.nix
+    ../../modules/nixos/base.nix
+    ../../modules/nixos/wayland.nix
+    ../../modules/nixos/pipewire.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

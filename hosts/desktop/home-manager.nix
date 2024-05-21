@@ -5,6 +5,7 @@ args@{ outputs, pkgs, ... }: {
     ./../../modules/home-manager/sway
     ./../../modules/home-manager/swaylock
     ./../../modules/home-manager/waybar
+    ./../../modules/home-manager/wayland
     ./../../modules/home-manager/wezterm
     ./../../modules/home-manager/base.nix
     ./../../modules/home-manager/languages/go.nix

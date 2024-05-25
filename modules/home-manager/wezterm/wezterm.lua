@@ -17,7 +17,7 @@ local config = {
 	use_fancy_tab_bar = false,
 	enable_scroll_bar = false,
 	window_padding = {
-		left = 0,
+		left = 2,
 		right = 0,
 		top = 0,
 		bottom = 0,
@@ -92,8 +92,8 @@ local config = {
 		{ key = "v", mods = "SHIFT|CTRL", action = wezterm.action.PasteFrom("Clipboard") },
 		{ key = "c", mods = "SHIFT|CTRL", action = wezterm.action.CopyTo("Clipboard") },
 		{ key = "+", mods = "SHIFT|CTRL", action = "IncreaseFontSize" },
-		{ key = "-", mods = "SHIFT|CTRL", action = "DecreaseFontSize" },
-		{ key = "0", mods = "SHIFT|CTRL", action = "ResetFontSize" },
+		{ key = "_", mods = "SHIFT|CTRL", action = "DecreaseFontSize" }, -- s + c + -
+		{ key = ")", mods = "SHIFT|CTRL", action = "ResetFontSize" }, -- s + c + 0
 	},
 }
 

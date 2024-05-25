@@ -1,0 +1,52 @@
+add_newline = true
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$python\
+$nix_shell\
+$cmd_duration\
+$line_break\
+$character"""
+
+[directory]
+style = "blue"
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+
+[git_branch]
+format = "[$branch]($style) "
+style = "bold purple"
+
+[git_status]
+format = '[\[ [(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed )\]]($style) '
+style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
+
+[python]
+format = '[via ${pyenv_prefix}(\($virtualenv\) )]($style)'
+style = "yellow"
+detect_extensions = []
+
+
+[nix_shell]
+format = 'via [$state( \($name\))]($style) '
+style = "bold blue"
+

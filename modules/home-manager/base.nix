@@ -9,10 +9,17 @@
     nodePackages.vscode-html-languageserver-bin
     nodePackages.pyright
 
+    ruff
+    python313
+
+    devenv
+    starship
+
     jq
     fd
     fzf
+    unzip
+    zoxide
     ripgrep
-    python313
   ];
 }

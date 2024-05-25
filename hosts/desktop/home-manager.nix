@@ -3,10 +3,11 @@ args@{ outputs, pkgs, ... }: {
     ./home/git.nix
     ./../../modules/home-manager/zsh
     ./../../modules/home-manager/sway
-    ./../../modules/home-manager/swaylock
     ./../../modules/home-manager/waybar
     ./../../modules/home-manager/wayland
     ./../../modules/home-manager/wezterm
+    ./../../modules/home-manager/starship
+    ./../../modules/home-manager/swaylock
     ./../../modules/home-manager/base.nix
     ./../../modules/home-manager/languages/go.nix
     ./../../modules/home-manager/languages/zig.nix
@@ -33,11 +34,9 @@ args@{ outputs, pkgs, ... }: {
 
   dconf = {
     enable = true;
-    # settings."org/gnome/desktop/interface".gtk-theme = "Adwaita";
   };
 
   gtk.theme.name = "Adwaita";
-  # gtk.cursorTheme.name = "Adwaita";
 
   home.packages =
     with pkgs; [

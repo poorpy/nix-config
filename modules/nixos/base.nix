@@ -25,6 +25,7 @@
 
     settings = {
       experimental-features = "nix-command flakes";
+      trusted-users = [ "root" "poorpy" ];
       auto-optimise-store = true;
     };
 
@@ -59,7 +60,11 @@
   };
 
   programs.ssh.startAgent = true;
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableGlobalCompInit = false;
+  };
   programs.neovim = {
     enable = true;
     viAlias = true;

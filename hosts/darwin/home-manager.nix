@@ -1,12 +1,13 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ outputs, lib, pkgs, ... }: {
   imports = [
     ./home/git.nix
+
     ./../../modules/home-manager/zsh
     ./../../modules/home-manager/wezterm
+    ./../../modules/home-manager/starship
     ./../../modules/home-manager/base.nix
     ./../../modules/home-manager/languages/go.nix
     ./../../modules/home-manager/languages/rust.nix
-    ./../../modules/home-manager/languages/python.nix
     ./../../modules/home-manager/languages/javascript.nix
   ];
 
@@ -34,9 +35,6 @@
     docker
     docker-compose
     pgcli
-    devenv
-    ruff
-    jq
   ];
 
   programs.home-manager.enable = true;

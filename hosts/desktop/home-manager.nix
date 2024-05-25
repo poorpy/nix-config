@@ -45,7 +45,6 @@ args@{ outputs, pkgs, ... }: {
       zathura
       lutris
       unrar
-      google-cloud-sdk
       pavucontrol
       prismlauncher
       texlive.combined.scheme-full

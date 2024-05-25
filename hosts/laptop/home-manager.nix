@@ -2,9 +2,12 @@
   imports = [
     ./home/git.nix
     ./../../modules/home-manager/zsh
+    ./../../modules/home-manager/sway
     ./../../modules/home-manager/waybar
-    ./../../modules/home-manager/wezterm
     ./../../modules/home-manager/wayland
+    ./../../modules/home-manager/wezterm
+    ./../../modules/home-manager/starship
+    ./../../modules/home-manager/swaylock
     ./../../modules/home-manager/base.nix
     ./../../modules/home-manager/languages/go.nix
     ./../../modules/home-manager/languages/zig.nix

@@ -39,6 +39,8 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
+export EDITOR=nvim
+
 export GOPATH=$HOME/.go
 export GOBIN=$HOME/.gobin
 
@@ -53,6 +55,7 @@ alias ll="ls -l";
 alias ":q"="exit";
 alias vimrc="cd \${HOME}/.config/nvim/; nvim init.lua; cd -; ";
 alias nixrc="cd \${HOME}/.config/nix-config/; vim flake.nix; cd -; ";
+alias lg="lazygit"
 alias clipboard="wl-copy";
 alias primary="wl-copy -p";
 alias ssh="noglob ssh";
@@ -61,3 +64,7 @@ alias gdb="gdb -quiet";
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
+
+if [[ -f "${HOME}/.extra.zsh" ]]; then
+    source "${HOME}/.extra.zsh"
+fi

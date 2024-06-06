@@ -4,6 +4,8 @@
     stylua
     nixd
     nixpkgs-fmt
+    lazygit
+    pre-commit
 
     nodePackages.vscode-json-languageserver-bin
     nodePackages.vscode-html-languageserver-bin

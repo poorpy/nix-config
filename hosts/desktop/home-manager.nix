@@ -40,6 +40,8 @@ args@{ outputs, pkgs, ... }: {
 
   home.packages =
     with pkgs; [
+      mpv
+      ffmpeg
       docker-compose
       asciidoc-full-with-plugins
       zathura

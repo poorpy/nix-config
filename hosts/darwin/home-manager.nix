@@ -35,6 +35,7 @@
     docker
     docker-compose
     pgcli
+    ccls
   ];
 
   programs.home-manager.enable = true;

@@ -7,6 +7,11 @@ fi
 
 source "${ZINIT_HOME}/zinit.zsh"
 
+if [[ -f "${HOME}/.extra.zsh" ]]; then
+    source "${HOME}/.extra.zsh"
+fi
+
+
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
@@ -17,9 +22,10 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
-bindkey -e
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
+bindkey -v
+bindkey -v '^?' backward-delete-char
+bindkey -v '^p' history-search-backward
+bindkey -v '^n' history-search-forward
 
 HISTSIZE=10000
 HISTFILE=~/.zsh_history
@@ -48,6 +54,8 @@ export PATH=$PATH:${HOME}/.cargo/bin
 export PATH=$PATH:${HOME}/.local/bin
 export PATH=$PATH:${HOME}/.luarocks/bin
 export PATH=$PATH:$GOPATH/bin:$GOBIN
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:${HOME}/.rd/bin
 
 alias grep="grep --color=auto";
 alias ls="ls --color=auto";
@@ -64,7 +72,3 @@ alias gdb="gdb -quiet";
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
-
-if [[ -f "${HOME}/.extra.zsh" ]]; then
-    source "${HOME}/.extra.zsh"
-fi

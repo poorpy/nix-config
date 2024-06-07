@@ -12,7 +12,9 @@
     nodePackages.pyright
 
     ruff
+    mypy
     python313
+    python312Packages.ptpython
 
     devenv
     starship

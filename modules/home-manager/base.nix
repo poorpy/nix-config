@@ -9,10 +9,10 @@
 
     nodePackages.vscode-json-languageserver-bin
     nodePackages.vscode-html-languageserver-bin
-    nodePackages.pyright
 
     ruff
     mypy
+    pyright
     python313
     python312Packages.ptpython
 

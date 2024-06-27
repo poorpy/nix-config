@@ -66,7 +66,7 @@ alias nixrc="cd \${HOME}/.config/nix-config/; vim flake.nix; cd -; ";
 alias lg="lazygit"
 alias clipboard="wl-copy";
 alias primary="wl-copy -p";
-alias ssh="noglob ssh";
+# alias ssh="noglob ssh";
 alias gdb="gdb -quiet";
 
 eval "$(fzf --zsh)"

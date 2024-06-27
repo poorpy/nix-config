@@ -3,7 +3,6 @@
     ./home/git.nix
 
     ./../../modules/home-manager/zsh
-    ./../../modules/home-manager/wezterm
     ./../../modules/home-manager/starship
     ./../../modules/home-manager/base.nix
     ./../../modules/home-manager/languages/go.nix
@@ -33,20 +32,16 @@
   home.packages = with pkgs; [
     p4
     mpv
-    sshping
     pgcli
-    ffmpeg
     docker
     docker-compose
     git-lfs
     ccls
-    bear
     postgresql
   ];
 
   programs.home-manager.enable = true;
   programs.yazi.enable = true;
-  programs.wezterm.enable = true;
   programs.neovim = {
     enable = true;
     viAlias = true;

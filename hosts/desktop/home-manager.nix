@@ -42,7 +42,10 @@ args@{ outputs, pkgs, ... }: {
     with pkgs; [
       mpv
       ffmpeg
+
       docker-compose
+      kubectl
+
       asciidoc-full-with-plugins
       zathura
       lutris

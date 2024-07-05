@@ -12,20 +12,22 @@ if [[ -f "${HOME}/.extra.zsh" ]]; then
 fi
 
 
+zinit light jeffreytse/zsh-vi-mode
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+
 
 # if zsh startup is slow check if system-wide config contains compinit and disable ita
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
-bindkey -v
-bindkey -v '^?' backward-delete-char
-bindkey -v '^p' history-search-backward
-bindkey -v '^n' history-search-forward
+# bindkey -v
+# bindkey -v '^?' backward-delete-char
+# bindkey -v '^p' history-search-backward
+# bindkey -v '^n' history-search-forward
 
 HISTSIZE=10000
 HISTFILE=~/.zsh_history

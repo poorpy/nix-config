@@ -83,14 +83,14 @@
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
 
-      homeConfigurations = {
-        bmarczyn = home-manager.lib.homeManagerConfiguration {
-          inherit inputs outputs;
-          modules = [
-            ./hosts/engvm/home-manager.nix
-          ];
-        };
-      };
+      homeConfigurations."bmarczyn@muc-lhvsk4" =
+        home-manager.lib.homeManagerConfiguration
+          {
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            extraSpecialArgs = { inherit inputs outputs; };
+            modules = [ ./hosts/engvm/home-manager.nix ];
+          };
+
 
       darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system:
         darwin.lib.darwinSystem {

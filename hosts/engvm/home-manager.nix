@@ -6,6 +6,7 @@
     ./../../modules/home-manager/starship
     ./../../modules/home-manager/base.nix
     ./../../modules/home-manager/languages/go.nix
+    ./../../modules/home-manager/languages/cpp.nix
     ./../../modules/home-manager/languages/rust.nix
     ./../../modules/home-manager/languages/javascript.nix
   ];
@@ -26,7 +27,7 @@
   home = {
     username = "bmarczyn";
     stateVersion = "23.11";
-    homeDirectory = lib.mkDefault "/Users/bmarczyn";
+    homeDirectory = lib.mkDefault "/home/bmarczyn";
   };
 
   home.packages = with pkgs; [

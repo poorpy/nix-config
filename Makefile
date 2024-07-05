@@ -9,5 +9,8 @@ desktop:
 darwin:
 	./scripts/switch_darwin.sh
 
+vm:
+	home-manager switch --flake .#bmarczyn@muc-lhvsk4	
+
 update:
 	nix flake update

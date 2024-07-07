@@ -44,6 +44,6 @@
   programs.steam.enable = true;
   services.printing.enable = true;
   environment.systemPackages = with pkgs; [
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
   ];
 }

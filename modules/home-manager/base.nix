@@ -7,8 +7,7 @@
     lazygit
     pre-commit
 
-    nodePackages.vscode-json-languageserver-bin
-    nodePackages.vscode-html-languageserver-bin
+    vscode-langservers-extracted
 
     ruff
     mypy

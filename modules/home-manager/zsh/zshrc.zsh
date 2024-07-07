@@ -22,6 +22,10 @@ zinit light Aloxaf/fzf-tab
 # if zsh startup is slow check if system-wide config contains compinit and disable ita
 autoload -Uz compinit && compinit
 
+# load fzf after other plugins
+zinit ice lucid wait
+zinit snippet OMZP::fzf
+
 zinit cdreplay -q
 
 # bindkey -v
@@ -48,6 +52,8 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 export EDITOR=nvim
+export VISUAL=nvim
+export ZVM_VI_EDITOR=nvim
 
 export GOPATH=$HOME/.go
 export GOBIN=$HOME/.gobin
@@ -68,9 +74,7 @@ alias nixrc="cd \${HOME}/.config/nix-config/; vim flake.nix; cd -; ";
 alias lg="lazygit"
 alias clipboard="wl-copy";
 alias primary="wl-copy -p";
-# alias ssh="noglob ssh";
 alias gdb="gdb -quiet";
 
-eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"

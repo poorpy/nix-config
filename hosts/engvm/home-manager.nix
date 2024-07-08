@@ -33,11 +33,11 @@
   home.packages = with pkgs; [
     p4
     mpv
+    tmux
     pgcli
     docker
     docker-compose
     git-lfs
-    ccls
     postgresql
   ];
 

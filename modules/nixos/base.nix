@@ -84,6 +84,7 @@
       fd
       fzf
       gnumake
+      htop-vim
     ];
     pathsToLink = [ "/libexec" ];
   };

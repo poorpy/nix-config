@@ -19,10 +19,15 @@
         pkgs.gopls.override {
           buildGoModule = pkgs.master.buildGo122Module;
         };
+      gotools-override =
+        pkgs.gotools.override {
+          buildGoModule = pkgs.master.buildGo122Module;
+        };
     in
     [
       pkgs.air
       gopls-override
+      gotools-override
       lint-override
       lint-langserver-override
     ];

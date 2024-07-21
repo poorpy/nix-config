@@ -3,6 +3,7 @@ args@{ outputs, pkgs, ... }: {
     ./home/git.nix
     ./../../modules/home-manager/zsh
     ./../../modules/home-manager/sway
+    ./../../modules/home-manager/tmux
     ./../../modules/home-manager/waybar
     ./../../modules/home-manager/wayland
     ./../../modules/home-manager/wezterm

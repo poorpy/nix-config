@@ -1,13 +1,15 @@
 { inputs, pkgs, lib, config, ... }: {
   home.packages = with pkgs; [
     sumneko-lua-language-server
+    vscode-langservers-extracted
     stylua
     nixd
     nixpkgs-fmt
     lazygit
     pre-commit
+    pkg-config
 
-    vscode-langservers-extracted
+
 
     ruff
     mypy

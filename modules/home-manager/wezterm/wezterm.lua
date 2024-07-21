@@ -22,7 +22,7 @@ local config = {
 		top = 0,
 		bottom = 0,
 	},
-	leader = { key = "a", mods = "CTRL" },
+	leader = { key = "s", mods = "CTRL" },
 	disable_default_key_bindings = true,
 	hide_mouse_cursor_when_typing = false,
 	enable_wayland = true,

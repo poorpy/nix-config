@@ -16,6 +16,7 @@ local config = {
 	font_size = font_size,
 	use_fancy_tab_bar = false,
 	enable_scroll_bar = false,
+	enable_tab_bar = false,
 	window_padding = {
 		left = 2,
 		right = 0,

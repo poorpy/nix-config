@@ -30,6 +30,7 @@
   };
 
   home-manager = {
+    backupFileExtension = "backup";
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       poorpy = import ./home-manager.nix;

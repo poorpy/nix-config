@@ -25,6 +25,11 @@ input type:keyboard {
     xkb_layout pl
 }
 
+input type:touchpad {
+    natural_scroll enabled
+    tap enabled
+}
+
 output * bg wallpaper.png fill
 
 # Example configuration:

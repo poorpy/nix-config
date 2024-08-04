@@ -3,6 +3,7 @@
     ./home/git.nix
     ./../../modules/home-manager/zsh
     ./../../modules/home-manager/sway
+    ./../../modules/home-manager/tmux
     ./../../modules/home-manager/waybar
     ./../../modules/home-manager/wayland
     ./../../modules/home-manager/wezterm
@@ -46,7 +47,7 @@
     ];
 
   programs.home-manager.enable = true;
-  programs.firefox.enable = true;
+  programs.brave.enable = true;
   programs.yazi.enable = true;
   programs.neovim = {
     enable = true;

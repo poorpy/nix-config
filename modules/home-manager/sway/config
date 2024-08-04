@@ -46,10 +46,10 @@ exec swayidle -w \
          timeout 300 'swaylock -f' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+
+
+# Notification daemon
+exec mako
 
 ### Input configuration
 #
@@ -238,5 +238,12 @@ bar {
     #     inactive_workspace #32323200 #32323200 #5c5c5c
     # }
 }
+
+set $laptop_screen 'eDP-1'
+set $notify "notify-send"
+
+bindswitch --reload --locked lid:on exec '[ $(swaymsg -t get_outputs | grep name | wc -l) == 1 ] && ($sleep) || ($notify "Clamshell mode" "Laptop screen off" && swaymsg output $laptop_screen disable)'
+
+bindswitch --reload --locked lid:off output $laptop_screen enable
 
 include @sysconfdir@/sway/config.d/*

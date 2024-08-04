@@ -7,6 +7,7 @@
     slurp
     grim
     swayimg
+    libnotify # adds notify-send binary
   ];
 
 }

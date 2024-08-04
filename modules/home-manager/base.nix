@@ -1,5 +1,6 @@
 { inputs, pkgs, lib, config, ... }: {
   home.packages = with pkgs; [
+    luajitPackages.luarocks
     sumneko-lua-language-server
     vscode-langservers-extracted
     stylua

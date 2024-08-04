@@ -13,6 +13,7 @@
       ''
         set-option -sa terminal-overrides ",xterm*:Tc"
         set-option -g status-position bottom
+        set-option -sg escape-time 10
 
         bind h select-pane -L
         bind j select-pane -D

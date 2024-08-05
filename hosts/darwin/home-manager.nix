@@ -43,6 +43,7 @@
     ccls
     bear
     postgresql
+    colima
   ];
 
   programs.home-manager.enable = true;

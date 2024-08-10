@@ -15,6 +15,8 @@
     #   inputs.neovim-flake.url = "github:neovim/neovim?dir=contrib&rev=27fb62988e922c2739035f477f93cc052a4fee1e";
     # };
 
+    zig.url = "github:mitchellh/zig-overlay";
+
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,6 +52,7 @@
     , homebrew-bundle
     , homebrew-core
     , homebrew-cask
+    , zig
     , ...
     }@inputs:
     let

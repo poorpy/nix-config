@@ -7,6 +7,7 @@
     keyMode = "vi";
     prefix = "C-a";
     newSession = false;
+    historyLimit = 10000;
     sensibleOnTop = true;
     terminal = "xterm-256color";
     extraConfig = lib.strings.concatStringsSep "\n" [

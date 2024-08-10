@@ -13,6 +13,12 @@
     # });
   };
 
+  # zig-packages = final: _prev: {
+  #   zigpkgs = import inputs.zig.overlays {
+  #     system = final.system;
+  #   };
+  # };
+
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
   # be accessible through 'pkgs.unstable'
   unstable-packages = final: _prev: {

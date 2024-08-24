@@ -1,10 +1,10 @@
 .PHONY: home system
 
 laptop:
-	sudo nixos-rebuild switch --flake .#laptop
+	nixos-rebuild switch --flake .#laptop --use-remote-sudo
 
 desktop:
-	sudo nixos-rebuild switch --flake .#desktop
+	nixos-rebuild switch --flake .#desktop --use-remote-sudo
 
 darwin:
 	./scripts/switch_darwin.sh

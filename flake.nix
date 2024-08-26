@@ -50,7 +50,6 @@
     , homebrew-bundle
     , homebrew-core
     , homebrew-cask
-    , zig
     , ...
     }@inputs:
     let

@@ -54,7 +54,9 @@
     viAlias = true;
     vimAlias = true;
     withNodeJs = true;
+    withPython3 = true;
     defaultEditor = true;
+    package = pkgs.master.neovim-unwrapped;
   };
 
   xdg.desktopEntries.neovim = {

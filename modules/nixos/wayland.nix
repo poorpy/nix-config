@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  hardware.graphics = {
+  hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
@@ -17,7 +17,6 @@
 
   programs.sway = {
     enable = true;
-    package = pkgs.swayfx;
     wrapperFeatures.gtk = true;
   };
   # programs.hyprland.enable = true;

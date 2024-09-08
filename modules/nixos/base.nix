@@ -91,6 +91,7 @@
 
   fonts.packages = with pkgs; [
     material-symbols
+    jetbrains-mono
     nerdfonts
   ];
 

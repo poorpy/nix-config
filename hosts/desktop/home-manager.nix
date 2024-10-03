@@ -65,6 +65,7 @@ args@{ outputs, pkgs, ... }: {
     vimAlias = true;
     withNodeJs = true;
     defaultEditor = true;
+    package = pkgs.master.neovim-unwrapped;
   };
 
   xdg.desktopEntries.neovim = {

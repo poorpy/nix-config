@@ -10,6 +10,7 @@
     [
       master.air
       master.gopls
+      master.templ
       master.gotools
       master.golangci-lint
       master.golangci-lint-langserver

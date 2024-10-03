@@ -12,11 +12,12 @@
 
 
 
-    ruff
-    mypy
-    pyright
-    python313
+    master.ruff
+    master.mypy
+    master.pyright
+    master.python313
     python312Packages.ptpython
+    master.python312Packages.python-lsp-server
 
     devenv
     starship

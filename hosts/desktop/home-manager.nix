@@ -44,6 +44,7 @@ args@{ outputs, pkgs, ... }: {
       mpv
       ffmpeg
 
+      pgcli
       docker-compose
       kubectl
 

@@ -29,4 +29,13 @@
     zoxide
     ripgrep
   ];
+
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    withNodeJs = true;
+    defaultEditor = true;
+    package = pkgs.master.neovim-unwrapped;
+  };
 }

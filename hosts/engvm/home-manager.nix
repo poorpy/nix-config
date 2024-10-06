@@ -43,11 +43,4 @@
 
   programs.home-manager.enable = true;
   programs.yazi.enable = true;
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    withNodeJs = true;
-    defaultEditor = true;
-  };
 }

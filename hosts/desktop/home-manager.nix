@@ -59,14 +59,6 @@ args@{ outputs, pkgs, ... }: {
   programs.home-manager.enable = true;
   programs.brave.enable = true;
   programs.yazi.enable = true;
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    withNodeJs = true;
-    defaultEditor = true;
-    package = pkgs.master.neovim-unwrapped;
-  };
 
   xdg.desktopEntries.neovim = {
     name = "Neovim";

@@ -13,6 +13,7 @@ args@{ outputs, pkgs, ... }: {
     ./../../modules/home-manager/languages/go.nix
     ./../../modules/home-manager/languages/zig.nix
     ./../../modules/home-manager/languages/rust.nix
+    ./../../modules/home-manager/languages/javascript.nix
   ];
 
   nixpkgs = {

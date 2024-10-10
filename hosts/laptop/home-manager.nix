@@ -36,6 +36,7 @@
 
   home.packages =
     with pkgs; [
+      slack
       docker-compose
       asciidoc-full-with-plugins
       zathura

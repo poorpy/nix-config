@@ -3,7 +3,8 @@
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
     ../../modules/nixos/base.nix
-    ../../modules/nixos/wayland.nix
+    ../../modules/nixos/xorg.nix
+    # ../../modules/nixos/wayland.nix
     ../../modules/nixos/pipewire.nix
   ];
 

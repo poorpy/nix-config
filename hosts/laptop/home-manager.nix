@@ -4,8 +4,9 @@
     ./../../modules/home-manager/zsh
     ./../../modules/home-manager/sway
     ./../../modules/home-manager/tmux
-    ./../../modules/home-manager/waybar
-    ./../../modules/home-manager/wayland
+    ./../../modules/home-manager/xorg
+    # ./../../modules/home-manager/waybar
+    # ./../../modules/home-manager/wayland
     ./../../modules/home-manager/wezterm
     ./../../modules/home-manager/starship
     ./../../modules/home-manager/swaylock

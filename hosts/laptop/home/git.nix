@@ -1,7 +1,7 @@
 { inputs, pkgs, lib, config, ... }: {
   programs.git = {
     enable = true;
-    userName = "bartosz marczyński";
+    userName = "Bartosz Marczyński";
     userEmail = "marczynski.bartosz@gmail.com";
     extraConfig = {
       pull.rebase = true;
@@ -11,7 +11,7 @@
       init.defaultbranch = "master";
     };
 
-    includes = [];
+    includes = [ ];
 
     aliases = {
       branch-prune =

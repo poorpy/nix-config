@@ -2,6 +2,6 @@
   home.packages = with pkgs; [
     rustup
     lld
-    llvmPackages.bintools
+    # llvmPackages.bintools
   ];
 }

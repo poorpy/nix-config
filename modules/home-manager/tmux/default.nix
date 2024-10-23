@@ -15,6 +15,7 @@
         set-option -sa terminal-overrides ",xterm*:Tc"
         set-option -g status-position bottom
         set-option -sg escape-time 10
+        set-option -g update-environment "SSH_AUTH_SOCK SSH_CONNECTION DISPLAY"
 
         bind h select-pane -L
         bind j select-pane -D

@@ -28,6 +28,8 @@
     windowManager.i3.enable = true;
   };
 
+  programs.light.enable = true;
+
   services.displayManager.defaultSession = "xfce+i3";
   services.gnome.gnome-keyring.enable = true;
 

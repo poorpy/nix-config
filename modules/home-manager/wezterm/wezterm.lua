@@ -27,7 +27,7 @@ local config = {
 	leader = { key = "s", mods = "CTRL" },
 	disable_default_key_bindings = true,
 	hide_mouse_cursor_when_typing = false,
-	enable_wayland = true,
+	enable_wayland = false,
 	color_scheme = "nordfox",
 	keys = {
 		-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
@@ -98,6 +98,10 @@ local config = {
 		{ key = ")", mods = "SHIFT|CTRL", action = "ResetFontSize" }, -- s + c + 0
 	},
 }
+
+if not is_darwin() then
+	config.xcursor_theme = "Adwaita"
+end
 
 local builder = wezterm.config_builder()
 for k, v in pairs(config) do

@@ -39,6 +39,8 @@ args@{ outputs, pkgs, ... }: {
   };
 
   gtk.theme.name = "Adwaita";
+  gtk.cursorTheme.name = "Adwaita";
+  gtk.cursorTheme.package = pkgs.gnome.adwaita-icon-theme;
 
   home.packages =
     with pkgs; [

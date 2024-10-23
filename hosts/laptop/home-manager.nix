@@ -5,8 +5,6 @@
     ./../../modules/home-manager/sway
     ./../../modules/home-manager/tmux
     ./../../modules/home-manager/xorg
-    # ./../../modules/home-manager/waybar
-    # ./../../modules/home-manager/wayland
     ./../../modules/home-manager/wezterm
     ./../../modules/home-manager/starship
     ./../../modules/home-manager/swaylock
@@ -14,6 +12,7 @@
     ./../../modules/home-manager/languages/go.nix
     ./../../modules/home-manager/languages/zig.nix
     ./../../modules/home-manager/languages/rust.nix
+    ./../../modules/home-manager/languages/javascript.nix
   ];
 
   nixpkgs = {
@@ -51,6 +50,10 @@
   programs.home-manager.enable = true;
   programs.brave.enable = true;
   programs.yazi.enable = true;
+
+  gtk.theme.name = "Adwaita";
+  gtk.cursorTheme.name = "Adwaita";
+  gtk.cursorTheme.package = pkgs.gnome.adwaita-icon-theme;
 
   xdg.desktopEntries.neovim = {
     name = "Neovim";

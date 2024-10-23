@@ -30,6 +30,10 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    gnome.adwaita-icon-theme
+  ];
+
   home-manager = {
     backupFileExtension = "backup";
     extraSpecialArgs = { inherit inputs outputs; };

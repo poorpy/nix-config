@@ -9,6 +9,7 @@
       fetch.recursesubmodules = true;
       submodule.recurse = true;
       init.defaultbranch = "master";
+      rerere.enabled = true;
     };
 
     includes = [ ];

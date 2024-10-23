@@ -11,6 +11,7 @@
       master.air
       master.gopls
       master.templ
+      master.golines
       master.gotools
       master.golangci-lint
       master.golangci-lint-langserver

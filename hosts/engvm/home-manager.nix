@@ -3,6 +3,7 @@
     ./home/git.nix
 
     ./../../modules/home-manager/zsh
+    ./../../modules/home-manager/tmux
     ./../../modules/home-manager/starship
     ./../../modules/home-manager/base.nix
     ./../../modules/home-manager/languages/go.nix

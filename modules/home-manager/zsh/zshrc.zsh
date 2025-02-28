@@ -11,6 +11,10 @@ if [[ -f "${HOME}/.extra.zsh" ]]; then
     source "${HOME}/.extra.zsh"
 fi
 
+if [[ -d "${HOME}/.zfunc" ]]; then
+    fpath+=~/.zfunc
+fi
+
 
 zinit light jeffreytse/zsh-vi-mode
 zinit light zsh-users/zsh-syntax-highlighting
@@ -20,7 +24,7 @@ zinit light Aloxaf/fzf-tab
 
 
 # if zsh startup is slow check if system-wide config contains compinit and disable ita
-autoload -Uz compinit && compinit
+# autoload -Uz compinit && compinit
 
 # load fzf after other plugins
 zinit ice lucid wait
@@ -79,3 +83,4 @@ alias dv='cd $(find ~/git/devenv/ -maxdepth 1 -mindepth 1 -type d -print | fzf) 
 
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
+eval "$(uv generate-shell-completion zsh)"

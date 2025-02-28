@@ -9,6 +9,7 @@
     ./../../modules/home-manager/languages/go.nix
     ./../../modules/home-manager/languages/cpp.nix
     ./../../modules/home-manager/languages/rust.nix
+    ./../../modules/home-manager/languages/java.nix
     ./../../modules/home-manager/languages/javascript.nix
   ];
 
@@ -32,6 +33,7 @@
   };
 
   home.packages = with pkgs; [
+    master.uv
     p4
     mpv
     tmux

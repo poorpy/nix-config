@@ -12,6 +12,7 @@
 
 
 
+    master.pipx
     master.ruff
     master.mypy
     master.pyright

@@ -1,10 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ outputs, pkgs, ... }: {
   imports = [
     ./home/git.nix
     ./../../modules/home-manager/zsh
     ./../../modules/home-manager/sway
     ./../../modules/home-manager/tmux
     ./../../modules/home-manager/xorg
+    ./../../modules/home-manager/devops
     ./../../modules/home-manager/wezterm
     ./../../modules/home-manager/starship
     ./../../modules/home-manager/swaylock
@@ -36,29 +37,20 @@
 
   home.packages =
     with pkgs; [
-      aws-nuke
-      goreleaser
-      libreoffice
-      unstable.terragrunt
-      graphviz
-      opentofu
-      awscli2
-      eksctl
-      kubectl
-      mpv
-      torrential
-      master.zellij
-      terraform-ls
-      hclfmt
-      slack
-      docker-compose
-      asciidoc-full-with-plugins
-      zathura
-      lutris
       unrar
-      google-cloud-sdk
+
+      mpv
+      slack
+      graphviz
+      torrential
       pavucontrol
+
+      lutris
       prismlauncher
+
+      zathura
+      libreoffice
+      asciidoc-full-with-plugins
       texlive.combined.scheme-full
     ];
 

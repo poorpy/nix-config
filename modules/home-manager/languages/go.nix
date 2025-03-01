@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, config, ... }: {
+{ pkgs, ... }: {
   programs.go = {
     enable = true;
     package = pkgs.master.go_1_23;
@@ -13,6 +13,7 @@
       master.templ
       master.golines
       master.gotools
+      master.goreleaser
       master.golangci-lint
       master.golangci-lint-langserver
     ];

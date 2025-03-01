@@ -1,4 +1,4 @@
-args@{ outputs, pkgs, ... }: {
+{ outputs, pkgs, ... }: {
   imports = [
     ./home/git.nix
     ./../../modules/home-manager/zsh
@@ -13,6 +13,7 @@ args@{ outputs, pkgs, ... }: {
     ./../../modules/home-manager/languages/go.nix
     ./../../modules/home-manager/languages/zig.nix
     ./../../modules/home-manager/languages/rust.nix
+    ./../../modules/home-manager/languages/python.nix
     ./../../modules/home-manager/languages/javascript.nix
   ];
 
@@ -60,9 +61,7 @@ args@{ outputs, pkgs, ... }: {
       texlive.combined.scheme-full
     ];
 
-  programs.home-manager.enable = true;
   programs.brave.enable = true;
-  programs.yazi.enable = true;
 
   xdg.desktopEntries.neovim = {
     name = "Neovim";

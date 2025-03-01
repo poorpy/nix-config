@@ -46,7 +46,5 @@
     colima
   ];
 
-  programs.home-manager.enable = true;
-  programs.yazi.enable = true;
   programs.wezterm.enable = true;
 }

@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, config, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     luajitPackages.luarocks
     sumneko-lua-language-server
@@ -9,16 +9,6 @@
     lazygit
     pre-commit
     pkg-config
-
-
-
-    master.pipx
-    master.ruff
-    master.mypy
-    master.pyright
-    master.python313
-    python312Packages.ptpython
-    master.python312Packages.python-lsp-server
 
     devenv
     starship
@@ -31,6 +21,8 @@
     ripgrep
   ];
 
+  programs.home-manager.enable = true;
+  programs.yazi.enable = true;
   programs.neovim = {
     enable = true;
     viAlias = true;

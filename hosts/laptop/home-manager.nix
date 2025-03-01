@@ -12,6 +12,7 @@
     ./../../modules/home-manager/languages/go.nix
     ./../../modules/home-manager/languages/zig.nix
     ./../../modules/home-manager/languages/rust.nix
+    ./../../modules/home-manager/languages/python.nix
     ./../../modules/home-manager/languages/javascript.nix
   ];
 
@@ -35,6 +36,20 @@
 
   home.packages =
     with pkgs; [
+      aws-nuke
+      goreleaser
+      libreoffice
+      unstable.terragrunt
+      graphviz
+      opentofu
+      awscli2
+      eksctl
+      kubectl
+      mpv
+      torrential
+      master.zellij
+      terraform-ls
+      hclfmt
       slack
       docker-compose
       asciidoc-full-with-plugins
@@ -47,13 +62,11 @@
       texlive.combined.scheme-full
     ];
 
-  programs.home-manager.enable = true;
   programs.brave.enable = true;
-  programs.yazi.enable = true;
 
   gtk.theme.name = "Adwaita";
   gtk.cursorTheme.name = "Adwaita";
-  gtk.cursorTheme.package = pkgs.gnome.adwaita-icon-theme;
+  gtk.cursorTheme.package = pkgs.adwaita-icon-theme;
 
   xdg.desktopEntries.neovim = {
     name = "Neovim";

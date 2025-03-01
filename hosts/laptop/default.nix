@@ -28,10 +28,14 @@
     firewall = {
       allowedUDPPorts = [ 51820 ];
     };
+
+    nameservers = [
+
+    ];
   };
 
   environment.systemPackages = with pkgs; [
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
   ];
 
   home-manager = {

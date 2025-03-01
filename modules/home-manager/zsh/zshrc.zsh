@@ -21,10 +21,11 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit snippet OMZP::aws
 
 
 # if zsh startup is slow check if system-wide config contains compinit and disable ita
-# autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit
 
 # load fzf after other plugins
 zinit ice lucid wait

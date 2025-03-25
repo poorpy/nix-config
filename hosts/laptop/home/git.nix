@@ -16,7 +16,7 @@
 
     aliases = {
       branch-prune =
-        "! git fetch --prune && git branch -vv | rg gone | awk '{print $1}' | xargs git branch -d";
+        "! git fetch --prune && git branch -vv | rg gone | awk '{print $1}' | xargs git branch -D";
     };
   };
 }

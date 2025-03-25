@@ -38,6 +38,7 @@
   home.packages =
     with pkgs; [
       unrar
+      nix-du
 
       mpv
       slack
@@ -49,9 +50,7 @@
       prismlauncher
 
       zathura
-      libreoffice
       asciidoc-full-with-plugins
-      texlive.combined.scheme-full
     ];
 
   programs.brave.enable = true;

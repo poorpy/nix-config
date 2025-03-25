@@ -38,6 +38,11 @@
     adwaita-icon-theme
   ];
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [ ];
+  };
+
   home-manager = {
     backupFileExtension = "backup";
     extraSpecialArgs = { inherit inputs outputs; };

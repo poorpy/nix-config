@@ -1,14 +1,22 @@
 { pkgs, ... }: {
   home.packages = with pkgs.unstable; [
-    aws-nuke
-    terragrunt
     opentofu
-    awscli2
-    eksctl
-    kubectl
+    terragrunt
+    tflint
+    terraform
+    terraform-docs
     terraform-ls
     hclfmt
+    checkov
+
+
+    aws-nuke
+    awscli2
+    eksctl
+
+    kubectl
     docker-compose
+
     google-cloud-sdk
   ];
 }

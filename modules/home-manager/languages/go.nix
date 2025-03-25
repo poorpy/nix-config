@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   programs.go = {
     enable = true;
-    package = pkgs.master.go_1_23;
+    package = pkgs.master.go_1_24;
     goPrivate = [ "go.akam.ai/*" "git.source.akamai.com/*" ];
   };
 
@@ -15,6 +15,6 @@
       master.gotools
       master.goreleaser
       master.golangci-lint
-      master.golangci-lint-langserver
+      unstable.golangci-lint-langserver
     ];
 }

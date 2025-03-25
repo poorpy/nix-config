@@ -80,6 +80,7 @@ alias lg="lazygit"
 alias clipboard="wl-copy";
 alias primary="wl-copy -p";
 alias gdb="gdb -quiet";
+alias terraform="tofu";
 alias dv='cd $(find ~/git/devenv/ -maxdepth 1 -mindepth 1 -type d -print | fzf) && devenv shell && cd -'
 
 eval "$(zoxide init --cmd cd zsh)"

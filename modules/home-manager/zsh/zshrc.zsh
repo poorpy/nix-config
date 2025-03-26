@@ -25,7 +25,9 @@ zinit snippet OMZP::aws
 
 
 # if zsh startup is slow check if system-wide config contains compinit and disable ita
-autoload -Uz compinit && compinit
+if [[ "$(uname)" != "Darwin" ]]; then 
+    autoload -Uz compinit && compinit
+fi
 
 # load fzf after other plugins
 zinit ice lucid wait

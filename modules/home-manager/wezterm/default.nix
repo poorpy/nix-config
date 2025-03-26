@@ -1,6 +1,7 @@
 { inputs, pkgs, lib, config, ... }: {
+
   programs.wezterm = {
-    enable = true;
+    enable = pkgs.stdenv.hostPlatform.isLinux;
     enableZshIntegration = true;
     colorSchemes = (builtins.fromTOML (builtins.readFile ./nordfox.toml));
     extraConfig = (builtins.readFile ./wezterm.lua);

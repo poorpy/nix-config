@@ -9,6 +9,7 @@
     ./../../modules/home-manager/base.nix
     ./../../modules/home-manager/languages/go.nix
     ./../../modules/home-manager/languages/rust.nix
+    ./../../modules/home-manager/languages/python.nix
     ./../../modules/home-manager/languages/javascript.nix
   ];
 
@@ -45,6 +46,4 @@
     postgresql
     colima
   ];
-
-  programs.wezterm.enable = true;
 }

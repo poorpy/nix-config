@@ -12,6 +12,11 @@
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     #   inputs.neovim-flake.url = "github:neovim/neovim?dir=contrib&rev=27fb62988e922c2739035f477f93cc052a4fee1e";
@@ -31,6 +36,7 @@
   outputs =
     { self
     , nixpkgs
+    , lix-module
     , home-manager
     , darwin
     , ...
@@ -92,6 +98,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/laptop/default.nix
+          lix-module.nixosModules.default
         ];
       };
 

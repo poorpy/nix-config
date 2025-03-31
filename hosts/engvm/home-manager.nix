@@ -10,6 +10,7 @@
     ./../../modules/home-manager/languages/cpp.nix
     ./../../modules/home-manager/languages/rust.nix
     ./../../modules/home-manager/languages/java.nix
+    ./../../modules/home-manager/languages/python.nix
     ./../../modules/home-manager/languages/javascript.nix
   ];
 
@@ -33,7 +34,6 @@
   };
 
   home.packages = with pkgs; [
-    master.uv
     p4
     mpv
     tmux
@@ -42,8 +42,10 @@
     docker-compose
     git-lfs
     postgresql
+    protobuf
+    cassandra
   ];
 
-  programs.home-manager.enable = true;
-  programs.yazi.enable = true;
+  programs.zsh.enable = true;
+  programs.wezterm.enable = true;
 }

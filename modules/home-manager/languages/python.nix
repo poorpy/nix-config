@@ -11,10 +11,10 @@
 
   programs.poetry = {
     enable = true;
-    package = pkgs.unstable.poetry.withPlugins (ps: [
-      pkgs.unstable.poetryPlugins.poetry-plugin-export
-      pkgs.unstable.poetryPlugins.poetry-plugin-shell
-      pkgs.unstable.poetryPlugins.poetry-plugin-up
+    package = pkgs.master.poetry.withPlugins (ps: [
+      pkgs.master.poetryPlugins.poetry-plugin-export
+      pkgs.master.poetryPlugins.poetry-plugin-shell
+      pkgs.master.poetryPlugins.poetry-plugin-up
     ]);
     settings = {
       virtualenvs.create = true;

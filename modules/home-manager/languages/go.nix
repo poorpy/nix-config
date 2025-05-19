@@ -14,7 +14,8 @@
       master.golines
       master.gotools
       master.goreleaser
+      master.gomodifytags
       master.golangci-lint
-      unstable.golangci-lint-langserver
+      master.golangci-lint-langserver
     ];
 }

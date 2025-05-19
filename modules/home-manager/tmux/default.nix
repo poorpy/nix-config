@@ -1,4 +1,8 @@
-{ inputs, pkgs, lib, config, ... }: {
+{ lib, pkgs, ... }: {
+
+  home.packages = with pkgs; [
+    sesh
+  ];
 
   programs.tmux = {
     enable = true;
@@ -15,7 +19,8 @@
         set-option -sa terminal-overrides ",xterm*:Tc"
         set-option -g status-position bottom
         set-option -sg escape-time 10
-        set-option -g update-environment "SSH_AUTH_SOCK SSH_CONNECTION DISPLAY"
+        set-option -g update-environment -r 
+        setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
 
         bind h select-pane -L
         bind j select-pane -D
@@ -27,6 +32,20 @@
         unbind '"'
         unbind %
 
+        bind-key "T" run-shell "sesh connect \"$(
+          sesh list --icons | fzf-tmux -p 80%,70% \
+            --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
+            --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
+            --bind 'tab:down,btab:up' \
+            --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
+            --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
+            --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
+            --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
+            --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+            --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
+            --preview-window 'right:55%' \
+            --preview 'sesh preview {}'
+        )\""
       ''
       (builtins.readFile ./nightfox.sh)
     ];

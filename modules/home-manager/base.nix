@@ -10,7 +10,6 @@
     pre-commit
     pkg-config
 
-    devenv
     starship
 
     jq

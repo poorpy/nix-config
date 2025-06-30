@@ -27,6 +27,8 @@
     };
   };
 
+  tmux.sshAgentOverride = true;
+
   home = {
     username = "bmarczyn";
     stateVersion = "23.11";

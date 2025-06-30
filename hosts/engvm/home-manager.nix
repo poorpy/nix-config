@@ -44,6 +44,7 @@
     postgresql
     protobuf
     cassandra
+    cockroachdb
   ];
 
   programs.zsh.enable = true;

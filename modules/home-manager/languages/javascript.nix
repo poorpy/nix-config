@@ -3,6 +3,6 @@
     nodePackages.typescript-language-server
     nodePackages.eslint
     nodenv
-    nodejs_23
+    nodejs
   ];
 }

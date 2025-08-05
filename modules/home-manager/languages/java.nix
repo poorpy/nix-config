@@ -1,7 +1,7 @@
 { inputs, pkgs, lib, config, ... }: {
   programs.java = {
     enable = true;
-    package = pkgs.jdk17;
+    package = pkgs.jdk23;
   };
 
   home.packages = with pkgs; [

@@ -47,6 +47,7 @@
     protobuf
     cassandra
     cockroachdb
+    parallel
   ];
 
   programs.zsh.enable = true;

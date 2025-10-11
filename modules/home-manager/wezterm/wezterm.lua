@@ -25,6 +25,7 @@ local config = {
 		bottom = 0,
 	},
 	leader = { key = "s", mods = "CTRL" },
+	mux_enable_ssh_agent = false,
 	disable_default_key_bindings = true,
 	hide_mouse_cursor_when_typing = false,
 	enable_wayland = false,

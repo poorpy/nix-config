@@ -1,11 +1,12 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
-  system.stateVersion = "22.11";
+  system.stateVersion = "25.05";
 
   nixpkgs = {
     overlays = [
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+      outputs.overlays.nur
     ];
 
     config = {
@@ -92,8 +93,7 @@
   fonts.packages = with pkgs; [
     material-symbols
     jetbrains-mono
-    nerdfonts
-  ];
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   documentation.dev.enable = true;
   virtualisation.docker.enable = true;
@@ -101,17 +101,17 @@
   time.timeZone = "Europe/Warsaw";
   console.keyMap = "pl2";
   i18n = {
-    defaultLocale = "en_US.utf8";
+    defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
-      LC_ADDRESS = "pl_PL.utf8";
-      LC_IDENTIFICATION = "pl_PL.utf8";
-      LC_MEASUREMENT = "pl_PL.utf8";
-      LC_MONETARY = "pl_PL.utf8";
-      LC_NAME = "pl_PL.utf8";
-      LC_NUMERIC = "pl_PL.utf8";
-      LC_PAPER = "pl_PL.utf8";
-      LC_TELEPHONE = "pl_PL.utf8";
-      LC_TIME = "pl_PL.utf8";
+      LC_ADDRESS = "pl_PL.UTF-8";
+      LC_IDENTIFICATION = "pl_PL.UTF-8";
+      LC_MEASUREMENT = "pl_PL.UTF-8";
+      LC_MONETARY = "pl_PL.UTF-8";
+      LC_NAME = "pl_PL.UTF-8";
+      LC_NUMERIC = "pl_PL.UTF-8";
+      LC_PAPER = "pl_PL.UTF-8";
+      LC_TELEPHONE = "pl_PL.UTF-8";
+      LC_TIME = "pl_PL.UTF-8";
     };
   };
 

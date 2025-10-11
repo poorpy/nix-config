@@ -1,8 +1,11 @@
 { pkgs, ... }: {
-  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    jack.enable = true;
     wireplumber.enable = true;
     alsa = {
       enable = true;

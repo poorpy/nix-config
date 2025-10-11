@@ -7,32 +7,41 @@
     ../../modules/nixos/pipewire.nix
   ];
 
+  hardware.usb-modeswitch.enable = true;
+  hardware.enableAllFirmware = true;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
+  boot.initrd.kernelModules = [
+    "8852cu"
+  ];
+  boot.extraModulePackages = with pkgs; [
+    nur.repos.hilorioze.rtl8852cu
+  ];
+  boot.extraModprobeConfig = ''
+    	options 8852cu rtw_switch_usb_mode=1
+  '';
 
-  boot.initrd.luks.devices = {
-    root = {
-      device = "/dev/disk/by-uuid/347d676c-cc04-499f-9de2-dc7f1f058488";
-      preLVM = true;
-      allowDiscards = true;
-    };
+  services.resolved = {
+    enable = true;
+    dnssec = "allow-downgrade";
   };
 
   networking = {
     hostName = "nixos";
-    networkmanager.enable = true;
+    wireless.iwd.enable = true;
+    nameservers = [ "1.1.1.1" "9.9.9.9" "8.8.8.8" ];
     firewall.allowedTCPPorts = [
       6443
     ];
-
   };
 
-  services.k3s = {
-    enable = false;
-    role = "server";
+  networking.networkmanager = {
+    enable = true;
+    dns = "systemd-resolved";
+    wifi.backend = "iwd";
   };
-
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
@@ -44,6 +53,6 @@
   programs.steam.enable = true;
   services.printing.enable = true;
   environment.systemPackages = with pkgs; [
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
   ];
 }

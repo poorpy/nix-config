@@ -51,6 +51,12 @@ exec swayidle -w \
 # Notification daemon
 exec mako
 
+exec_always {
+    systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+    dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+    systemctl --user restart xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal
+}
+
 ### Input configuration
 #
 # Example configuration:

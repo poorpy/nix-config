@@ -35,13 +35,25 @@
     homeDirectory = "/home/poorpy";
   };
 
-  dconf = {
+
+  gtk = {
     enable = true;
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+
+    cursorTheme.name = "Adwaita";
+    cursorTheme.package = pkgs.adwaita-icon-theme;
+
   };
 
-  gtk.theme.name = "Adwaita";
-  gtk.cursorTheme.name = "Adwaita";
-  gtk.cursorTheme.package = pkgs.gnome.adwaita-icon-theme;
+
 
   home.packages =
     with pkgs; [
@@ -75,14 +87,14 @@
   xdg.mime.enable = true;
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
-    "text/html" = "firefox.desktop";
-    "application/pdf" = "firefox.desktop";
+    "text/html" = "brave.desktop";
+    "application/pdf" = "brave.desktop";
     "application/json" = "wezterm -e nvim";
 
-    "x-scheme-handler/http" = "firefox.desktop";
-    "x-scheme-handler/https" = "firefox.desktop";
-    "x-scheme-handler/about" = "firefox.desktop";
-    "x-scheme-handler/unknown" = "firefox.desktop";
+    "x-scheme-handler/http" = "brave.desktop";
+    "x-scheme-handler/https" = "brave.desktop";
+    "x-scheme-handler/about" = "brave.desktop";
+    "x-scheme-handler/unknown" = "brave.desktop";
 
     "image/gif" = "swayimg";
     "image/png" = "swayimg";

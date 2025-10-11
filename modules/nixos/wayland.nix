@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
@@ -9,17 +9,26 @@
 
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
     configPackages = [
       pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
     ];
+    config.common.default = [ "wlr" "gtk" ];
   };
+
+  environment.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "sway";
+    DESKTOP_SESSION = "sway";
+    XDG_SESSION_TYPE = "wayland";
+  };
+
+  services.dbus.enable = true;
+  programs.dconf.enable = true;
 
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
   };
-  # programs.hyprland.enable = true;
 
   services.xserver = {
     enable = true;
@@ -28,8 +37,10 @@
       variant = "";
     };
 
-    displayManager.gdm.enable = true;
-    displayManager.gdm.wayland = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
   };
 
 

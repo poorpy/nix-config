@@ -9,6 +9,7 @@
 
   hardware.usb-modeswitch.enable = true;
   hardware.enableAllFirmware = true;
+  hardware.bluetooth.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -22,6 +23,8 @@
   boot.extraModprobeConfig = ''
     	options 8852cu rtw_switch_usb_mode=1
   '';
+
+  services.blueman.enable = true;
 
   services.resolved = {
     enable = true;

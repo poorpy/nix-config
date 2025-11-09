@@ -19,6 +19,7 @@ smart_borders on
 
 seat * {
     hide_cursor when-typing disable
+    xcursor_theme Adwaita 24
 }
 
 input type:keyboard {

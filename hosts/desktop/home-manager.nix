@@ -33,6 +33,13 @@
   home = {
     username = "poorpy";
     homeDirectory = "/home/poorpy";
+    pointerCursor = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+      size = 24;
+      x11.enable = true;
+      gtk.enable = true;
+    };
   };
 
 

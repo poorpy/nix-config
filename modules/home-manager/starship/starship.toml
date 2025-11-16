@@ -4,9 +4,7 @@ format = """
 $username\
 $hostname\
 $directory\
-$git_branch\
-$git_state\
-$git_status\
+${custom.jj} \
 $python\
 $nix_shell\
 $cmd_duration\
@@ -50,3 +48,10 @@ detect_extensions = []
 format = 'via [$state( \($name\))]($style) '
 style = "bold blue"
 
+[custom.jj]
+command = "prompt"
+format = "$output"
+ignore_timeout = true
+shell = ["starship-jj", "--ignore-working-copy", "starship"]
+use_stdin = false
+when = true

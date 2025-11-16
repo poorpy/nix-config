@@ -1,6 +1,8 @@
 { outputs, pkgs, ... }: {
   imports = [
     ./home/git.nix
+    ./home/jujutsu.nix
+
     ./../../modules/home-manager/zsh
     ./../../modules/home-manager/sway
     ./../../modules/home-manager/tmux

@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, config, ... }: {
+{ ... }: {
   programs.git = {
     enable = true;
     userName = "Bartosz Marczyński";

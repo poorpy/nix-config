@@ -18,17 +18,12 @@
     };
 
     nur = {
-     url = "github:nix-community/NUR";
-     inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # neovim-nightly-overlay = {
-    #   url = "github:nix-community/neovim-nightly-overlay";
-    #   inputs.neovim-flake.url = "github:neovim/neovim?dir=contrib&rev=27fb62988e922c2739035f477f93cc052a4fee1e";
-    # };
-
-    fenix = {
-      url = "github:nix-community/fenix";
+    starship = {
+      url = "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.6.1/starship-jj-0.6.1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -44,7 +39,6 @@
     , lix-module
     , home-manager
     , darwin
-    , nur
     , ...
     }@inputs:
     let

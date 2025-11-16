@@ -66,6 +66,7 @@
     with pkgs; [
       mpv
       ffmpeg
+      gimp3
 
       pgcli
       docker-compose

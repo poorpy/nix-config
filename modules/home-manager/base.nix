@@ -18,6 +18,7 @@
     unzip
     zoxide
     ripgrep
+    master.jujutsu
   ];
 
   programs.home-manager.enable = true;

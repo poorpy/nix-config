@@ -12,6 +12,9 @@
     ./../../modules/home-manager/languages/java.nix
     ./../../modules/home-manager/languages/python.nix
     ./../../modules/home-manager/languages/javascript.nix
+
+    ./../../modules/home-manager/git.nix
+    ./../../modules/home-manager/jujutsu.nix
   ];
 
   nixpkgs = {
@@ -28,6 +31,24 @@
   };
 
   tmux.sshAgentOverride = true;
+
+  git = {
+    enable = true;
+    userEmail = "bmarczyn@akamai.com";
+    extraConfig = {
+      url."ssh://git@git.source.akamai.com:7999" = {
+        insteadOf = "https://git.source.akamai.com";
+      };
+    };
+  };
+
+  jujutsu = {
+    enable = true;
+    user = {
+      email = "bmarczyn@akamai.com";
+      name = "Bartosz Marczyński";
+    };
+  };
 
   home = {
     username = "bmarczyn";

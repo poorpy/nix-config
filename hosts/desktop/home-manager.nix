@@ -1,8 +1,5 @@
 { outputs, pkgs, ... }: {
   imports = [
-    ./home/git.nix
-    ./home/jujutsu.nix
-
     ./../../modules/home-manager/zsh
     ./../../modules/home-manager/sway
     ./../../modules/home-manager/tmux
@@ -17,6 +14,9 @@
     ./../../modules/home-manager/languages/rust.nix
     ./../../modules/home-manager/languages/python.nix
     ./../../modules/home-manager/languages/javascript.nix
+
+    ./../../modules/home-manager/jujutsu.nix
+    ./../../modules/home-manager/git.nix
   ];
 
   nixpkgs = {
@@ -59,10 +59,16 @@
 
     cursorTheme.name = "Adwaita";
     cursorTheme.package = pkgs.adwaita-icon-theme;
-
   };
 
-
+  git.enable = true;
+  jujutsu = {
+    enable = true;
+    user = {
+      email = "marczynski.bartosz@gmail.com";
+      name = "Bartosz Marczyński";
+    };
+  };
 
   home.packages =
     with pkgs; [

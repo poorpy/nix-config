@@ -15,6 +15,9 @@
     ./../../modules/home-manager/languages/rust.nix
     ./../../modules/home-manager/languages/python.nix
     ./../../modules/home-manager/languages/javascript.nix
+
+    ./../../modules/home-manager/git.nix
+    ./../../modules/home-manager/jujutsu.nix
   ];
 
   nixpkgs = {
@@ -33,6 +36,15 @@
   home = {
     username = "poorpy";
     homeDirectory = "/home/poorpy";
+  };
+
+  git.enable = true;
+  jujutsu = {
+    enable = true;
+    user = {
+      email = "marczynski.bartosz@gmail.com";
+      name = "Bartosz Marczyński";
+    };
   };
 
   home.packages =

@@ -20,10 +20,6 @@
     aliases = {
       branch-prune =
         "! git fetch --prune && git branch -vv | rg gone | awk '{print $1}' | xargs git branch -d";
-      addflake = "!f() { \
-        git add --intent-to-add $1; \
-        git update-index --skip-worktree --assume-unchanged $1; \
-      }; f";
     };
   };
 }

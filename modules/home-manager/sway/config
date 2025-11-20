@@ -50,6 +50,8 @@ exec swayidle -w \
 
 exec sway-audio-idle-inhibit
 
+# Bluetooth applet
+exec blueman-applet
 
 # Notification daemon
 exec mako

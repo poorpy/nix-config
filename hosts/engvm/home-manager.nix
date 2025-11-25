@@ -1,7 +1,5 @@
 { outputs, lib, pkgs, ... }: {
   imports = [
-    ./home/git.nix
-
     ./../../modules/home-manager/zsh
     ./../../modules/home-manager/tmux
     ./../../modules/home-manager/starship

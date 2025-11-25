@@ -7,10 +7,6 @@ fi
 
 source "${ZINIT_HOME}/zinit.zsh"
 
-if [[ -f "${HOME}/.extra.zsh" ]]; then
-    source "${HOME}/.extra.zsh"
-fi
-
 if [[ -d "${HOME}/.zfunc" ]]; then
     fpath+=~/.zfunc
 fi
@@ -88,3 +84,7 @@ alias dv='cd $(find ~/git/devenv/ -maxdepth 1 -mindepth 1 -type d -print | fzf) 
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 eval "$(uv generate-shell-completion zsh)"
+
+if [[ -f "${HOME}/.extra.zsh" ]]; then
+    source "${HOME}/.extra.zsh"
+fi

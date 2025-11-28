@@ -67,6 +67,8 @@
     cassandra
     cockroachdb
     parallel
+
+    copilot-cli
   ];
 
   programs.zsh.enable = true;

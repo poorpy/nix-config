@@ -15,6 +15,16 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      lua51Packages.lua
+      lua51Packages.luarocks
+      lua-language-server
+      vscode-langservers-extracted
+      stylua
+      nixd
+      nixpkgs-fmt
+    ];
+
     programs.neovim = {
       enable = true;
       viAlias = true;

@@ -33,8 +33,11 @@
 
   git = {
     enable = true;
-    userEmail = "bmarczyn@akamai.com";
-    extraConfig = {
+    user = {
+      name = "Bartosz Marczyński";
+      email = "bmarczyn@akamai.com";
+    };
+    settings = {
       url."ssh://git@git.source.akamai.com:7999" = {
         insteadOf = "https://git.source.akamai.com";
       };
@@ -60,11 +63,9 @@
   home.packages = with pkgs; [
     p4
     mpv
-    tmux
     pgcli
     docker
     docker-compose
-    git-lfs
     postgresql
     protobuf
     cassandra
@@ -73,6 +74,4 @@
 
     copilot-cli
   ];
-
-  programs.zsh.enable = true;
 }

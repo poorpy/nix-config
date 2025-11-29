@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, pkgs, lib, ... }:
 let
   inherit (lib) mkIf mkOption types;
   cfg = config.git;
@@ -37,6 +37,12 @@ in
       assertion = cfg.user != { };
       message = "git.user must be set when git is enabled.";
     }];
+
+    home.packages = with pkgs; [
+      lazygit
+      pre-commit
+      git-lfs
+    ];
 
     programs.git = {
       enable = true;

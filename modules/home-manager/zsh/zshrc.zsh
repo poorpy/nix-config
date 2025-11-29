@@ -1,3 +1,7 @@
+if [ -n "${ZSH_DEBUGRC+1}" ]; then
+    zmodload zsh/zprof
+fi
+
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -87,4 +91,8 @@ eval "$(uv generate-shell-completion zsh)"
 
 if [[ -f "${HOME}/.extra.zsh" ]]; then
     source "${HOME}/.extra.zsh"
+fi
+
+if [ -n "${ZSH_DEBUGRC+1}" ]; then
+    zprof
 fi

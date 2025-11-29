@@ -1,6 +1,5 @@
 { inputs, outputs, pkgs, ... }: {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
     ../../modules/nixos/base.nix
     ../../modules/nixos/wayland.nix
@@ -44,13 +43,6 @@
     enable = true;
     dns = "systemd-resolved";
     wifi.backend = "iwd";
-  };
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      poorpy = import ./home-manager.nix;
-    };
   };
 
   programs.steam.enable = true;

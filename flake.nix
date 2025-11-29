@@ -65,6 +65,14 @@
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
 
+      homeConfigurations."poorpy@desktop" =
+        home-manager.lib.homeManagerConfiguration
+          {
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            extraSpecialArgs = { inherit inputs outputs; };
+            modules = [ ./hosts/desktop/home-manager.nix ];
+          };
+
       homeConfigurations."bmarczyn@muc-lhvsk4" =
         home-manager.lib.homeManagerConfiguration
           {

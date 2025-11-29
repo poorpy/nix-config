@@ -1,5 +1,5 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 
   nixpkgs = {
     overlays = [
@@ -12,7 +12,7 @@
     config = {
       allowUnfree = true;
       packageOverrides = pkgs: {
-        vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+        intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
       };
     };
 
@@ -23,6 +23,8 @@
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+
+    package = pkgs.lixPackageSets.latest.lix;
 
     settings = {
       experimental-features = "nix-command flakes";
@@ -60,7 +62,6 @@
     };
   };
 
-  programs.ssh.startAgent = true;
   programs.zsh = {
     enable = true;
     enableCompletion = true;

@@ -32,7 +32,7 @@
   };
 
   networking = {
-    hostName = "nixos";
+    hostName = "desktop";
     wireless.iwd.enable = true;
     nameservers = [ "1.1.1.1" "9.9.9.9" "8.8.8.8" ];
     firewall.allowedTCPPorts = [

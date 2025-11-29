@@ -3,18 +3,13 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-2.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     nur = {
       url = "github:nix-community/NUR";
@@ -35,7 +30,6 @@
   outputs =
     { self
     , nixpkgs
-    , lix-module
     , home-manager
     , darwin
     , ...
@@ -97,7 +91,6 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/laptop/default.nix
-          lix-module.nixosModules.default
         ];
       };
 
@@ -106,7 +99,6 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/desktop/default.nix
-          lix-module.nixosModules.default
         ];
       };
     };

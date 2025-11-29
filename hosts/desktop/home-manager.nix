@@ -64,7 +64,13 @@
     cursorTheme.package = pkgs.adwaita-icon-theme;
   };
 
-  git.enable = true;
+  git = {
+    enable = true;
+    user = {
+      name = "Bartosz Marczyński";
+      email = "marczynski.bartosz@gmail.com";
+    };
+  };
   jujutsu = {
     enable = true;
     user = {
@@ -92,7 +98,6 @@
       asciidoc-full-with-plugins
       zathura
       unrar
-      texlive.combined.scheme-full
     ];
 
   xdg.mimeApps.defaultApplications = {
@@ -103,9 +108,11 @@
     "image/apng" = "swayimg";
   };
 
+  services.mpris-proxy.enable = true;
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "22.11";
+  home.stateVersion = "25.11";
 }

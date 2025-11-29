@@ -3,7 +3,7 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
-      vaapiIntel
+      intel-vaapi-driver
     ];
   };
 
@@ -36,11 +36,11 @@
       layout = "pl";
       variant = "";
     };
+  };
 
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
+  services.displayManager.gdm = {
+    enable = true;
+    wayland = true;
   };
 
 

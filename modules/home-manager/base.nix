@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     lua51Packages.lua
     lua51Packages.luarocks
-    sumneko-lua-language-server
+    lua-language-server
     vscode-langservers-extracted
     stylua
     nixd

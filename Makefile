@@ -1,16 +1,19 @@
-.PHONY: home system
+.PHONY: update nixos 
+
+USER := $(shell whoami)
+HOST := $(shell hostname)
 
 laptop:
 	nixos-rebuild switch --flake .#laptop --use-remote-sudo
 
-desktop:
-	nixos-rebuild switch --flake .#desktop --use-remote-sudo
-
-darwin:
-	./scripts/switch_darwin.sh
-
-vm:
-	home-manager switch --flake .#bmarczyn@muc-lhvsk4	
-
 update:
 	nix flake update
+
+home:
+	home-manager switch --flake .#$(USER)@$(HOST)
+
+nixos:
+	nixos-rebuild switch --flake .#$(HOST) --sudo 
+
+
+all: nixos home

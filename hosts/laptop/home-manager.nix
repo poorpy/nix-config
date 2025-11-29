@@ -16,8 +16,11 @@
     ./../../modules/home-manager/languages/python.nix
     ./../../modules/home-manager/languages/javascript.nix
 
-    ./../../modules/home-manager/git.nix
     ./../../modules/home-manager/jujutsu.nix
+    ./../../modules/home-manager/git.nix
+
+    ./../../modules/home-manager/neovim.nix
+    ./../../modules/home-manager/brave.nix
   ];
 
   nixpkgs = {
@@ -53,19 +56,17 @@
       nix-du
 
       mpv
-      slack
       graphviz
-      torrential
-      pavucontrol
-
-      lutris
-      prismlauncher
 
       zathura
       asciidoc-full-with-plugins
     ];
 
-  programs.brave.enable = true;
+  brave.enable = true;
+  neovim = {
+    enable = true;
+    desktopEntry = true;
+  };
 
   gtk.theme.name = "Adwaita";
   gtk.cursorTheme.name = "Adwaita";

@@ -13,6 +13,7 @@
 
     ./../../modules/home-manager/git.nix
     ./../../modules/home-manager/jujutsu.nix
+    ./../../modules/home-manager/neovim.nix
   ];
 
   nixpkgs = {
@@ -48,6 +49,8 @@
     };
   };
 
+  neovim.enable = true;
+
   home = {
     username = "bmarczyn";
     stateVersion = "23.11";
@@ -72,5 +75,4 @@
   ];
 
   programs.zsh.enable = true;
-  programs.wezterm.enable = true;
 }

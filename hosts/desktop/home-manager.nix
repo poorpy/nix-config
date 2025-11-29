@@ -17,6 +17,9 @@
 
     ./../../modules/home-manager/jujutsu.nix
     ./../../modules/home-manager/git.nix
+
+    ./../../modules/home-manager/neovim.nix
+    ./../../modules/home-manager/brave.nix
   ];
 
   nixpkgs = {
@@ -70,6 +73,12 @@
     };
   };
 
+  brave.enable = true;
+  neovim = {
+    enable = true;
+    desktopEntry = true;
+  };
+
   home.packages =
     with pkgs; [
       mpv
@@ -82,57 +91,16 @@
 
       asciidoc-full-with-plugins
       zathura
-      lutris
       unrar
-      pavucontrol
-      prismlauncher
       texlive.combined.scheme-full
     ];
 
-  programs.brave.enable = true;
-
-  xdg.desktopEntries.neovim = {
-    name = "Neovim";
-    genericName = "Text Editor";
-    exec = "wezterm start nvim %F";
-    terminal = false;
-    type = "Application";
-    icon = "nvim";
-  };
-
-  xdg.mime.enable = true;
-  xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
-    "text/html" = "brave.desktop";
-    "application/pdf" = "brave.desktop";
-    "application/json" = "wezterm -e nvim";
-
-    "x-scheme-handler/http" = "brave.desktop";
-    "x-scheme-handler/https" = "brave.desktop";
-    "x-scheme-handler/about" = "brave.desktop";
-    "x-scheme-handler/unknown" = "brave.desktop";
-
     "image/gif" = "swayimg";
     "image/png" = "swayimg";
     "image/jpeg" = "swayimg";
     "image/webp" = "swayimg";
     "image/apng" = "swayimg";
-
-    "text/english" = "neovim.desktop";
-    "text/plain" = "neovim.desktop";
-    "text/x-makefile" = "neovim.desktop";
-    "text/x-c++hdr" = "neovim.desktop";
-    "text/x-c++src" = "neovim.desktop";
-    "text/x-chdr" = "neovim.desktop";
-    "text/x-csrc" = "neovim.desktop";
-    "text/x-java" = "neovim.desktop";
-    "text/x-moc" = "neovim.desktop";
-    "text/x-pascal" = "neovim.desktop";
-    "text/x-tcl" = "neovim.desktop";
-    "text/x-tex" = "neovim.desktop";
-    "application/x-shellscript" = "neovim.desktop";
-    "text/x-c" = "neovim.desktop";
-    "text/x-c++" = "neovim.desktop";
   };
 
   # Nicely reload system units when changing configs

@@ -17,5 +17,7 @@
     alsa-utils
     wireplumber
     pulsemixer
+    playerctl
+    pavucontrol
   ];
 }

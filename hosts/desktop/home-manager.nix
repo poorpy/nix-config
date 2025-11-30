@@ -98,6 +98,7 @@
       asciidoc-full-with-plugins
       zathura
       unrar
+      zellij
     ];
 
   xdg.mimeApps.defaultApplications = {

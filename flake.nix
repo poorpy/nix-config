@@ -20,18 +20,12 @@
       url = "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.6.1/starship-jj-0.6.1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    darwin = {
-      url = "github:LnL7/nix-darwin/nix-darwin-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
     { self
     , nixpkgs
     , home-manager
-    , darwin
     , ...
     }@inputs:
     let
@@ -50,14 +44,14 @@
     {
       # Your custom packages
       # Acessible through 'nix build', 'nix shell', etc
-      packages = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
+      packages = forAllSystems (stdenv:
+        let pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
         in import ./pkgs { inherit pkgs; }
       );
       # Devshell for bootstrapping
       # Acessible through 'nix develop' or 'nix-shell' (legacy)
-      devShells = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
+      devShells = forAllSystems (stdenv:
+        let pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
         in import ./shell.nix { inherit pkgs; }
       );
 
@@ -80,17 +74,6 @@
             extraSpecialArgs = { inherit inputs outputs; };
             modules = [ ./hosts/engvm/home-manager.nix ];
           };
-
-
-      darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system:
-        darwin.lib.darwinSystem {
-          inherit system;
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            home-manager.darwinModules.home-manager
-            ./hosts/darwin
-          ];
-        });
 
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'

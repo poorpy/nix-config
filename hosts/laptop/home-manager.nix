@@ -3,7 +3,6 @@
     ./home/git.nix
     ./../../modules/home-manager/zsh
     ./../../modules/home-manager/sway
-    ./../../modules/home-manager/tmux
     ./../../modules/home-manager/xorg
     ./../../modules/home-manager/devops
     ./../../modules/home-manager/wezterm
@@ -21,6 +20,8 @@
 
     ./../../modules/home-manager/neovim.nix
     ./../../modules/home-manager/brave.nix
+
+    ./../../modules/home-manager/tmux
   ];
 
   nixpkgs = {
@@ -40,6 +41,8 @@
     username = "poorpy";
     homeDirectory = "/home/poorpy";
   };
+
+  tmux.enable = true;
 
   git.enable = true;
   jujutsu = {

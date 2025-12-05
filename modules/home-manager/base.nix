@@ -5,6 +5,8 @@
     jq
     fd
     fzf
+    bat
+    procs
     unzip
     zoxide
     ripgrep

@@ -1,6 +1,7 @@
 { outputs, pkgs, ... }: {
   imports = [
     ./../../modules/home-manager/zsh
+    ./../../modules/home-manager/fish
     ./../../modules/home-manager/sway
     ./../../modules/home-manager/tmux
     ./../../modules/home-manager/waybar
@@ -71,12 +72,19 @@
       email = "marczynski.bartosz@gmail.com";
     };
   };
+
   jujutsu = {
     enable = true;
     user = {
       email = "marczynski.bartosz@gmail.com";
       name = "Bartosz Marczyński";
     };
+  };
+
+  fish.enable = true;
+  tmux = {
+    enable = true;
+    useFish = true;
   };
 
   brave.enable = true;

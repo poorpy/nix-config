@@ -1,7 +1,6 @@
 { outputs, lib, pkgs, ... }: {
   imports = [
     ./../../modules/home-manager/zsh
-    ./../../modules/home-manager/tmux
     ./../../modules/home-manager/starship
     ./../../modules/home-manager/base.nix
     ./../../modules/home-manager/languages/go.nix
@@ -14,6 +13,8 @@
     ./../../modules/home-manager/git.nix
     ./../../modules/home-manager/jujutsu.nix
     ./../../modules/home-manager/neovim.nix
+
+    ./../../modules/home-manager/tmux
   ];
 
   nixpkgs = {
@@ -29,7 +30,11 @@
     };
   };
 
-  tmux.sshAgentOverride = true;
+  tmux = {
+    enable = true;
+    sshAgentOverride = true;
+  };
+
 
   git = {
     enable = true;

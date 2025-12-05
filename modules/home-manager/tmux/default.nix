@@ -1,11 +1,28 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+let
+  inherit (lib) mkIf mkOption mkEnableOption;
+  cfg = config.tmux;
+in
+{
 
-  options.tmux.sshAgentOverride = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
+  options.tmux = {
+    enable = mkEnableOption "tmux terminal multiplexer";
+    sshAgentOverride = mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
+    useFish = mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
   };
 
-  config = {
+  config = mkIf cfg.enable {
+    assertions = [{
+      assertion = !cfg.useFish || config.fish.enable;
+      message = "You cannot use 'tmux.useFish' unless Fish is enabled.";
+    }];
+
     home.packages = with pkgs; [
       sesh
     ];
@@ -26,6 +43,7 @@
           set-option -g status-position bottom
           set-option -sg escape-time 10
           set-option -g update-environment -r 
+          ${if config.tmux.useFish then "set-option -g default-shell ~/.nix-profile/bin/fish." else ""}
 
           bind h select-pane -L
           bind j select-pane -D

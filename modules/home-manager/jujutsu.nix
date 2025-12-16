@@ -28,7 +28,7 @@ in
       package = master.jujutsu;
       settings = {
         ui.default-command = "status";
-        git.auto-local-bookmark = true;
+        remotes.origin.auto-track-bookmarks = "glob:*";
         user = cfg.user;
       };
     };

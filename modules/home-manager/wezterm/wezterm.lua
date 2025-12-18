@@ -11,10 +11,12 @@ local function is_darwin()
 end
 
 local font_size = is_darwin() and 14 or 11
+local fish = os.getenv("HOME") .. "/.nix-profile/bin/fish"
 
 local config = {
 	font_size = font_size,
 	font = wezterm.font("JetBrains Mono"),
+	default_prog = { fish, "-l" },
 	use_fancy_tab_bar = false,
 	enable_scroll_bar = false,
 	enable_tab_bar = true,

@@ -1,8 +1,17 @@
 { outputs, lib, pkgs, ... }: {
   imports = [
+    ./../../modules/home-manager/wezterm
+    ./../../modules/home-manager/fish
+    ./../../modules/home-manager/tmux
+    ./../../modules/home-manager/starship
+
     ./../../modules/home-manager/base.nix
     ./../../modules/home-manager/git.nix
+    ./../../modules/home-manager/neovim.nix
     ./../../modules/home-manager/jujutsu.nix
+
+    ./../../modules/home-manager/languages/go.nix
+    ./../../modules/home-manager/languages/python.nix
   ];
 
   nixpkgs = {
@@ -24,10 +33,20 @@
     homeDirectory = lib.mkDefault "/Users/bmarczyn";
   };
 
+  neovim.enable = true;
+  fish.enable = true;
+  tmux = {
+    enable = true;
+    useFish = true;
+  };
+
   git = {
     enable = true;
-    userEmail = "bmarczyn@akamai.com";
-    extraConfig = {
+    user = {
+      name = "Bartosz Marczyński";
+      email = "bmarczyn@akamai.com";
+    };
+    settings = {
       url."ssh://git@git.source.akamai.com:7999" = {
         insteadOf = "https://git.source.akamai.com";
       };
@@ -41,4 +60,9 @@
       name = "Bartosz Marczyński";
     };
   };
+
+  home.packages = with pkgs; [
+    cacert
+    curl
+  ];
 }

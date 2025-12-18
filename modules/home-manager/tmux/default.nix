@@ -43,7 +43,8 @@ in
           set-option -g status-position bottom
           set-option -sg escape-time 10
           set-option -g update-environment -r 
-          ${if config.tmux.useFish then "set-option -g default-shell ~/.nix-profile/bin/fish." else ""}
+          ${if config.tmux.useFish then "set-option -g default-shell ~/.nix-profile/bin/fish" else ""}
+          ${if config.tmux.useFish then "set-option -g default-command \"~/.nix-profile/bin/fish -l\"" else ""}
 
           bind h select-pane -L
           bind j select-pane -D

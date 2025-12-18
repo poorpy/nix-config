@@ -27,7 +27,10 @@ in
       enable = true;
       package = master.jujutsu;
       settings = {
-        ui.default-command = "status";
+        ui = {
+          default-command = "status";
+          editor = "nvim";
+        };
         remotes.origin.auto-track-bookmarks = "glob:*";
         user = cfg.user;
       };

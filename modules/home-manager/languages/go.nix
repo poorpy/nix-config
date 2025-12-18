@@ -2,7 +2,7 @@
   programs.go = {
     enable = true;
     package = pkgs.master.go_1_25;
-    goPrivate = [ "go.akam.ai/*" "git.source.akamai.com/*" ];
+    env.GOPRIVATE = [ "go.akam.ai/*" "git.source.akamai.com/*" ];
   };
 
   home.packages =

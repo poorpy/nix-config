@@ -1,8 +1,8 @@
 { pkgs, ... }: {
   programs.go = {
     enable = true;
-    package = pkgs.master.go_1_24;
-    env.GOPRIVATE = [ "go.akam.ai/*" "git.source.akamai.com/*" ];
+    package = pkgs.master.go_1_25;
+    goPrivate = [ "go.akam.ai/*" "git.source.akamai.com/*" ];
   };
 
   home.packages =

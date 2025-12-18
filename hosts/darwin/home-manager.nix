@@ -1,16 +1,8 @@
 { outputs, lib, pkgs, ... }: {
   imports = [
-    ./home/git.nix
-
-    ./../../modules/home-manager/zsh
-    ./../../modules/home-manager/tmux
-    ./../../modules/home-manager/wezterm
-    ./../../modules/home-manager/starship
     ./../../modules/home-manager/base.nix
-    ./../../modules/home-manager/languages/go.nix
-    ./../../modules/home-manager/languages/rust.nix
-    ./../../modules/home-manager/languages/python.nix
-    ./../../modules/home-manager/languages/javascript.nix
+    ./../../modules/home-manager/git.nix
+    ./../../modules/home-manager/jujutsu.nix
   ];
 
   nixpkgs = {
@@ -28,22 +20,25 @@
 
   home = {
     username = "bmarczyn";
-    stateVersion = "23.11";
+    stateVersion = "25.11";
     homeDirectory = lib.mkDefault "/Users/bmarczyn";
   };
 
-  home.packages = with pkgs; [
-    p4
-    mpv
-    sshping
-    pgcli
-    ffmpeg
-    docker
-    docker-compose
-    git-lfs
-    ccls
-    bear
-    postgresql
-    colima
-  ];
+  git = {
+    enable = true;
+    userEmail = "bmarczyn@akamai.com";
+    extraConfig = {
+      url."ssh://git@git.source.akamai.com:7999" = {
+        insteadOf = "https://git.source.akamai.com";
+      };
+    };
+  };
+
+  jujutsu = {
+    enable = true;
+    user = {
+      email = "bmarczyn@akamai.com";
+      name = "Bartosz Marczyński";
+    };
+  };
 }

@@ -75,8 +75,14 @@
             modules = [ ./hosts/engvm/home-manager.nix ];
           };
 
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
+      homeConfigurations."bmarczyn@krk-mp6sf" =
+        home-manager.lib.homeManagerConfiguration
+          {
+            pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+            extraSpecialArgs = { inherit inputs outputs; };
+            modules = [ ./hosts/darwin/home-manager.nix ];
+          };
+
       nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         system = "x86_64-linux";

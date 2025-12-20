@@ -12,22 +12,13 @@ local function is_darwin()
 end
 
 local function is_in_path(cmd)
-	local query = string.format("command -v %s > /dev/null 2>&1", cmd)
-	local result = os.execute(query)
-
-	-- Lua 5.2+
-	if type(result) == "boolean" then
-		return result
-	end
-
-	-- Lua 5.1/JIT
-	return result == 0
+	local success, _, _ = wezterm.run_child_process({ "sh", "-c", "command -v " .. cmd })
+	return success
 end
 
 local font_size = is_darwin() and 14 or 11
 local fish = os.getenv("HOME") .. "/.nix-profile/bin/fish"
 local zsh = os.getenv("HOME") .. "/.nix-profile/bin/zsh"
-print("is_in_path:", is_in_path("fish"))
 local default_prog = is_in_path("fish") and { fish, "-l" } or { zsh }
 
 local config = {

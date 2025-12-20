@@ -99,6 +99,7 @@
       ffmpeg
       gimp3
 
+      buf
       pgcli
       docker-compose
       kubectl

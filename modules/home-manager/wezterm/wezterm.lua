@@ -12,8 +12,16 @@ local function is_darwin()
 end
 
 local function is_in_path(cmd)
-	local success, _, _ = wezterm.run_child_process({ "sh", "-c", "command -v " .. cmd })
-	return success
+	local query = "command -v " .. cmd .. " > /dev/null 2>&1"
+	local result = os.execute(query)
+
+	-- Lua 5.2+
+	if type(result) == "boolean" then
+		return result
+	end
+
+	-- Lua 5.1 / LuaJIT
+	return result == 0
 end
 
 local font_size = is_darwin() and 14 or 11

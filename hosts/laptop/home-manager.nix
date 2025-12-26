@@ -100,6 +100,7 @@
       gimp3
 
       buf
+      protobuf
       pgcli
       docker-compose
       kubectl

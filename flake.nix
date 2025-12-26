@@ -66,6 +66,14 @@
             extraSpecialArgs = { inherit inputs outputs; };
             modules = [ ./hosts/desktop/home-manager.nix ];
           };
+	  
+      homeConfigurations."poorpy@laptop" =
+        home-manager.lib.homeManagerConfiguration
+          {
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            extraSpecialArgs = { inherit inputs outputs; };
+            modules = [ ./hosts/laptop/home-manager.nix ];
+          };
 
       homeConfigurations."bmarczyn@muc-lhvsk4" =
         home-manager.lib.homeManagerConfiguration

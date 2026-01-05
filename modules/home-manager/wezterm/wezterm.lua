@@ -1,34 +1,17 @@
 local wezterm = require("wezterm")
 local action = wezterm.action
 
-local function is_darwin()
-	local handle = io.popen("uname")
-	if handle == nil then
-		return false
-	end
-	local result = handle:read("*a")
-	handle:close()
-	return result == "Darwin\n"
+local function file_exists(path)
+	local f <close> = io.open(path, "r")
+	return f ~= nil
 end
 
-local function is_in_path(cmd)
-	local query = "command -v " .. cmd .. " > /dev/null 2>&1"
-	local result = os.execute(query)
-
-	-- Lua 5.2+
-	if type(result) == "boolean" then
-		return result
-	end
-
-	-- Lua 5.1 / LuaJIT
-	return result == 0
-end
-
-local is_darwin = is_darwin()
+local is_darwin = wezterm.target_triple:find("darwin")
 local font_size = is_darwin and 14 or 11
+
 local fish = os.getenv("HOME") .. "/.nix-profile/bin/fish"
 local zsh = os.getenv("HOME") .. "/.nix-profile/bin/zsh"
-local default_prog = is_in_path("fish") and { fish, "-l" } or { zsh }
+local default_prog = file_exists(fish) and { fish, "-l" } or { zsh, "-l" }
 
 local config = {
 	font_size = font_size,

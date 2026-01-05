@@ -1,20 +1,22 @@
 { outputs, lib, pkgs, ... }: {
   imports = [
     ./../../modules/home-manager/zsh
+    ./../../modules/home-manager/fish
+    ./../../modules/home-manager/tmux
+    ./../../modules/home-manager/wezterm
     ./../../modules/home-manager/starship
+
     ./../../modules/home-manager/base.nix
+    ./../../modules/home-manager/git.nix
+    ./../../modules/home-manager/neovim.nix
+    ./../../modules/home-manager/jujutsu.nix
+
     ./../../modules/home-manager/languages/go.nix
     ./../../modules/home-manager/languages/cpp.nix
     ./../../modules/home-manager/languages/rust.nix
     ./../../modules/home-manager/languages/java.nix
     ./../../modules/home-manager/languages/python.nix
     ./../../modules/home-manager/languages/javascript.nix
-
-    ./../../modules/home-manager/git.nix
-    ./../../modules/home-manager/jujutsu.nix
-    ./../../modules/home-manager/neovim.nix
-
-    ./../../modules/home-manager/tmux
   ];
 
   nixpkgs = {
@@ -30,8 +32,17 @@
     };
   };
 
+  home = {
+    username = "bmarczyn";
+    stateVersion = "25.11";
+    homeDirectory = lib.mkDefault "/home/bmarczyn";
+  };
+
+  neovim.enable = true;
+  fish.enable = true;
   tmux = {
     enable = true;
+    useFish = true;
     sshAgentOverride = true;
   };
 
@@ -55,14 +66,6 @@
       email = "bmarczyn@akamai.com";
       name = "Bartosz Marczyński";
     };
-  };
-
-  neovim.enable = true;
-
-  home = {
-    username = "bmarczyn";
-    stateVersion = "23.11";
-    homeDirectory = lib.mkDefault "/home/bmarczyn";
   };
 
   home.packages = with pkgs; [

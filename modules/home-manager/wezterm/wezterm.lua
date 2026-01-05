@@ -24,7 +24,8 @@ local function is_in_path(cmd)
 	return result == 0
 end
 
-local font_size = is_darwin() and 14 or 11
+local is_darwin = is_darwin()
+local font_size = is_darwin and 14 or 11
 local fish = os.getenv("HOME") .. "/.nix-profile/bin/fish"
 local zsh = os.getenv("HOME") .. "/.nix-profile/bin/zsh"
 local default_prog = is_in_path("fish") and { fish, "-l" } or { zsh }
@@ -67,7 +68,11 @@ local config = {
 	},
 }
 
-if not is_darwin() then
+if is_darwin then
+	config.send_composed_key_when_left_alt_is_pressed = false
+end
+
+if not is_darwin then
 	config.xcursor_theme = "Adwaita"
 end
 

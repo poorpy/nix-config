@@ -17,7 +17,7 @@
     "8852cu"
   ];
   boot.extraModulePackages = with pkgs; [
-    nur.repos.hilorioze.rtl8852cu
+    rtl8852cu
   ];
   boot.extraModprobeConfig = ''
     	options 8852cu rtw_switch_usb_mode=1

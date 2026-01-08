@@ -11,11 +11,6 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     starship = {
       url = "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.6.1/starship-jj-0.6.1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,12 +37,6 @@
       forAllSystems = nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems);
     in
     {
-      # Your custom packages
-      # Acessible through 'nix build', 'nix shell', etc
-      packages = forAllSystems (stdenv:
-        let pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
-        in import ./pkgs { inherit pkgs; }
-      );
       # Devshell for bootstrapping
       # Acessible through 'nix develop' or 'nix-shell' (legacy)
       devShells = forAllSystems (stdenv:
@@ -66,7 +55,7 @@
             extraSpecialArgs = { inherit inputs outputs; };
             modules = [ ./hosts/desktop/home-manager.nix ];
           };
-	  
+
       homeConfigurations."poorpy@laptop" =
         home-manager.lib.homeManagerConfiguration
           {

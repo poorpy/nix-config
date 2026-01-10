@@ -32,7 +32,6 @@ local config = {
 	enable_wayland = false,
 	color_scheme = "nordfox",
 	keys = {
-		{ key = "D", mods = "CTRL|SHIFT", action = action.ShowDebugOverlay },
 		{ key = "t", mods = "ALT", action = action.SpawnTab("CurrentPaneDomain") },
 		{ key = "w", mods = "ALT", action = action.CloseCurrentTab({ confirm = true }) },
 		{ key = "n", mods = "ALT", action = action.ActivateTabRelative(1) },
@@ -43,11 +42,12 @@ local config = {
 		{ key = "4", mods = "ALT", action = action.ActivateTab(3) },
 		{ key = "5", mods = "ALT", action = action.ActivateTab(4) },
 
-		{ key = "v", mods = "SHIFT|CTRL", action = wezterm.action.PasteFrom("Clipboard") },
-		{ key = "c", mods = "SHIFT|CTRL", action = wezterm.action.CopyTo("Clipboard") },
-		{ key = "+", mods = "SHIFT|CTRL", action = "IncreaseFontSize" },
-		{ key = "_", mods = "SHIFT|CTRL", action = "DecreaseFontSize" }, -- s + c + -
-		{ key = ")", mods = "SHIFT|CTRL", action = "ResetFontSize" }, -- s + c + 0
+		{ key = "d", mods = "CTRL|SHIFT", action = action.ShowDebugOverlay },
+		{ key = "v", mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom("Clipboard") },
+		{ key = "c", mods = "CTRL|SHIFT", action = wezterm.action.CopyTo("Clipboard") },
+		{ key = "+", mods = "CTRL|SHIFT", action = "IncreaseFontSize" },
+		{ key = "_", mods = "CTRL|SHIFT", action = "DecreaseFontSize" }, -- s + c + -
+		{ key = ")", mods = "CTRL|SHIFT", action = "ResetFontSize" }, -- s + c + 0
 	},
 }
 

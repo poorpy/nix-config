@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }: {
-
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   nixpkgs = {
     overlays = [
       inputs.starship.overlays.default

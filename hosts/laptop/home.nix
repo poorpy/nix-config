@@ -1,40 +1,33 @@
-{ outputs, pkgs, ... }: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
-    ./../../modules/home-manager/zsh
-    ./../../modules/home-manager/fish
-    ./../../modules/home-manager/sway
-    ./../../modules/home-manager/tmux
-    ./../../modules/home-manager/waybar
-    ./../../modules/home-manager/wayland
-    ./../../modules/home-manager/wezterm
-    ./../../modules/home-manager/starship
-    ./../../modules/home-manager/swaylock
-    ./../../modules/home-manager/base.nix
-    ./../../modules/home-manager/languages/go.nix
-    ./../../modules/home-manager/languages/zig.nix
-    ./../../modules/home-manager/languages/rust.nix
-    ./../../modules/home-manager/languages/python.nix
-    ./../../modules/home-manager/languages/javascript.nix
+    inputs.self.homeManagerModules.zsh
+    inputs.self.homeManagerModules.fish
+    inputs.self.homeManagerModules.tmux
+    inputs.self.homeManagerModules.wezterm
+    inputs.self.homeManagerModules.starship
 
-    ./../../modules/home-manager/jujutsu.nix
-    ./../../modules/home-manager/git.nix
+    inputs.self.homeManagerModules.sway
+    inputs.self.homeManagerModules.waybar
+    inputs.self.homeManagerModules.wayland
+    inputs.self.homeManagerModules.swaylock
 
-    ./../../modules/home-manager/neovim.nix
-    ./../../modules/home-manager/brave.nix
+    inputs.self.homeManagerModules.brave
+
+    inputs.self.homeManagerModules.base
+    inputs.self.homeManagerModules.git
+    inputs.self.homeManagerModules.neovim
+    inputs.self.homeManagerModules.jujutsu
+
+    inputs.self.homeManagerModules.languages.go
+    inputs.self.homeManagerModules.languages.zig
+    inputs.self.homeManagerModules.languages.rust
+    inputs.self.homeManagerModules.languages.python
+    inputs.self.homeManagerModules.languages.javascript
   ];
-
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-    ];
-    config = {
-      allowUnfree = true;
-      # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = (_: true);
-    };
-  };
 
   home = {
     username = "poorpy";
@@ -47,7 +40,6 @@
       gtk.enable = true;
     };
   };
-
 
   gtk = {
     enable = true;
@@ -93,23 +85,22 @@
     desktopEntry = true;
   };
 
-  home.packages =
-    with pkgs; [
-      mpv
-      ffmpeg
-      gimp3
+  home.packages = with pkgs; [
+    mpv
+    ffmpeg
+    gimp3
 
-      buf
-      protobuf
-      pgcli
-      docker-compose
-      kubectl
+    buf
+    protobuf
+    pgcli
+    docker-compose
+    kubectl
 
-      asciidoc-full-with-plugins
-      zathura
-      unrar
-      zellij
-    ];
+    asciidoc-full-with-plugins
+    zathura
+    unrar
+    zellij
+  ];
 
   xdg.mimeApps.defaultApplications = {
     "image/gif" = "swayimg";

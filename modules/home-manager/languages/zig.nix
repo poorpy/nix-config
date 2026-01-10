@@ -1,5 +1,4 @@
-{ outputs, pkgs, lib, config, ... }: {
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
     zls
     zig

@@ -1,9 +1,11 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   inherit (lib) mkIf;
   cfg = config.brave;
-in
-{
+in {
   options.brave = {
     enable = lib.mkEnableOption "brave browser";
   };

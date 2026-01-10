@@ -1,23 +1,28 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) mkIf mkOption;
   cfg = config.jujutsu;
-  tomlFormat = pkgs.formats.toml { };
-in
-{
+  tomlFormat = pkgs.formats.toml {};
+in {
   options.jujutsu = {
     enable = lib.mkEnableOption "Jujutsu VCS";
     user = mkOption {
       type = tomlFormat.type;
-      default = { };
+      default = {};
     };
   };
 
   config = mkIf cfg.enable {
-    assertions = [{
-      assertion = cfg.user != { };
-      message = "jujutsu.user must be set when jujutsu is enabled.";
-    }];
+    assertions = [
+      {
+        assertion = cfg.user != {};
+        message = "jujutsu.user must be set when jujutsu is enabled.";
+      }
+    ];
 
     home.packages = with pkgs; [
       master.jjui

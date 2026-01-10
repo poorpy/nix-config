@@ -1,35 +1,41 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   system.stateVersion = "25.11";
 
   nixpkgs = {
     overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+      inputs.self.overlays.additions
+      inputs.self.overlays.modifications
+      inputs.self.overlays.unstable-packages
     ];
 
     config = {
       allowUnfree = true;
       packageOverrides = pkgs: {
-        intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+        intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
       };
     };
-
-    hostPlatform = lib.mkDefault "x86_64-linux";
   };
 
-  nix = {
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
-
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-
-    package = pkgs.lixPackageSets.latest.lix;
-
+  nix = let
+    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  in {
     settings = {
       experimental-features = "nix-command flakes";
-      trusted-users = [ "root" "poorpy" ];
+      trusted-users = ["root" "poorpy"];
       auto-optimise-store = true;
+      flake-registry = "";
+      nix-path = config.nix.nixPath;
     };
+
+    package = pkgs.lixPackageSets.latest.lix;
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
 
     gc = {
       automatic = true;
@@ -37,12 +43,12 @@
     };
   };
 
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
 
   users.users.poorpy = {
     initialPassword = "correcthorsebatterystaple";
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "video" "audio" "networkmanager" "input" ];
+    extraGroups = ["wheel" "docker" "video" "audio" "networkmanager" "input"];
     description = "poorpy";
     shell = pkgs.zsh;
     packages = with pkgs; [
@@ -87,13 +93,15 @@
       gnumake
       htop-vim
     ];
-    pathsToLink = [ "/libexec" ];
+    pathsToLink = ["/libexec"];
   };
 
-  fonts.packages = with pkgs; [
-    material-symbols
-    jetbrains-mono
-  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  fonts.packages = with pkgs;
+    [
+      material-symbols
+      jetbrains-mono
+    ]
+    ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   documentation.dev.enable = true;
   virtualisation.docker.enable = true;

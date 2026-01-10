@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, config, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     bear
     ccls

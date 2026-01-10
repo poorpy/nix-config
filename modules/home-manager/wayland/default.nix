@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
     wl-clipboard
     mako
@@ -11,5 +10,4 @@
     libnotify # adds notify-send binary
     bemenu
   ];
-
 }

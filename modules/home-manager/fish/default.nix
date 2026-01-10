@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) mkIf;
   cfg = config.fish;
-in
-{
+in {
   options.fish = {
     enable = lib.mkEnableOption "Fish shell";
   };

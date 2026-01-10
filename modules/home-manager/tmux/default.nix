@@ -1,10 +1,12 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) mkIf mkOption mkEnableOption;
   cfg = config.tmux;
-in
-{
-
+in {
   options.tmux = {
     enable = mkEnableOption "tmux terminal multiplexer";
     sshAgentOverride = mkOption {
@@ -18,10 +20,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    assertions = [{
-      assertion = !cfg.useFish || config.fish.enable;
-      message = "You cannot use 'tmux.useFish' unless Fish is enabled.";
-    }];
+    assertions = [
+      {
+        assertion = !cfg.useFish || config.fish.enable;
+        message = "You cannot use 'tmux.useFish' unless Fish is enabled.";
+      }
+    ];
 
     home.packages = with pkgs; [
       sesh
@@ -42,15 +46,27 @@ in
           set-option -sa terminal-overrides ",xterm*:Tc"
           set-option -g status-position bottom
           set-option -sg escape-time 10
-          set-option -g update-environment -r 
-          ${if config.tmux.useFish then "set-option -g default-shell ~/.nix-profile/bin/fish" else ""}
-          ${if config.tmux.useFish then "set-option -g default-command \"~/.nix-profile/bin/fish -l\"" else ""}
+          set-option -g update-environment -r
+          ${
+            if config.tmux.useFish
+            then "set-option -g default-shell ~/.nix-profile/bin/fish"
+            else ""
+          }
+          ${
+            if config.tmux.useFish
+            then "set-option -g default-command \"~/.nix-profile/bin/fish -l\""
+            else ""
+          }
 
           bind h select-pane -L
           bind j select-pane -D
           bind k select-pane -U
           bind l select-pane -R
-          ${if config.tmux.sshAgentOverride then "setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock" else ""}
+          ${
+            if config.tmux.sshAgentOverride
+            then "setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock"
+            else ""
+          }
 
           bind v split-window -h -c "#{pane_current_path}"
           bind s split-window -v -c "#{pane_current_path}"
@@ -74,7 +90,6 @@ in
         ''
         (builtins.readFile ./nightfox.sh)
       ];
-
     };
   };
 }

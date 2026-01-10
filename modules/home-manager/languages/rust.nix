@@ -1,7 +1,6 @@
-{ inputs, pkgs, lib, config, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     rustup
     lld
-    # llvmPackages.bintools
   ];
 }

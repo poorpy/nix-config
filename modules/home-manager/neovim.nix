@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) mkIf mkOption;
   cfg = config.neovim;
-in
-{
+in {
   options.neovim = {
     enable = lib.mkEnableOption "neovim";
     desktopEntry = mkOption {
@@ -22,7 +25,7 @@ in
       vscode-langservers-extracted
       stylua
       nixd
-      nixpkgs-fmt
+      alejandra
     ];
 
     programs.neovim = {

@@ -1,9 +1,14 @@
-{ inputs, outputs, pkgs, ... }: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/base.nix
-    ../../modules/nixos/wayland.nix
-    ../../modules/nixos/pipewire.nix
+
+    inputs.self.nixosModules.base
+    inputs.self.nixosModules.wayland
+    inputs.self.nixosModules.pipewire
   ];
 
   hardware.usb-modeswitch.enable = true;
@@ -20,7 +25,7 @@
     rtl8852cu
   ];
   boot.extraModprobeConfig = ''
-    	options 8852cu rtw_switch_usb_mode=1
+    options 8852cu rtw_switch_usb_mode=1
   '';
 
   services.blueman.enable = true;
@@ -33,7 +38,7 @@
   networking = {
     hostName = "desktop";
     wireless.iwd.enable = true;
-    nameservers = [ "1.1.1.1" "9.9.9.9" "8.8.8.8" ];
+    nameservers = ["1.1.1.1" "9.9.9.9" "8.8.8.8"];
     firewall.allowedTCPPorts = [
       6443
     ];

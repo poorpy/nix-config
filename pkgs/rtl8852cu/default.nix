@@ -1,10 +1,10 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, bc
-, kernel
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  bc,
+  kernel,
 }:
-
 stdenv.mkDerivation (finalAttrs: {
   pname = "rtl8852cu";
   version = "${kernel.version}-unstable-2025-08-20";
@@ -16,11 +16,13 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-nd6SoIG28Y29OXlwofrIqH8UNBVq9/TVsapX+ADuw10=";
   };
 
-  nativeBuildInputs = [
-    bc
-  ] ++ kernel.moduleBuildDependencies;
+  nativeBuildInputs =
+    [
+      bc
+    ]
+    ++ kernel.moduleBuildDependencies;
 
-  hardeningDisable = [ "pic" ];
+  hardeningDisable = ["pic"];
 
   enableParallelBuilding = true;
 
@@ -37,16 +39,18 @@ stdenv.mkDerivation (finalAttrs: {
       --replace-fail "sh edit-options.sh" ""
   '';
 
-  makeFlags = [
-    "KSRC=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
-    "KVER=${kernel.modDirVersion}"
-    "ARCH=${stdenv.hostPlatform.linuxArch}"
-    "USER_MODULE_NAME=8852cu"
-  ] ++ lib.optionals (stdenv.hostPlatform != stdenv.buildPlatform) [
-    "CROSS_COMPILE=${stdenv.cc.targetPrefix}"
-  ];
+  makeFlags =
+    [
+      "KSRC=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
+      "KVER=${kernel.modDirVersion}"
+      "ARCH=${stdenv.hostPlatform.linuxArch}"
+      "USER_MODULE_NAME=8852cu"
+    ]
+    ++ lib.optionals (stdenv.hostPlatform != stdenv.buildPlatform) [
+      "CROSS_COMPILE=${stdenv.cc.targetPrefix}"
+    ];
 
-  buildFlags = [ "modules" ];
+  buildFlags = ["modules"];
 
   preInstall = ''
     mkdir -p "$out/lib/modules/${kernel.modDirVersion}/kernel/net/wireless/"
@@ -64,7 +68,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/morrownr/rtl8852cu-20240510";
     license = licenses.gpl2Only;
     platforms = platforms.linux;
-    maintainers = [ ];
+    maintainers = [];
     broken = kernel.kernelOlder "5.10" || kernel.kernelAtLeast "6.17";
   };
 })

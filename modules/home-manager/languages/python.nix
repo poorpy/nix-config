@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home.packages = with pkgs; [
     master.uv
     master.pipx
@@ -7,6 +11,7 @@
     master.pyright
     master.python313
     master.python313Packages.ptpython
+    inputs.fix-python.packages.${pkgs.system}.default
   ];
 
   programs.poetry = {

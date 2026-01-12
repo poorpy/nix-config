@@ -17,10 +17,14 @@
       url = "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.6.1/starship-jj-0.6.1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    fix-python = {
+      url = "github:GuillaumeDesforges/fix-python";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
     ...

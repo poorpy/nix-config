@@ -70,7 +70,5 @@
     cassandra
     cockroachdb
     parallel
-
-    copilot-cli
   ];
 }

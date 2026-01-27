@@ -1,8 +1,7 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  ...
+{ inputs
+, lib
+, pkgs
+, ...
 }: {
   imports = [
     inputs.self.homeManagerModules.zsh
@@ -57,5 +56,7 @@
   home.packages = with pkgs; [
     cacert
     curl
+    tree
+    sqlite
   ];
 }

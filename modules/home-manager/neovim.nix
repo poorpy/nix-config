@@ -26,6 +26,7 @@ in {
       stylua
       nixd
       alejandra
+      master.tree-sitter
     ];
 
     programs.neovim = {

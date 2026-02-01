@@ -100,6 +100,9 @@
     zathura
     unrar
     zellij
+
+    openssl
+    master.gemini-cli
   ];
 
   xdg.mimeApps.defaultApplications = {

@@ -16,6 +16,9 @@ if status is-interactive
         curl -sL $fisher_url | source
         fisher update
     end
+    if test -f $HOME/.extra.fish
+        source $HOME/.extra.fish
+    end
 
     set -g fish_color_command green
     set -g fish_color_param normal

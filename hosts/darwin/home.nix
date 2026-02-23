@@ -17,6 +17,7 @@
 
     inputs.self.homeManagerModules.languages.go
     inputs.self.homeManagerModules.languages.python
+    inputs.self.homeManagerModules.languages.javascript
   ];
 
   home = {

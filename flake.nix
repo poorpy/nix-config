@@ -14,7 +14,7 @@
     };
 
     starship = {
-      url = "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.6.1/starship-jj-0.6.1.tar.gz";
+      url = "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.6.1/starship-jj-0.7.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

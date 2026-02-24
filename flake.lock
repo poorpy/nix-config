@@ -88,11 +88,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770260404,
-        "narHash": "sha256-3iVX1+7YUIt23hBx1WZsUllhbmP2EnXrV8tCRbLxHc8=",
+        "lastModified": 1771744638,
+        "narHash": "sha256-EDLi+YAsEEAmMeZe1v6GccuGRbCkpSZp/+A6g+pivR8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0d782ee42c86b196acff08acfbf41bb7d13eed5b",
+        "rev": "cb6c151f5c9db4df0b69d06894dc8484de1f16a0",
         "type": "github"
       },
       "original": {
@@ -104,11 +104,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1770136044,
-        "narHash": "sha256-tlFqNG/uzz2++aAmn4v8J0vAkV3z7XngeIIB3rM3650=",
+        "lastModified": 1771714954,
+        "narHash": "sha256-nhZJPnBavtu40/L2aqpljrfUNb2rxmWTmSjK2c9UKds=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e576e3c9cf9bad747afcddd9e34f51d18c855b4e",
+        "rev": "afbbf774e2087c3d734266c22f96fca2e78d3620",
         "type": "github"
       },
       "original": {
@@ -120,11 +120,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1770470402,
-        "narHash": "sha256-bdWF+0HyDWJp6hF97O8omGVpfE2UeQorOteAbZebaSk=",
+        "lastModified": 1771930579,
+        "narHash": "sha256-cvCJxHatMea/FrivWtgoWn5mVzVC7oW3id77gIGqg7Y=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d7ab0bd98baae2b257ef6b8d90978acd69745e37",
+        "rev": "a91c3c932b54f7c43e351ca4a01a7d6910565444",
         "type": "github"
       },
       "original": {
@@ -136,11 +136,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1770197578,
-        "narHash": "sha256-AYqlWrX09+HvGs8zM6ebZ1pwUqjkfpnv8mewYwAo+iM=",
+        "lastModified": 1771848320,
+        "narHash": "sha256-0MAd+0mun3K/Ns8JATeHT1sX28faLII5hVLq0L3BdZU=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "00c21e4c93d963c50d4c0c89bfa84ed6e0694df2",
+        "rev": "2fc6539b481e1d2569f25f8799236694180c0993",
         "type": "github"
       },
       "original": {
@@ -190,11 +190,11 @@
         "lastModified": 1763156536,
         "narHash": "sha256-KYNDutr+2UGATpQu9oVrer4hh+eF4FynbcIvc4hH5qQ=",
         "type": "tarball",
-        "url": "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.6.1/starship-jj-0.6.1.tar.gz"
+        "url": "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.6.1/starship-jj-0.7.0.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.6.1/starship-jj-0.6.1.tar.gz"
+        "url": "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.6.1/starship-jj-0.7.0.tar.gz"
       }
     },
     "systems": {

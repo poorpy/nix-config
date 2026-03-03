@@ -90,7 +90,7 @@
     ffmpeg
     gimp3
 
-    buf
+    master.buf
     protobuf
     pgcli
     docker-compose

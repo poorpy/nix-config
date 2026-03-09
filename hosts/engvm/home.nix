@@ -69,6 +69,9 @@
     protobuf
     cassandra
     cockroachdb
-    parallel
+    moreutils
+    tokei
+    gemini-cli-bin
+    github-copilot-cli
   ];
 }

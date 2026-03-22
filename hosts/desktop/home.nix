@@ -2,7 +2,23 @@
   inputs,
   pkgs,
   ...
-}: {
+}: let
+  turso-from-flake = pkgs.rustPlatform.buildRustPackage {
+    pname = "tursodb";
+    version = "flake-source";
+    src = inputs.turso;
+    nativeBuildInputs = [
+      pkgs.pkg-config
+      pkgs.python3
+    ];
+    buildInputs = [
+      pkgs.openssl
+    ];
+    cargoHash = "sha256-0vz/T40tahNGzZLu+j6GFYdNoKhpfIZNu2NSFihPVZ8=";
+    doCheck = false;
+    OPENSSL_NO_VENDOR = 1;
+  };
+in {
   imports = [
     inputs.self.homeManagerModules.zsh
     inputs.self.homeManagerModules.fish
@@ -102,6 +118,7 @@
     zellij
 
     openssl
+    turso-from-flake
     master.gemini-cli
   ];
 

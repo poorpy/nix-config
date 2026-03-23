@@ -20,17 +20,13 @@
   };
 in {
   imports = [
+    ./hyprland/home.nix
+
     inputs.self.homeManagerModules.zsh
     inputs.self.homeManagerModules.fish
     inputs.self.homeManagerModules.tmux
-    inputs.self.homeManagerModules.wezterm
     inputs.self.homeManagerModules.ghostty
     inputs.self.homeManagerModules.starship
-
-    inputs.self.homeManagerModules.sway
-    inputs.self.homeManagerModules.waybar
-    inputs.self.homeManagerModules.wayland
-    inputs.self.homeManagerModules.swaylock
 
     inputs.self.homeManagerModules.brave
 

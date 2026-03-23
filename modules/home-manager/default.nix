@@ -8,13 +8,8 @@
   fish = import ./fish;
   languages = import ./languages;
   starship = import ./starship;
-  sway = import ./sway;
-  swaylock = import ./swaylock;
   tmux = import ./tmux;
-  waybar = import ./waybar;
-  wayland = import ./wayland;
   wezterm = import ./wezterm;
   ghostty = import ./ghostty;
-  xorg = import ./xorg;
   zsh = import ./zsh;
 }

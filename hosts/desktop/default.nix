@@ -5,9 +5,9 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./hyprland/nixos.nix
 
     inputs.self.nixosModules.base
-    inputs.self.nixosModules.wayland
     inputs.self.nixosModules.pipewire
   ];
 
@@ -49,6 +49,8 @@
     dns = "systemd-resolved";
     wifi.backend = "iwd";
   };
+
+  services.upower.enable = true;
 
   programs.steam.enable = true;
   services.printing.enable = true;

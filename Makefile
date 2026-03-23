@@ -6,7 +6,7 @@ HOST := $(shell hostname)
 all: nixos home
 
 home:
-	home-manager switch --flake .#$(USER)@$(HOST)
+	home-manager switch -b backup --flake .#$(USER)@$(HOST) 
 
 nixos:
 	nixos-rebuild switch --flake .#$(HOST) --sudo 

@@ -27,6 +27,11 @@
       url = "github:GuillaumeDesforges/fix-python";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -50,6 +55,13 @@
     overlays = import ./overlays {inherit inputs;};
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
+
+    nixConfig = {
+      extra-substituters = ["https://noctalia.cachix.org"];
+      extra-trusted-public-keys = [
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      ];
+    };
 
     homeConfigurations."poorpy@desktop" =
       home-manager.lib.homeManagerConfiguration

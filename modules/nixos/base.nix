@@ -48,7 +48,7 @@
   users.users.poorpy = {
     initialPassword = "correcthorsebatterystaple";
     isNormalUser = true;
-    extraGroups = ["wheel" "docker" "video" "audio" "networkmanager" "input"];
+    extraGroups = ["wheel" "docker" "video" "audio" "networkmanager" "input" "i2c"];
     description = "poorpy";
     shell = pkgs.zsh;
     packages = with pkgs; [

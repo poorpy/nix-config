@@ -14,6 +14,7 @@
   waybar = import ./waybar;
   wayland = import ./wayland;
   wezterm = import ./wezterm;
+  ghostty = import ./ghostty;
   xorg = import ./xorg;
   zsh = import ./zsh;
 }

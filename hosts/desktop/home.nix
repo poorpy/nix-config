@@ -24,6 +24,7 @@ in {
     inputs.self.homeManagerModules.fish
     inputs.self.homeManagerModules.tmux
     inputs.self.homeManagerModules.wezterm
+    inputs.self.homeManagerModules.ghostty
     inputs.self.homeManagerModules.starship
 
     inputs.self.homeManagerModules.sway
@@ -99,6 +100,10 @@ in {
   neovim = {
     enable = true;
     desktopEntry = true;
+  };
+  ghostty = {
+    enable = true;
+    useFish = true;
   };
 
   home.packages = with pkgs; [

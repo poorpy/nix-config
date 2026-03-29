@@ -21,13 +21,6 @@
     "${config.home.homeDirectory}/.config/nix-config/hosts/desktop/hyprland/noctalia.json";
 
   services.hyprpolkitagent.enable = true;
-  services.blueman-applet = {
-    enable = true;
-    systemdTargets = [
-      "hyprland-session.target"
-    ];
-  };
-
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.unstable.hyprland;
@@ -48,6 +41,7 @@
         touchpad = {
           natural_scroll = true;
           tap-to-click = true;
+          scroll_factor = 0.9;
         };
       };
 
@@ -99,6 +93,17 @@
         blur = true;
         blur_popups = true;
       };
+
+      gesture = [
+        "3, horizontal, workspace"
+      ];
+
+      device = [
+        {
+          name = "apple-inc.-magic-trackpad-2";
+          sensitivity = 0.15;
+        }
+      ];
 
       workspace =
         [

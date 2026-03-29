@@ -15,6 +15,8 @@
     package = pkgs.unstable.hyprland;
   };
 
+  programs.ssh.startAgent = true;
+
   services.xserver = {
     enable = true;
     xkb = {

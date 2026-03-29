@@ -20,7 +20,6 @@
     config.lib.file.mkOutOfStoreSymlink
     "${config.home.homeDirectory}/.config/nix-config/hosts/desktop/hyprland/noctalia.json";
 
-  services.ssh-agent.enable = true;
   services.hyprpolkitagent.enable = true;
   services.blueman-applet = {
     enable = true;
@@ -54,6 +53,12 @@
 
       cursor = {
         hide_on_key_press = false;
+      };
+
+      misc = {
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+        force_default_wallpaper = 0;
       };
 
       monitor = [

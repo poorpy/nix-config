@@ -61,5 +61,7 @@
   environment.sessionVariables = {
     XCURSOR_THEME = "Adwaita";
     XCURSOR_SIZE = "24";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 }

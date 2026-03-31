@@ -10,7 +10,7 @@ stdenv.mkDerivation (finalAttrs: {
   version = "${kernel.version}-unstable-2025-08-20";
 
   src = fetchFromGitHub {
-    owner = "morrownr";
+    owner = "poorpy";
     repo = "rtl8852cu-20240510";
     rev = "15788c86a7ae14dd74cac7e475b6f4a9953a2c8c";
     hash = "sha256-nd6SoIG28Y29OXlwofrIqH8UNBVq9/TVsapX+ADuw10=";

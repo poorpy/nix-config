@@ -1,5 +1,7 @@
-set -U fish_greeting
-set -U EDITOR nvim
+set -Ux fish_greeting
+set -Ux EDITOR nvim
+set -Ux fish_color_autosuggestion brblack
+set -Ux fish_color_selection --background=brblack
 set -l fisher_url https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish
 
 function _smart_tab_completion

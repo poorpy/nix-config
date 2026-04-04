@@ -237,6 +237,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "noctalia": "noctalia",
         "starship": "starship",
+        "tree-sitter": "tree-sitter",
         "turso": "turso"
       }
     },
@@ -355,6 +356,27 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tree-sitter": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1774978270,
+        "narHash": "sha256-fcFEfoALrbpBD6rWogxJ7FNVlvDQgswoX9ylRgko+8Q=",
+        "owner": "tree-sitter",
+        "repo": "tree-sitter",
+        "rev": "cd5b087cd9f45ca6d93ab1954f6b7c8534f324d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tree-sitter",
+        "ref": "v0.26.8",
+        "repo": "tree-sitter",
         "type": "github"
       }
     },

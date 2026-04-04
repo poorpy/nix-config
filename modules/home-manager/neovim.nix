@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -26,7 +27,7 @@ in {
       stylua
       nixd
       alejandra
-      master.tree-sitter
+      inputs.tree-sitter.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
     programs.neovim = {

@@ -32,6 +32,11 @@
       url = "github:noctalia-dev/noctalia-shell/v4.7.5";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    tree-sitter = {
+      url = "github:tree-sitter/tree-sitter/v0.26.8";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = {

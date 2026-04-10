@@ -70,8 +70,10 @@
     cassandra
     cockroachdb
     moreutils
+    # swig
     tokei
-    gemini-cli-bin
-    github-copilot-cli
+    master.opencode
+    master.gemini-cli-bin
+    master.github-copilot-cli
   ];
 }

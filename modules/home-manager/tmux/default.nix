@@ -40,13 +40,18 @@ in {
       newSession = false;
       historyLimit = 10000;
       sensibleOnTop = true;
-      terminal = "xterm-256color";
+      terminal = "screen-256color";
       extraConfig = lib.strings.concatStringsSep "\n" [
         ''
           set-option -sa terminal-overrides ",xterm*:Tc"
           set-option -g status-position bottom
           set-option -sg escape-time 10
           set-option -g update-environment -r
+          set -g mouse on
+          set -s set-clipboard on
+          set -g allow-passthrough on
+          bind C-a send-prefix
+
           ${
             if config.tmux.useFish
             then "set-option -g default-shell ~/.nix-profile/bin/fish"

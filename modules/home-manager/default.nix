@@ -1,6 +1,7 @@
 {
   base = import ./base.nix;
   brave = import ./brave.nix;
+  chromium = import ./chromium.nix;
   git = import ./git.nix;
   jujutsu = import ./jujutsu.nix;
   neovim = import ./neovim.nix;

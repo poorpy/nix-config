@@ -29,6 +29,7 @@ in {
     inputs.self.homeManagerModules.starship
 
     inputs.self.homeManagerModules.brave
+    inputs.self.homeManagerModules.chromium
 
     inputs.self.homeManagerModules.base
     inputs.self.homeManagerModules.git
@@ -92,7 +93,7 @@ in {
     useFish = true;
   };
 
-  brave.enable = true;
+  chromium.enable = true;
   neovim = {
     enable = true;
     desktopEntry = true;

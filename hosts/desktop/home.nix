@@ -119,6 +119,9 @@ in {
     unrar
     zellij
 
+    love
+    qbe
+
     openssl
     turso-from-flake
     master.gemini-cli

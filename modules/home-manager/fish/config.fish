@@ -57,6 +57,14 @@ if status is-interactive
     alias primary="wl-copy --primary";
     alias gdb="gdb -quiet";
     alias terraform="tofu";
+
+    set -gx GOPATH $HOME/.go/
+    
+    set extra_paths \
+        "$HOME/.cargo/bin" \
+        "$HOME/.local/bin" \
+        "$HOME/.luarocks/bin" \
+        "$GOPATH/bin" 
+
+    fish_add_path -a $extra_paths
 end
-
-

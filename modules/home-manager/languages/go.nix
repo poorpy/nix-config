@@ -10,7 +10,6 @@
     master.gopls
     master.templ
     master.golines
-    master.gotools
     master.goreleaser
     master.gomodifytags
     master.golangci-lint

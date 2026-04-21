@@ -1,13 +1,13 @@
-{ inputs
-, lib
-, pkgs
-, ...
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
 }: {
   imports = [
     inputs.self.homeManagerModules.zsh
     inputs.self.homeManagerModules.fish
     inputs.self.homeManagerModules.tmux
-    inputs.self.homeManagerModules.wezterm
     inputs.self.homeManagerModules.starship
 
     inputs.self.homeManagerModules.base

@@ -60,11 +60,11 @@ if status is-interactive
 
     set -gx GOPATH $HOME/.go/
     
-    set extra_paths \
-        "$HOME/.cargo/bin" \
-        "$HOME/.local/bin" \
-        "$HOME/.luarocks/bin" \
-        "$GOPATH/bin" 
+    # set extra_paths \
+    #     "$HOME/.cargo/bin" \
+    #     "$HOME/.local/bin" \
+    #     "$HOME/.luarocks/bin" \
+    #     "$GOPATH/bin" 
 
     fish_add_path -a $extra_paths
 end

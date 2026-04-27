@@ -95,7 +95,16 @@
     homeConfigurations."bmarczyn@krk-mp6sf" =
       home-manager.lib.homeManagerConfiguration
       {
-        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+        pkgs = import nixpkgs {
+          system = "aarch64-darwin";
+          overlays = [
+            (final: prev: {
+              fish = prev.fish.overrideAttrs (old: {
+                allowSubstitutes = false;
+              });
+            })
+          ];
+        };
         extraSpecialArgs = {inherit inputs;};
         modules = [./hosts/darwin/home.nix];
       };

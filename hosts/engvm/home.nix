@@ -70,7 +70,8 @@
     cassandra
     cockroachdb
     moreutils
-    # swig
+    master.buf
+    swig
     tokei
     master.opencode
     master.gemini-cli-bin

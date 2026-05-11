@@ -73,7 +73,6 @@
     master.buf
     swig
     tokei
-    master.opencode
     master.gemini-cli-bin
     master.github-copilot-cli
   ];

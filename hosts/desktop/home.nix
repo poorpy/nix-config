@@ -122,6 +122,7 @@ in {
     love
     qbe
 
+    dig
     openssl
     turso-from-flake
     master.gemini-cli

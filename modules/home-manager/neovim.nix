@@ -34,8 +34,11 @@ in {
       enable = true;
       viAlias = true;
       vimAlias = true;
+      withRuby = true;
       withNodeJs = true;
+      withPython3 = true;
       defaultEditor = true;
+      sideloadInitLua = true;
       package = pkgs.master.neovim-unwrapped;
     };
 

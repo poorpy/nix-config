@@ -66,7 +66,7 @@ in {
       name = "Adwaita-dark";
       package = pkgs.gnome-themes-extra;
     };
-
+    gtk4.theme = null;
     cursorTheme.name = "Adwaita";
     cursorTheme.package = pkgs.adwaita-icon-theme;
   };

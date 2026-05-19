@@ -5,7 +5,7 @@
 }: {
   home.packages = with pkgs; [
     master.uv
-    master.pipx
+    unstable.pipx
     master.ruff
     master.mypy
     master.pyright

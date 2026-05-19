@@ -1,8 +1,9 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    nodePackages.typescript-language-server
-    nodePackages.eslint
+    typescript-language-server
+    eslint
     nodenv
     nodejs
+    bun
   ];
 }

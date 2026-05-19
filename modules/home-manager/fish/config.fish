@@ -59,8 +59,9 @@ if status is-interactive
     alias terraform="tofu";
 
     set -gx GOPATH $HOME/.go/
-    
-    # set extra_paths \
+
+    set extra_paths \
+        "$HOME/.bun/bin"
     #     "$HOME/.cargo/bin" \
     #     "$HOME/.local/bin" \
     #     "$HOME/.luarocks/bin" \

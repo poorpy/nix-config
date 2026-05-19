@@ -58,7 +58,10 @@
 
   services.upower.enable = true;
 
-  programs.steam.enable = true;
+  programs = {
+    steam.enable = true;
+    nix-ld.enable = true;
+  };
   services.printing.enable = true;
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme

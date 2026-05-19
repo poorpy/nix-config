@@ -9,8 +9,8 @@
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     starship = {
@@ -29,8 +29,8 @@
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell/v4.7.5";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:noctalia-dev/noctalia-shell/v4.7.7";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     tree-sitter = {
@@ -41,6 +41,7 @@
 
   outputs = {
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     ...
   } @ inputs: let
@@ -71,7 +72,7 @@
     homeConfigurations."poorpy@desktop" =
       home-manager.lib.homeManagerConfiguration
       {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;};
         modules = [./hosts/desktop/home.nix];
       };
@@ -79,7 +80,7 @@
     homeConfigurations."poorpy@laptop" =
       home-manager.lib.homeManagerConfiguration
       {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;};
         modules = [./hosts/laptop/home.nix];
       };
@@ -87,7 +88,7 @@
     homeConfigurations."bmarczyn@muc-lhvsk4" =
       home-manager.lib.homeManagerConfiguration
       {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;};
         modules = [./hosts/engvm/home.nix];
       };
@@ -95,7 +96,7 @@
     homeConfigurations."bmarczyn@krk-mp6sf" =
       home-manager.lib.homeManagerConfiguration
       {
-        pkgs = import nixpkgs {
+        pkgs = import nixpkgs-unstable {
           system = "aarch64-darwin";
           overlays = [
             (final: prev: {

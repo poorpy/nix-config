@@ -1,0 +1,4 @@
+{
+  "workspace": { "library": ["${hyprland}/share/hypr/stubs"] },
+  "diagnostics": { "globals": ["hl"] }
+}

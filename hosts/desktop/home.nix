@@ -126,7 +126,6 @@ in {
     openssl
     turso-from-flake
     master.gemini-cli
-    master.opencode
   ];
 
   xdg.mimeApps.defaultApplications = {

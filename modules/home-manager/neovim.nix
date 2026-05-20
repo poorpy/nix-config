@@ -27,6 +27,7 @@ in {
       stylua
       nixd
       alejandra
+      lsof
       inputs.tree-sitter.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 

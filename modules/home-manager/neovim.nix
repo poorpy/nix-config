@@ -41,6 +41,10 @@ in {
       defaultEditor = true;
       sideloadInitLua = true;
       package = pkgs.master.neovim-unwrapped;
+      extraPackages = with pkgs; [
+        gcc
+        inputs.tree-sitter.packages.${pkgs.stdenv.hostPlatform.system}.default
+      ];
     };
 
     xdg = mkIf cfg.desktopEntry {

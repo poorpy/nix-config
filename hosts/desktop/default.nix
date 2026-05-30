@@ -15,18 +15,10 @@
   hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
-  boot.initrd.kernelModules = [
-    "8852cu"
-  ];
-  boot.extraModulePackages = with pkgs; [
-    rtl8852cu
-  ];
-  boot.extraModprobeConfig = ''
-    options 8852cu rtw_switch_usb_mode=1
-  '';
 
   services.blueman.enable = true;
 
@@ -64,6 +56,7 @@
   };
   services.printing.enable = true;
   environment.systemPackages = with pkgs; [
+    usbutils
     adwaita-icon-theme
   ];
 

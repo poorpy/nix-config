@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -19,7 +19,7 @@
     };
 
     turso = {
-      url = "github:tursodatabase/turso/v0.5.0";
+      url = "github:tursodatabase/turso/v0.6.1";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 

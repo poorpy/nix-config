@@ -100,6 +100,9 @@
     [
       material-symbols
       jetbrains-mono
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      wqy_zenhei
     ]
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 

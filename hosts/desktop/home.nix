@@ -14,7 +14,7 @@
     buildInputs = [
       pkgs.openssl
     ];
-    cargoHash = "sha256-0vz/T40tahNGzZLu+j6GFYdNoKhpfIZNu2NSFihPVZ8=";
+    cargoHash = "sha256-bmyMjjjmKeDySDzyOJCtDHF9HD/u/A4Jt2qxpZgHVqY=";
     doCheck = false;
     OPENSSL_NO_VENDOR = 1;
   };
@@ -46,6 +46,7 @@ in {
   home = {
     username = "poorpy";
     homeDirectory = "/home/poorpy";
+    enableNixpkgsReleaseCheck = false;
     pointerCursor = {
       package = pkgs.adwaita-icon-theme;
       name = "Adwaita";

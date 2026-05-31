@@ -137,27 +137,27 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1779971959,
-        "narHash": "sha256-R5nauXyqyfRUFiZycFFZdkF7wl6eaUpPLst35+2nJQY=",
+        "lastModified": 1779560665,
+        "narHash": "sha256-tpyBcxPpcQb8ukyNF7DoCwfSY3VPsxHoYwj00Cayv5o=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ec942ba042dad5ef097e2ef3a3effc034241f011",
+        "rev": "64c08a7ca051951c8eae34e3e3cb1e202fe36786",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-26.05",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1780178276,
-        "narHash": "sha256-Knhm+iKrWNbrIxatp8shkQz4KGJV35M7VDnzJw0sc0o=",
+        "lastModified": 1780230815,
+        "narHash": "sha256-hlg33YJmiAfuDSOwAvOVHo6xnH1p/Olu9nFT7gYotqQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e2ca5599b4a23b112563c6dad47778330f3ba630",
+        "rev": "e41c0b9905e9193bb2799dabd7e7f94390c860bc",
         "type": "github"
       },
       "original": {
@@ -412,16 +412,16 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1772646107,
-        "narHash": "sha256-rRYso58pUsH61Q4FcAm/VT5qPN01ctnjbWjqR2WZ508=",
+        "lastModified": 1779440667,
+        "narHash": "sha256-32bYI3pWKlQTWZr/AS5aULZt4sgBHMswMBViGlRiwjk=",
         "owner": "tursodatabase",
         "repo": "turso",
-        "rev": "e1f2ee925ba4081b42529cacf8dcd1e5f21ea850",
+        "rev": "76af5a1250cd98bb26c13862093a638714b0a3a6",
         "type": "github"
       },
       "original": {
         "owner": "tursodatabase",
-        "ref": "v0.5.0",
+        "ref": "v0.6.1",
         "repo": "turso",
         "type": "github"
       }

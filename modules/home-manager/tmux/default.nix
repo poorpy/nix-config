@@ -41,6 +41,14 @@ in {
       historyLimit = 10000;
       sensibleOnTop = true;
       terminal = "screen-256color";
+      plugins = with pkgs.tmuxPlugins; [
+        {
+          plugin = tmux-floax;
+          extraConfig = ''
+            set -g @floax-bind '-n M-g'
+          '';
+        }
+      ];
       extraConfig = lib.strings.concatStringsSep "\n" [
         ''
           set-option -sa terminal-overrides ",xterm*:Tc"

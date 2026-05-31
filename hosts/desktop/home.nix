@@ -123,10 +123,10 @@ in {
     love
     qbe
 
+    rtk
     dig
     openssl
     turso-from-flake
-    master.gemini-cli
   ];
 
   xdg.mimeApps.defaultApplications = {

@@ -6,6 +6,17 @@
 }: let
   inherit (lib) mkIf mkOption mkEnableOption;
   cfg = config.tmux;
+  floax = pkgs.tmuxPlugins.tmux-floax;
+  # Sync the floax `scratch` session to the current pane's directory, then
+  # open the floax popup. Bound to <prefix>+g so the cwd change is manual
+  # (automatic path-changing is disabled via @floax-change-path below).
+  floaxSync = pkgs.writeShellScript "floax-sync" ''
+    dir="$(tmux display-message -p '#{pane_current_path}')"
+    if tmux has-session -t scratch 2>/dev/null; then
+      tmux send-keys -R -t scratch "cd \"$dir\"" C-m
+    fi
+    exec ${floax}/share/tmux-plugins/tmux-floax/scripts/floax.sh
+  '';
 in {
   options.tmux = {
     enable = mkEnableOption "tmux terminal multiplexer";
@@ -46,6 +57,9 @@ in {
           plugin = tmux-floax;
           extraConfig = ''
             set -g @floax-bind '-n M-g'
+            # Don't auto-cd the floax pane to the current path on open;
+            # use <prefix>+g (see floaxSync) to change the dir on demand.
+            set -g @floax-change-path 'false'
           '';
         }
       ];
@@ -85,6 +99,9 @@ in {
           bind s split-window -v -c "#{pane_current_path}"
           unbind '"'
           unbind %
+
+          # Sync floax scratch dir to current pane path, then open the popup.
+          bind g run-shell "${floaxSync}"
 
           bind-key "T" run-shell "sesh connect \"$(
             sesh list --icons | fzf-tmux -p 80%,70% \

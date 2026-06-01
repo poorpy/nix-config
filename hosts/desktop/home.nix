@@ -108,6 +108,7 @@ in {
     mpv
     ffmpeg
     gimp3
+    spotify
 
     master.buf
     protobuf
@@ -118,10 +119,13 @@ in {
     asciidoc-full-with-plugins
     zathura
     unrar
-    zellij
+    stylelint
+    js-beautify
 
     love
     qbe
+    hugo
+    zola
 
     rtk
     dig

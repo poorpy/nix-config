@@ -26,6 +26,7 @@
 
   home = {
     username = "bmarczyn";
+    enableNixpkgsReleaseCheck = false;
     stateVersion = "25.11";
     homeDirectory = lib.mkDefault "/home/bmarczyn";
   };
@@ -72,8 +73,12 @@
     moreutils
     master.buf
     swig
+    lazysql
+    rainfrog
+    goose
+
+    rtk
     tokei
-    master.gemini-cli-bin
     master.github-copilot-cli
   ];
 }

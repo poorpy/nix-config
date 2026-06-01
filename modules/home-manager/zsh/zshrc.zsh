@@ -61,7 +61,7 @@ export VISUAL=nvim
 export ZVM_VI_EDITOR=nvim
 
 export GOPATH=$HOME/.go
-export GOBIN=$HOME/.gobin
+# export GOBIN=$HOME/.gobin
 
 export PATH=$PATH:${HOME}/.cargo/bin
 export PATH=$PATH:${HOME}/.local/bin

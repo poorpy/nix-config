@@ -54,12 +54,20 @@ in {
       terminal = "screen-256color";
       plugins = with pkgs.tmuxPlugins; [
         {
-          plugin = tmux-floax;
+          plugin = tmux-floax.overrideAttrs (oldAttrs: {
+            src = pkgs.fetchFromGitHub {
+              owner = "omerxx";
+              repo = "tmux-floax";
+              rev = "976115461e2c92d8e1659f5b08cf6d7347baf8a2";
+              hash = "sha256-zgI+ArGMRSxPF5/k3PItsaB7cOpty9tv1wJcgqkVtuY=";
+            };
+          });
           extraConfig = ''
             set -g @floax-bind '-n M-g'
             # Don't auto-cd the floax pane to the current path on open;
             # use <prefix>+g (see floaxSync) to change the dir on demand.
             set -g @floax-change-path 'false'
+            set -g @floax-per-session 'true'
           '';
         }
       ];

@@ -80,6 +80,8 @@ in {
           set -g mouse on
           set -s set-clipboard on
           set -g allow-passthrough on
+          set -g extended-keys on
+          set -g extended-keys-format csi-u
           bind C-a send-prefix
 
           ${

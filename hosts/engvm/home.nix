@@ -27,7 +27,7 @@
   home = {
     username = "bmarczyn";
     enableNixpkgsReleaseCheck = false;
-    stateVersion = "25.11";
+    stateVersion = "26.05";
     homeDirectory = lib.mkDefault "/home/bmarczyn";
   };
 

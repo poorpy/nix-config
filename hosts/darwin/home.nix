@@ -22,7 +22,7 @@
 
   home = {
     username = "bmarczyn";
-    stateVersion = "25.11";
+    stateVersion = "26.05";
     homeDirectory = lib.mkDefault "/Users/bmarczyn";
   };
 

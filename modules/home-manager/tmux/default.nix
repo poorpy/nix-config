@@ -6,14 +6,39 @@
 }: let
   inherit (lib) mkIf mkOption mkEnableOption;
   cfg = config.tmux;
-  floax = pkgs.tmuxPlugins.tmux-floax;
-  # Sync the floax `scratch` session to the current pane's directory, then
-  # open the floax popup. Bound to <prefix>+g so the cwd change is manual
-  # (automatic path-changing is disabled via @floax-change-path below).
+  # Pin floax to a per-session-aware revision. This SAME package must be used
+  # both for the loaded plugin and for floaxSync below; otherwise the popup
+  # bindings end up running two different floax.sh scripts that target two
+  # different sessions.
+  floax = pkgs.tmuxPlugins.tmux-floax.overrideAttrs (oldAttrs: {
+    src = pkgs.fetchFromGitHub {
+      owner = "omerxx";
+      repo = "tmux-floax";
+      rev = "976115461e2c92d8e1659f5b08cf6d7347baf8a2";
+      hash = "sha256-zgI+ArGMRSxPF5/k3PItsaB7cOpty9tv1wJcgqkVtuY=";
+    };
+  });
+  # Sync the floax scratch session to the current pane's directory, then
+  # open/toggle the floax popup. Bound to <prefix>+g (the on-demand cwd change),
+  # while M-g opens the popup WITHOUT changing the cwd. Automatic path-changing
+  # is disabled via @floax-change-path below so this is the only thing that cds.
+  #
+  # The session name must match floax's own logic: with @floax-per-session
+  # 'true' the popup lives in `<base>_<origin-session>`, otherwise just
+  # `<base>`. Hardcoding `scratch` here would target the wrong session and
+  # leave the per-session popup unsynced.
   floaxSync = pkgs.writeShellScript "floax-sync" ''
     dir="$(tmux display-message -p '#{pane_current_path}')"
-    if tmux has-session -t scratch 2>/dev/null; then
-      tmux send-keys -R -t scratch "cd \"$dir\"" C-m
+    session="$(tmux display-message -p '#{session_name}')"
+    base="$(tmux show-option -gqv '@floax-session-name')"
+    base="''${base:-scratch}"
+    if [ "$(tmux show-option -gqv '@floax-per-session')" = "true" ]; then
+      scratch="''${base}_''${session}"
+    else
+      scratch="$base"
+    fi
+    if tmux has-session -t "$scratch" 2>/dev/null; then
+      tmux send-keys -R -t "$scratch" "cd \"$dir\"" C-m
     fi
     exec ${floax}/share/tmux-plugins/tmux-floax/scripts/floax.sh
   '';
@@ -54,14 +79,7 @@ in {
       terminal = "screen-256color";
       plugins = with pkgs.tmuxPlugins; [
         {
-          plugin = tmux-floax.overrideAttrs (oldAttrs: {
-            src = pkgs.fetchFromGitHub {
-              owner = "omerxx";
-              repo = "tmux-floax";
-              rev = "976115461e2c92d8e1659f5b08cf6d7347baf8a2";
-              hash = "sha256-zgI+ArGMRSxPF5/k3PItsaB7cOpty9tv1wJcgqkVtuY=";
-            };
-          });
+          plugin = floax;
           extraConfig = ''
             set -g @floax-bind '-n M-g'
             # Don't auto-cd the floax pane to the current path on open;
@@ -110,8 +128,11 @@ in {
           unbind '"'
           unbind %
 
-          # Sync floax scratch dir to current pane path, then open the popup.
+          # Open the floax popup. Both keys target the same per-session scratch
+          # session; only <prefix>+g changes the popup's cwd to the current pane
+          # path (via floaxSync). M-g opens it without touching the cwd.
           bind g run-shell "${floaxSync}"
+          bind -n M-g run-shell "${floax}/share/tmux-plugins/tmux-floax/scripts/floax.sh"
 
           bind-key "T" run-shell "sesh connect \"$(
             sesh list --icons | fzf-tmux -p 80%,70% \

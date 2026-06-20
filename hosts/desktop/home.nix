@@ -92,6 +92,7 @@ in {
   tmux = {
     enable = true;
     useFish = true;
+    clipboard = "wayland";
   };
 
   chromium.enable = true;
@@ -127,6 +128,7 @@ in {
     zola
     go-task
     just
+    mold
 
     rtk
     dig

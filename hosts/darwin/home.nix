@@ -31,6 +31,7 @@
   tmux = {
     enable = true;
     useFish = true;
+    clipboard = "macos";
   };
 
   git = {

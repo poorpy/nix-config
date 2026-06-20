@@ -42,6 +42,31 @@
     fi
     exec ${floax}/share/tmux-plugins/tmux-floax/scripts/floax.sh
   '';
+  # tmux's OSC52 clipboard passthrough (set-clipboard on) does NOT survive the
+  # display-popup overlay that floax uses, so copying from the scratch session
+  # silently fails when relying on OSC52 alone. Where a local clipboard tool is
+  # available we pipe selections straight to it (via copy-command), which works
+  # regardless of the popup. The backend is selected by the tmux.clipboard
+  # option:
+  #
+  #   wayland -> wl-copy (regular clipboard + primary selection)
+  #   macos   -> pbcopy
+  #   osc52   -> no copy-command; rely solely on OSC52 passthrough. Use this on
+  #              remote/SSH hosts with no local clipboard (e.g. a Linux VM
+  #              reached over SSH from Ghostty on macOS). Copying from the floax
+  #              popup is inherently limited here due to the popup OSC52
+  #              limitation, but normal panes copy to the host clipboard fine.
+  copyCommand =
+    if cfg.clipboard == "wayland"
+    then
+      pkgs.writeShellScript "tmux-copy-wayland" ''
+        content="$(cat)"
+        printf '%s' "$content" | ${pkgs.wl-clipboard}/bin/wl-copy
+        printf '%s' "$content" | ${pkgs.wl-clipboard}/bin/wl-copy --primary
+      ''
+    else if cfg.clipboard == "macos"
+    then "/usr/bin/pbcopy"
+    else "";
 in {
   options.tmux = {
     enable = mkEnableOption "tmux terminal multiplexer";
@@ -52,6 +77,20 @@ in {
     useFish = mkOption {
       type = lib.types.bool;
       default = false;
+    };
+    clipboard = mkOption {
+      type = lib.types.enum ["wayland" "macos" "osc52"];
+      default =
+        if pkgs.stdenv.isDarwin
+        then "macos"
+        else "wayland";
+      description = ''
+        Clipboard backend for copy-mode selections.
+        "wayland" pipes to wl-copy (clipboard + primary), "macos" pipes to
+        pbcopy, and "osc52" relies solely on tmux's OSC52 passthrough. Use
+        "osc52" on remote/SSH hosts with no local clipboard, e.g. a Linux VM
+        reached over SSH from Ghostty on macOS.
+      '';
     };
   };
 
@@ -97,6 +136,7 @@ in {
           set-option -g update-environment -r
           set -g mouse on
           set -s set-clipboard on
+          ${lib.optionalString (copyCommand != "") "set -s copy-command '${copyCommand}'"}
           set -g allow-passthrough on
           set -g extended-keys on
           set -g extended-keys-format csi-u

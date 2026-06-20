@@ -37,6 +37,9 @@
     enable = true;
     useFish = true;
     sshAgentOverride = true;
+    # No local clipboard on the VM; rely on OSC52 passthrough back to Ghostty
+    # on macOS over SSH.
+    clipboard = "osc52";
   };
 
   git = {

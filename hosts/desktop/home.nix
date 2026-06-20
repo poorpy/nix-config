@@ -113,7 +113,6 @@ in {
     master.buf
     protobuf
     pgcli
-    docker-compose
     kubectl
 
     asciidoc-full-with-plugins
@@ -126,6 +125,8 @@ in {
     qbe
     hugo
     zola
+    go-task
+    just
 
     rtk
     dig

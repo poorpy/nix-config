@@ -29,12 +29,6 @@
     enable = true;
     theme.name = "Adwaita";
     cursorTheme.name = "Adwaita";
-    settings = {
-      background = {
-        path = "${./../../../images/wallpaper.png}";
-        fit = "Cover";
-      };
-    };
   };
 
   hardware.i2c.enable = true;

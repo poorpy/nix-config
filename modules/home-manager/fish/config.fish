@@ -47,6 +47,11 @@ if status is-interactive
         cd $HOME/.config/nix-config/ && vim flake.nix && cd -
     end
 
+    function nvim-help
+        nvim --headless -c "help $argv[1]" -c "w! /tmp/nvim_help.txt" -c "qa!" >/dev/null 2>&1
+        cat /tmp/nvim_help.txt
+    end
+
 
     alias grep="grep --color=auto";
     alias ls="ls --color=auto";

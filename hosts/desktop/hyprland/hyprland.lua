@@ -225,10 +225,14 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), { locke
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { locked = true, repeating = true })
 
 -- Media controls (locked)
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+-- mpris-proxy registers the bluetooth headphones themselves as an MPRIS player
+-- (e.g. "MOMENTUM_4"), which steals bare `playerctl` commands. Prefer real media
+-- apps and explicitly ignore the headphone proxy players so gestures reach them.
+local playerctl = "playerctl --player=spotify,chromium,firefox,mpv,%any " .. "--ignore-player=MOMENTUM_4,kdeconnect"
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(playerctl .. " play-pause"), { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd(playerctl .. " play-pause"), { locked = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd(playerctl .. " next"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(playerctl .. " previous"), { locked = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"), { locked = true })
 
 ---------------------

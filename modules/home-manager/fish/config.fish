@@ -33,6 +33,7 @@ if status is-interactive
 
     uv generate-shell-completion fish | source 
     zoxide init --cmd cd fish | source
+    sesh completion fish | source
 
     fish_vi_key_bindings
     set -g fish_vi_force_cursor 1
@@ -67,6 +68,7 @@ if status is-interactive
 
     set extra_paths \
         "$HOME/.bun/bin" \
+        "$HOME/.local/bin" \
         "$GOPATH/bin" 
 
     fish_add_path -a $extra_paths

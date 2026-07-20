@@ -64,11 +64,8 @@
   };
 
   home.packages = with pkgs; [
-    p4
     mpv
     pgcli
-    docker
-    docker-compose
     postgresql
     protobuf
     cassandra

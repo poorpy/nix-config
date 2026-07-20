@@ -289,14 +289,14 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1763156536,
-        "narHash": "sha256-KYNDutr+2UGATpQu9oVrer4hh+eF4FynbcIvc4hH5qQ=",
+        "lastModified": 1763748137,
+        "narHash": "sha256-EgOKjPJK6NdHghMclbn4daywJ8oODiXkS48Nrn5cRZo=",
         "type": "tarball",
-        "url": "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.6.1/starship-jj-0.7.0.tar.gz"
+        "url": "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.7.0/starship-jj-0.7.0.tar"
       },
       "original": {
         "type": "tarball",
-        "url": "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.6.1/starship-jj-0.7.0.tar.gz"
+        "url": "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.7.0/starship-jj-0.7.0.tar"
       }
     },
     "systems": {

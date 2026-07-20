@@ -14,7 +14,7 @@
     };
 
     starship = {
-      url = "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.6.1/starship-jj-0.7.0.tar.gz";
+      url = "https://gitlab.com/lanastara_foss/starship-jj/-/archive/0.7.0/starship-jj-0.7.0.tar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -85,7 +85,7 @@
         modules = [./hosts/laptop/home.nix];
       };
 
-    homeConfigurations."bmarczyn@muc-lhvsk4" =
+    homeConfigurations."bmarczyn@muc-lhv3t9" =
       home-manager.lib.homeManagerConfiguration
       {
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;

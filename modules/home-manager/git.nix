@@ -49,6 +49,7 @@ in {
 
     programs.git = {
       enable = true;
+      lfs.enable = false;
       settings =
         lib.recursiveUpdate
         {
@@ -58,7 +59,12 @@ in {
           fetch.recursesubmodules = true;
           submodule.recurse = true;
           init.defaultbranch = "master";
-          filter.lfs.required = true;
+          filter."lfs" = {
+            clean = "git-lfs clean -- %f";
+            smudge = "git-lfs smudge -- %f";
+            process = "git-lfs filter-process";
+            required = true;
+          };
           alias = {
             branch-prune = "! git fetch --prune && git branch -vv | rg gone | awk '{print $1}' | xargs git branch -d";
           };

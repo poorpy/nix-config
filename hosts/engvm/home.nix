@@ -66,6 +66,7 @@
   home.packages = with pkgs; [
     mpv
     pgcli
+    curl
     postgresql
     protobuf
     cassandra

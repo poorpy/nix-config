@@ -77,6 +77,7 @@
     lazysql
     rainfrog
     goose
+    dive
 
     rtk
     tokei

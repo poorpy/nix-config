@@ -48,6 +48,7 @@ in {
     homeDirectory = "/home/poorpy";
     enableNixpkgsReleaseCheck = false;
     pointerCursor = {
+      enable = true;
       package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
       size = 24;
@@ -134,6 +135,9 @@ in {
     dig
     openssl
     turso-from-flake
+
+    odin
+    ols
   ];
 
   xdg.mimeApps.defaultApplications = {

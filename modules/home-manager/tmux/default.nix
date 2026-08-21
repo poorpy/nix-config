@@ -81,7 +81,7 @@ in {
     clipboard = mkOption {
       type = lib.types.enum ["wayland" "macos" "osc52"];
       default =
-        if pkgs.stdenv.isDarwin
+        if pkgs.stdenv.hostPlatform.isDarwin
         then "macos"
         else "wayland";
       description = ''

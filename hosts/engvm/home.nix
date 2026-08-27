@@ -77,6 +77,7 @@
     lazysql
     rainfrog
     goose
+    sqlfluff
     dive
 
     rtk

@@ -138,6 +138,9 @@ in {
 
     odin
     ols
+
+    opam
+    exercism
   ];
 
   xdg.mimeApps.defaultApplications = {

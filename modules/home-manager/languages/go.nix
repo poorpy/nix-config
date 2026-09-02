@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    master.go_1_26
+    master.go_1_27
     master.air
     master.gopls
     master.templ

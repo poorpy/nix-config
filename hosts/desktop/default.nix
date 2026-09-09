@@ -35,8 +35,12 @@
 
   services.resolved = {
     enable = true;
-    dnssec = "allow-downgrade";
-    dnsovertls = "true";
+    settings = {
+      Resolve = {
+        DNSSEC = true;
+        DNSOverTLS = true;
+      };
+    };
   };
 
   networking = {

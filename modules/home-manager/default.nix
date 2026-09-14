@@ -11,6 +11,7 @@
   starship = import ./starship;
   tmux = import ./tmux;
   wezterm = import ./wezterm;
+  zellij = import ./zellij;
   ghostty = import ./ghostty;
   zsh = import ./zsh;
 }

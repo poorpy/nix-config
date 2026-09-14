@@ -20,6 +20,17 @@
 in {
   options.zellij = {
     enable = mkEnableOption "zellij terminal multiplexer";
+    sshAgentOverride = mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = ''
+        Point shells inside zellij at the stable ssh-agent socket
+        ($HOME/.ssh/ssh_auth_sock) instead of the per-connection
+        SSH_AUTH_SOCK that the long-lived zellij server captured at launch.
+        Mirrors tmux.sshAgentOverride so agent forwarding survives reattach.
+        Requires that symlink to be kept current (e.g. by the SSH client).
+      '';
+    };
     useFish = mkOption {
       type = lib.types.bool;
       default = false;
@@ -46,6 +57,18 @@ in {
         message = "You cannot use 'zellij.useFish' unless Fish is enabled.";
       }
     ];
+
+    # Zellij's server keeps the SSH_AUTH_SOCK it was launched with, so every
+    # pane inherits a socket that dies on the next reconnect. Fish auto-sources
+    # conf.d/*.fish in each pane, so repoint the var at the stable symlink
+    # there. Guard on the socket existing to avoid handing ssh a dead path.
+    home.file = mkIf cfg.sshAgentOverride {
+      ".config/fish/conf.d/zellij-ssh-agent.fish".text = ''
+        if test -e "$HOME/.ssh/ssh_auth_sock"
+            set -gx SSH_AUTH_SOCK "$HOME/.ssh/ssh_auth_sock"
+        end
+      '';
+    };
 
     programs.zellij = {
       enable = true;

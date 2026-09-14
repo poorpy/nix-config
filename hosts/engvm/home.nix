@@ -7,7 +7,7 @@
   imports = [
     inputs.self.homeManagerModules.zsh
     inputs.self.homeManagerModules.fish
-    inputs.self.homeManagerModules.tmux
+    inputs.self.homeManagerModules.zellij
     inputs.self.homeManagerModules.wezterm
     inputs.self.homeManagerModules.starship
 
@@ -33,14 +33,21 @@
 
   neovim.enable = true;
   fish.enable = true;
-  tmux = {
+  zellij = {
     enable = true;
     useFish = true;
     sshAgentOverride = true;
-    # No local clipboard on the VM; rely on OSC52 passthrough back to Ghostty
-    # on macOS over SSH.
     clipboard = "osc52";
   };
+
+  # tmux = {
+  #   enable = true;
+  #   useFish = true;
+  #   sshAgentOverride = true;
+  #   # No local clipboard on the VM; rely on OSC52 passthrough back to Ghostty
+  #   # on macOS over SSH.
+  #   clipboard = "osc52";
+  # };
 
   git = {
     enable = true;
@@ -78,6 +85,7 @@
     rainfrog
     goose
     sqlfluff
+    shfmt
     dive
 
     rtk

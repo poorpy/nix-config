@@ -91,12 +91,6 @@ in {
   };
 
   fish.enable = true;
-  tmux = {
-    enable = true;
-    useFish = true;
-    clipboard = "wayland";
-  };
-
   chromium.enable = true;
   neovim = {
     enable = true;

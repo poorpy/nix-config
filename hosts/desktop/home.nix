@@ -39,6 +39,7 @@ in {
 
     inputs.self.homeManagerModules.languages.go
     inputs.self.homeManagerModules.languages.cpp
+    inputs.self.homeManagerModules.languages.zig
     inputs.self.homeManagerModules.languages.rust
     inputs.self.homeManagerModules.languages.python
     inputs.self.homeManagerModules.languages.javascript

@@ -5,6 +5,7 @@
 }: {
   home.packages = with pkgs; [
     master.uv
+    master.ty
     master.ruff
     master.mypy
     master.pyright

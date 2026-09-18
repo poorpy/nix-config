@@ -18,11 +18,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    turso = {
-      url = "github:tursodatabase/turso/v0.6.1";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     fix-python = {
       url = "github:GuillaumeDesforges/fix-python";
       inputs.nixpkgs.follows = "nixpkgs";

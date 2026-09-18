@@ -2,23 +2,7 @@
   inputs,
   pkgs,
   ...
-}: let
-  turso-from-flake = pkgs.rustPlatform.buildRustPackage {
-    pname = "tursodb";
-    version = "flake-source";
-    src = inputs.turso;
-    nativeBuildInputs = [
-      pkgs.pkg-config
-      pkgs.python3
-    ];
-    buildInputs = [
-      pkgs.openssl
-    ];
-    cargoHash = "sha256-bmyMjjjmKeDySDzyOJCtDHF9HD/u/A4Jt2qxpZgHVqY=";
-    doCheck = false;
-    OPENSSL_NO_VENDOR = 1;
-  };
-in {
+}: {
   imports = [
     ./hyprland/home.nix
 
@@ -130,7 +114,7 @@ in {
     rtk
     dig
     openssl
-    turso-from-flake
+    turso
     sqlite
 
     odin
